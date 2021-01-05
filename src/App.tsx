@@ -1,9 +1,16 @@
-import React from 'react';
+import React from 'react'
+import { AutProvider } from './App/Contexts/Autenticacao'
+import RegistroProvider from './App/Contexts/RegistroRGBD'
+import Rotas from './App/Rotas/Index'
 
-function App() {
+const App: React.FC = () => {
   return (
-    <h1>Hello</h1>
-  );
+    <AutProvider>
+      <RegistroProvider>
+        <Rotas />
+      </RegistroProvider>
+    </AutProvider>
+  )
 }
 
-export default App;
+export default App

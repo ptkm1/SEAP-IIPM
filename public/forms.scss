@@ -1,0 +1,11 @@
+.scrollPage::-webkit-scrollbar {
+  display: none;
+}
+.scrollPage{
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+input {
+  border: solid hotpink;
+}
