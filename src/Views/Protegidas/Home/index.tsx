@@ -1,5 +1,9 @@
 import React from 'react';
-import { MdAddToQueue, MdContentPaste, MdSearch } from "react-icons/md";
+import {
+  MdAddToQueue,
+  MdContentPaste,
+  MdSearch
+} from "react-icons/md";
 import { useHistory } from 'react-router-dom';
 import { BotaoOpcao } from '../../../App/Componentes/Botoes/BotoesOpcoes.Styled';
 import Menu from '../../../App/Componentes/Menu';
@@ -14,11 +18,11 @@ const Home: React.FC = () => {
     <>
       <Menu />
     <Container>
-      <BotaoOpcao onClick={ ()=> history.push('/registrorgbd') } >
+      <BotaoOpcao onClick={ () => history.push('/registrorgbd') } >
         <MdAddToQueue size="70%" color="#FFFFFF" />
         <span>Cadastrar</span>
       </BotaoOpcao>
-      <BotaoOpcao>
+      <BotaoOpcao onClick={ () => history.push('/pesquisarregistro') } >
         <MdSearch size="70%" color="#FFFFFF" />
         <span>Procurar</span>
       </BotaoOpcao>
