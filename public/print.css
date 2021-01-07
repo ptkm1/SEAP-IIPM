@@ -1,0 +1,273 @@
+@media print {
+  * {
+    background: transparent;
+    color: #000;
+    text-shadow: none;
+    filter: none;
+    -ms-filter: none;
+    border: none;
+  }
+}
+
+@media print {
+  .print {
+    display: block;
+  }
+  .noprint {
+    display: none;
+  }
+}
+
+@media print {
+  select {
+    -webkit-appearance: none !important;
+    -webkit-border-radius: 0px;
+    border: none;
+  }
+}
+
+@media print {
+  #rg {
+    position: fixed;
+    top: 0 px;
+    left: 40px;
+  }
+  #nome_completo {
+    position: fixed;
+    top: 32px;
+    left: 40px;
+  }
+  #nome_pai {
+    position: fixed;
+    top: 55px;
+    left: 40px;
+  }
+  #nome_mae {
+    position: fixed;
+    top: 78px;
+    left: 40px;
+  }
+  #data_nascimento {
+    position: fixed;
+    top: 104px;
+    left: 215px;
+  }
+  #sexo {
+    position: fixed;
+    top: 104px;
+    left: 425px;
+  }
+  #estado_civil {
+    position: fixed;
+    top: 128px;
+    left: 215px;
+  }
+  #via {
+    position: fixed;
+    top: 128px;
+    left: 425px;
+  }
+  #instruçao {
+    position: fixed;
+    top: 148px;
+    left: 215px;
+  }
+  #profissao {
+    position: fixed;
+    top: 172px;
+    left: 215px;
+  }
+  #estado {
+    position: fixed;
+    top: 194px;
+    left: 215px;
+  }
+  #cidade {
+    position: fixed;
+    top: 194px;
+    left: 350px;
+  }
+  #pis {
+    position: fixed;
+    top: 216px;
+    left: 215px;
+  }
+  #cpf {
+    position: fixed;
+    top: 240px;
+    left: 215px;
+  }
+  #telefone {
+    position: fixed;
+    top: 240px;
+    left: 460px;
+  }
+  #certidao {
+    position: fixed;
+    top: 257px;
+    left: 40px;
+  }
+  #comarca {
+    position: fixed;
+    top: 257px;
+    left: 165px;
+  }
+  #distrito {
+    position: fixed;
+    top: 257px;
+    left: 470px;
+  }
+  #livro {
+    position: fixed;
+    top: 274px;
+    left: 40px;
+  }
+  #folha {
+    position: fixed;
+    top: 274px;
+    left: 165px;
+  }
+  #termo {
+    position: fixed;
+    top: 274px;
+    left: 325px;
+  }
+  #data_certidao {
+    position: fixed;
+    top: 274px;
+    left: 472px;
+  }
+  #data_registro {
+    position: fixed;
+    top: 274px;
+    left: 630px;
+  }
+  #cutis {
+    position: fixed;
+    top: 296px;
+    left: 60px;
+  }
+  #altura {
+    position: fixed;
+    top: 296px;
+    left: 590px;
+  }
+  #cor_cabelo {
+    position: fixed;
+    top: 296px;
+    left: 310px;
+  }
+}
+
+  #tipo_cabelo {
+  position: fixed;
+  top: 296px;
+  left: 400px;
+}
+
+#barba {
+  position: fixed;
+  top: 314px;
+  left: 60px;
+}
+
+#bigode {
+  position: fixed;
+  top: 314px;
+  left: 310px;
+}
+
+  #cor_olhos {
+  position: fixed;
+  top: 314px;
+  left: 590px;
+}
+
+#tipo_olhos {
+  position: fixed;
+  top: 314px;
+  left: 660px;
+}
+
+#anomalias {
+  position: fixed;
+  top: 332px;
+  left: 80px;
+}
+
+#endereco {
+  position: fixed;
+  top: 352px;
+  left: 70px;
+}
+
+#numero {
+  position: fixed;
+  top: 352px;
+  left: 442px;
+}
+
+#complemento {
+  position: fixed;
+  top: 352px;
+  left: 530px;
+}
+
+#bairro {
+  position: fixed;
+  top: 370px;
+  left: 70px;
+}
+
+#observaçao {
+  position: fixed;
+  top: 390px;
+  left: 70px;
+  width: 860px;
+  height: 30px;
+  -webkit-border-radius: 0px;
+  -webkit-appearance: none !important;
+  border: none;
+}
+
+#cidade_mora {
+  position: fixed;
+  top: 370px;
+  left: 315px;
+}
+
+.id_estadomora1 {
+  position: fixed;
+  top: 370px;
+  left: 580px;
+}
+
+#cep {
+  position: fixed;
+  top: 370px;
+  left: 655px;
+}
+
+.dataid1 {
+  position: fixed;
+  top: 405px;
+  left: 655px;
+}
+
+#usuario {
+  position: fixed;
+  top: 442px;
+  left: 655px;
+}
+
+#posto {
+  position: fixed;
+  top: 425px;
+  left: 657px;
+}
+
+.quadrado1 {
+  border: none;
+  -webkit-border-radius: 0px;
+  -webkit-appearance: none !important;
+}

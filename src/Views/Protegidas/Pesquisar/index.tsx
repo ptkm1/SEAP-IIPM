@@ -1,6 +1,6 @@
 import React, { FormEvent, useCallback, useRef, useState } from 'react';
 import { CgSearch } from "react-icons/cg";
-import { MdEdit } from "react-icons/md";
+import { MdArrowBack, MdEdit } from "react-icons/md";
 import { useHistory } from 'react-router-dom';
 import { PesquisaInput } from '../../../App/Componentes/Inputs/Inputs.Styled';
 import Menu from '../../../App/Componentes/Menu';
@@ -41,6 +41,7 @@ const Pesquisar: React.FC = () => {
       <Menu />
       <Container>
         <form onSubmit={ PesquisarDados } >
+        <a href="#" onClick={ () => history.replace('/') } > <MdArrowBack /> Voltar </a>
             <PesquisaInput largura="250px" >
             <label htmlFor="pesquisarnome"> Pesquisar por nome </label>
             <input type="text" id="pesquisarnome" ref={ nomeRef } />
@@ -67,7 +68,7 @@ const Pesquisar: React.FC = () => {
             <Bloco30item>
               <span>{e.NomeCompleto}</span>
             </Bloco30item>
-            <button onClick={ () => history.push(`/editar/${e.id}`) } >
+            <button onClick={ () => history.push(`/segundavia/${e.id}`) } >
               <MdEdit size="17px" />
             </button>
           </TabelaResultadoPesquisaItem>

@@ -10,6 +10,7 @@ import SegundaVia from '../../Views/Protegidas/SegundaVia'
 
 
 const RotasProtegidas: React.FC = () => {
+
   return (
     <BrowserRouter>
       <Route path="/" exact component={ Home } />

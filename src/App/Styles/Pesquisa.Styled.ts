@@ -13,6 +13,17 @@ export const Container = styled.div`
   @media (max-width: 700px) {
     grid-template-columns: 1fr;
   }
+
+  a{
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+    :hover{
+      color: gray;
+    }
+  }
+
 `
 export const CaixaPesquisaBloco = styled.div`
   display: flex;
@@ -36,6 +47,7 @@ export const TabelaResultadoPesquisaItem = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 15px 0px;
 
   button {
     width: 30px;
@@ -45,6 +57,18 @@ export const TabelaResultadoPesquisaItem = styled.div`
     -webkit-box-shadow: 0px 0px 3px 1px rgba(23, 23, 23, 0.11);
     -moz-box-shadow: 0px 0px 3px 1px rgba(23, 23, 23, 0.11);
     box-shadow: 0px 0px 3px 1px rgba(23, 23, 23, 0.11);
+    transition: cubic-bezier(0.215, 0.610, 0.355, 1) 0.6s all;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    :hover{
+      color: white;
+      background-color: black;
+      transition: cubic-bezier(0.215, 0.610, 0.355, 1) 0.6s all;
+    }
   }
 
 `

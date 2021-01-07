@@ -17,10 +17,11 @@ const Login: React.FC = (): JSX.Element => {
 const Autenticar = async ( event: React.FormEvent<HTMLFormElement> ) => {
 		event.preventDefault()
 		try{
-      const {data} =
-      await Api.post('/login',
+      const {data} = await Api.post('/autenticar',
       { email: emailLoginRef.current.value,
-        senha: senhaLoginRef.current.value })
+				senha: senhaLoginRef.current.value })
+
+				localStorage.setItem('@pml/usuario', JSON.stringify(data.usuario))
 
       if(data.token){
 				localStorage.setItem('@pml/token', data.token)
@@ -29,7 +30,7 @@ const Autenticar = async ( event: React.FormEvent<HTMLFormElement> ) => {
 
 		}catch (erro) {
 
-			console.log(erro)
+			console.log(erro.response.data)
 			alert("Não foi possivel autenticar")
 
 		}
@@ -40,15 +41,15 @@ const Autenticar = async ( event: React.FormEvent<HTMLFormElement> ) => {
   return (
 		<Container>
 			<BlocoLogin>
-				<BlocoFormLogin onSubmit={Autenticar}>
+				<BlocoFormLogin onSubmit={ Autenticar }>
 					<BlocoInput>
 						<span>Usuario</span>
-						<input type="text" ref={emailLoginRef} />
+						<input type="text" ref={ emailLoginRef } />
 					</BlocoInput>
 
 					<BlocoInput>
 						<span>Senha</span>
-						<input type="password" ref={senhaLoginRef} />
+						<input type="password" ref={ senhaLoginRef } />
 					</BlocoInput>
 
 					<BotãoPreto altura="30px" largura="48%" type="submit">

@@ -3,9 +3,20 @@ import { MdPowerSettingsNew } from "react-icons/md";
 import { Logo, Menu as ContainerMenu, Painel, PerfilImg } from '../Styles/Menu.Styled';
 
 
-
-
 const Menu: React.FC = () => {
+
+  function Deslogar() {
+
+    localStorage.clear()
+
+    window.location.href = "/"
+
+  }
+
+  const usuario:any = localStorage.getItem('@pml/usuario')
+  const usuarioParseado = JSON.parse(usuario)
+
+
   return (
     <ContainerMenu>
       <Logo
@@ -13,9 +24,9 @@ const Menu: React.FC = () => {
       />
 
     <Painel>
-      <MdPowerSettingsNew id="DeslogarBTN" />
+      <MdPowerSettingsNew id="DeslogarBTN" onClick={ () => Deslogar() } />
         <PerfilImg
-          src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+          src={usuarioParseado.imagem}
         />
 
     </Painel>

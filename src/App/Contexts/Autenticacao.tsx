@@ -6,13 +6,20 @@ export const AutProvider: React.FC = ({ children }) => {
 
   const [ Usuario, setUsuario ] = useState<any>()
 
+
   useEffect(()=>{
 
     const token: any =
       localStorage
         .getItem('@pml/token')
 
-    setUsuario( { data: "Nome" } )
+    setUsuario( token )
+
+    if(window.location.pathname !== '/') {
+      if(!token) {
+        window.location.href = "/"
+      }
+    }
 
   },[])
 

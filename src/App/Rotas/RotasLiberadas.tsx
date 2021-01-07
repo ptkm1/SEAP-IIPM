@@ -7,6 +7,7 @@ import Login from '../../Views/Liberadas/Login'
 
 
 const RotasProtegidas: React.FC = () => {
+
   return (
     <BrowserRouter>
       <Route path="/" exact component={Login} />
