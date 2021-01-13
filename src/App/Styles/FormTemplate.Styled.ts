@@ -35,6 +35,11 @@ export const Form2 = styled.div`
     box-shadow: 0px 0px 3px 1px rgba(23, 23, 23, 0.11);
     margin-left: 5px;
     height: 100%;
+
+    
+		@media print {
+			box-shadow: none;
+		}
   }
 `
 export const Form2L = styled.div`

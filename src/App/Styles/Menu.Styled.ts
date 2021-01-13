@@ -10,6 +10,10 @@ export const Menu = styled.div`
 
   display: flex;
   justify-content: space-between;
+
+  @media print {
+    display: none;
+  }
 `
 
 export const Logo = styled.img`

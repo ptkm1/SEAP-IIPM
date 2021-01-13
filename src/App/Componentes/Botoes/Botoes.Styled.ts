@@ -9,7 +9,7 @@ interface IBotoes{
 export const BotãoPreto = styled.button<IBotoes>`
   width: ${ prop => prop.largura || "100%"};
   height: ${ prop => prop.altura || "40px"};
-  background-color: #282a36;
+  background-color: #273785;
   color: #f8f8f2;
   border-radius: 9px;
   border: none;
@@ -22,8 +22,12 @@ export const BotãoPreto = styled.button<IBotoes>`
   align-items: center;
 
   :hover{
-    background-color: #f8f8f2;
-    color: #282a36;
+    background-color: #656565;
+    color: #f8f8f2;
     transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
   }
+
+  @media print {
+			display: none;
+		}
 `;

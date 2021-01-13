@@ -18,4 +18,8 @@ export const BTNVoltar = styled.button`
     background-color: #273785;
     transition: 1s;
   }
+  
+  @media print {
+			display: none;
+	}
 `;

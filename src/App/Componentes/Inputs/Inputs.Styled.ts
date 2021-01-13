@@ -23,7 +23,11 @@ export const BlocoInput = styled.div<InputProps>`
 		-webkit-box-shadow: 0px 0px 3px 1px rgba(23, 23, 23, 0.11);
 		-moz-box-shadow: 0px 0px 3px 1px rgba(23, 23, 23, 0.11);
 		box-shadow: 0px 0px 3px 1px rgba(23, 23, 23, 0.11);
-    width: 100%;
+		width: 100%;
+		
+		@media print {
+			box-shadow: none;
+		}
 	}
 
 
@@ -59,7 +63,12 @@ export const PesquisaInput = styled.div<InputProps>`
 		-webkit-box-shadow: 0px 0px 3px 1px rgba(23, 23, 23, 0.11);
 		-moz-box-shadow: 0px 0px 3px 1px rgba(23, 23, 23, 0.11);
 		box-shadow: 0px 0px 3px 1px rgba(23, 23, 23, 0.11);
-    width: 100%;
+		width: 100%;
+		
+		
+		@media print {
+			box-shadow: none;
+		}
 	}
 
 
@@ -89,6 +98,10 @@ export const PesquisaInput = styled.div<InputProps>`
 				background-color: #c4c4c4;
 				transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.6s;
 			}
+		
+			@media print {
+			display: none;
+		}
 	}
 
 `

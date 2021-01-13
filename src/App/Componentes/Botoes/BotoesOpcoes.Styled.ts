@@ -3,7 +3,9 @@ import styled from 'styled-components';
 export const BotaoOpcao = styled.div`
   width: 40%;
   height: 40%;
-  background: #C4C4C4;
+  //background: #273785;
+  background: #FFFFFF;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.13);
   border-radius: 7px;
   margin: 5px;
 
@@ -16,7 +18,7 @@ export const BotaoOpcao = styled.div`
   transition: all 0.25s ease 0s;
 
   span {
-    color: #FFFFFF;
+    color: #656565;
     font-size: 1.2rem;
     font-weight: bold;
   }

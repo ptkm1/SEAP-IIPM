@@ -19,15 +19,15 @@ const Home: React.FC = () => {
       <Menu />
     <Container>
       <BotaoOpcao onClick={ () => history.push('/registrorgbd') } >
-        <MdAddToQueue size="70%" color="#FFFFFF" />
+        <MdAddToQueue size="70%" color="#656565" />
         <span>Cadastrar</span>
       </BotaoOpcao>
       <BotaoOpcao onClick={ () => history.push('/pesquisarregistro') } >
-        <MdSearch size="70%" color="#FFFFFF" />
+        <MdSearch size="70%" color="#656565" />
         <span>Procurar</span>
       </BotaoOpcao>
       <BotaoOpcao>
-        <MdContentPaste size="70%" color="#ffffff" />
+        <MdContentPaste size="70%" color="#656565" />
         <span>Relatório</span>
       </BotaoOpcao>
 

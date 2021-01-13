@@ -481,7 +481,7 @@ const SegundaVia: React.FC = () => {
 							</select>
 						</BlocoInputGrande>
 						<div style={{ display: 'flex' }}>
-							<BotãoPreto> Imprimir </BotãoPreto>
+							<BotãoPreto onClick={ ()=> window.print()} > Imprimir </BotãoPreto>
 							<BotãoPreto type="submit" > Enviar </BotãoPreto>
 						</div>
 					</Form2X>
