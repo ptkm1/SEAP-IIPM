@@ -30,7 +30,7 @@ const Autenticar = async ( event: React.FormEvent<HTMLFormElement> ) => {
 
 		}catch (erro) {
 
-			console.log(erro.response.data)
+			console.log(erro)
 			alert("Não foi possivel autenticar")
 
 		}

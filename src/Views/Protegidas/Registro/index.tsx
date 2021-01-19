@@ -575,6 +575,7 @@ const Registro: React.FC = () => {
 										<input type="text" id="nrg" value={NRG.current?.value} />
 										<input type="text" id="nomecompleto" value={NomeCompleto.current?.value} />
 										<input type="text" id="posto2" value={Posto.current?.value} />
+										<img src="https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg" id="ImagemCid" />
 									</div>
 
 						</div>

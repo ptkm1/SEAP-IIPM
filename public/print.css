@@ -1,7 +1,7 @@
 #nrg {
   display: none;
   position: fixed;
-  top: 430px;
+  top: 400px;
   left: 110px;
   z-index: 50;
 }
@@ -10,7 +10,7 @@
   display: none;
   position: fixed;
 
-  top: 448px;
+  top: 426px;
   left: 110px;
   z-index: 50;
 }
@@ -21,6 +21,14 @@
   top: 478px;
   left: 110px;
   z-index: 50;
+}
+
+#ImagemCid {
+  display: none;
+  position: fixed;
+  top: 478px;
+  left: 110px;
+  z-index: 80;
 }
 
 @media print {
@@ -47,68 +55,79 @@
 
   #rg {
     position: fixed;
-    top: 3px;
+    top: 10px;
     left: 40px;
   }
   #nome_completo {
     position: fixed;
-    top: 32px;
+    top: 39px;
     left: 40px;
   }
   #nome_pai {
     position: fixed;
-    top: 50px;
+    top: 57px;
     left: 40px;
   }
   #nome_mae {
     position: fixed;
-    top: 73px;
+    top: 80px;
     left: 40px;
   }
   #data_nascimento {
     position: fixed;
-    top: 99px;
+    top: 105px;
     left: 215px;
   }
   #sexo {
     position: fixed;
-    top: 95px;
+    top: 105px;
     left: 425px;
   }
   #estado_civil {
     position: fixed;
-    top: 125px;
+    top: 131px;
     left: 215px;
+  }
+  #ImagemCid {
+    position: fixed;
+    top: 114px;
+    left: 608px;
+
+    display: block;
+    z-index: 50;
+    width: 3cm;
+    height: 4cm;
+    object-fit: fill;
   }
   #via {
     position: fixed;
     z-index: 50;
-    top: 128px;
+    top: 131px;
     left: 425px;
   }
   #instruçao {
     position: fixed;
-    top: 148px;
+    top: 154px;
     left: 215px;
   }
   #profissao {
     position: fixed;
-    top: 168px;
+    top: 174px;
     left: 215px;
   }
   #estado {
     position: fixed;
-    top: 192px;
+    top: 198px;
     left: 215px;
   }
   #cidade {
     position: fixed;
-    top: 194px;
+    top: 198px;
     left: 350px;
   }
   #pis {
     position: fixed;
-    top: 216px;
+    top: 222px;
     left: 215px;
   }
   #cpf {
@@ -119,7 +138,7 @@
   #telefone {
     position: fixed;
     top: 240px;
-    left: 460px;
+    left: 480px;
   }
   #certidao {
     position: fixed;
@@ -243,7 +262,7 @@
 
 #observaçao {
   position: fixed;
-  top: 390px;
+  top: 388px;
   left: 40px;
   width: 860px;
   height: 30px;
@@ -298,8 +317,8 @@
 #nrg {
   display: block;
   position: fixed;
-  top: 565px;
-  left: 110px;
+  top: 552px;
+  left: 65px;
   z-index: 50;
 }
 
@@ -307,8 +326,8 @@
   display: block;
   position: fixed;
 
-  top: 578px;
-  left: 110px;
+  top: 573px;
+  left: 65px;
   z-index: 50;
 }
 
@@ -316,7 +335,7 @@
   display: block;
   position: fixed;
   top: 618px;
-  left: 110px;
+  left: 65px;
   z-index: 50;
 }
 

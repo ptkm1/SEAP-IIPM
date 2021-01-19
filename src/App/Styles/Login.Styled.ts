@@ -12,14 +12,14 @@ export const Container = styled.div`
 export const BlocoLogin = styled.div`
 	width: 80%;
 	height: 80%;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
 	background: #FFFFFF;
 	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 	display: grid;
 	grid-template-columns: 1fr 1fr;
+
+	@media (max-width: 700) {
+		grid-template-rows: 1fr 1fr;
+	}
 `
 
 export const BlocoFormLogin = styled.form`

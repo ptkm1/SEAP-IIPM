@@ -26,7 +26,7 @@ const Menu: React.FC = () => {
     <Painel>
       <MdPowerSettingsNew id="DeslogarBTN" onClick={ () => Deslogar() } />
         <PerfilImg
-          src={usuarioParseado.imagem}
+          src={usuarioParseado.imagem === "http://192.168.0.100:3333/uploads/" ? 'https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg' : usuarioParseado.imagem }
         />
 
     </Painel>
