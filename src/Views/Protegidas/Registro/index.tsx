@@ -1,13 +1,15 @@
 import axios from 'axios'
-import React, { FormEvent, useCallback, useEffect, useRef, useState } from 'react'
+import React, { FormEvent, useCallback, useContext, useEffect, useRef, useState } from 'react'
 //Icones
 import { CgArrowLeft } from 'react-icons/cg'
 import { useHistory } from 'react-router-dom'
 //Componentes e Styleds
 import { BotãoPreto } from '../../../App/Componentes/Botoes/Botoes.Styled'
 import { BTNVoltar } from '../../../App/Componentes/Botoes/BotoesVoltar.Styled'
+import Camera from '../../../App/Componentes/Camera'
 import { BlocoInputGrande } from '../../../App/Componentes/Inputs/Inputs.Styled'
 import Menu from '../../../App/Componentes/Menu'
+import { RegistroContext } from '../../../App/Contexts/RegistroRGBD'
 import { Container, Form, Form2, Form2L, Form2R, Form2X } from '../../../App/Styles/FormTemplate.Styled'
 import Api from '../../../Infra/Servicos/Api'
 
@@ -16,6 +18,8 @@ const Registro: React.FC = () => {
 
 	const usuario: any = localStorage.getItem('@pml/usuario')
 	const usuarioParseado = JSON.parse(usuario)
+
+	const { imagemRegistro, setImagemRegistro } = useContext(RegistroContext)
 
 	const history = useHistory()
 
@@ -64,6 +68,7 @@ const Registro: React.FC = () => {
 	const Observaçao: any = useRef<HTMLInputElement>()
 
 	const SubmeterDados = useCallback(async (e: FormEvent) => {
+
 		e.preventDefault()
 
 		const obj = {
@@ -107,11 +112,12 @@ const Registro: React.FC = () => {
 			Estado: Estado.current?.value,
 			Cidade: Cidade.current?.value,
 			Observaçao: Observaçao.current?.value,
+			Foto3x4: imagemRegistro
 		}
 
 		const { data } = await Api.post('/registrorgbd', obj)
 
-		console.log(data)
+		alert(data.mensagem)
 	}, [])
 
 	const [ Estados, setEstados ] = useState<any>([])
@@ -123,6 +129,8 @@ const Registro: React.FC = () => {
 	const [Resultado, setResultado] = useState<any>()
 	const [ViaSt, setVia] = useState<any>()
 	const [IsençaoSt, setIsençao] = useState<any>()
+
+	const [modal, setModal] = useState<boolean>(false)
 
 	useEffect(() => {
 		async function BuscarEstados() {
@@ -562,8 +570,13 @@ const Registro: React.FC = () => {
 							</BlocoInputGrande>
 						</Form2X>
 						<div style={{ display: 'flex' }}>
-							<BotãoPreto onClick={() => window.print()}> Imprimir </BotãoPreto>
+							<BotãoPreto onClick={(evt:FormEvent) => { evt.preventDefault(); window.print(); }}> Imprimir </BotãoPreto>
 							<BotãoPreto type="submit"> Enviar </BotãoPreto>
+							{ modal ? <Camera /> : <div className="noprint" style={{ display: 'flex' }} >
+											<BotãoPreto className="noprint" style={{  marginTop: 5,width: 50, height: 40, display: 'flex', alignItems: 'center', justifyContent: 'center', border: 'none', background: '#282a36', color: '#fff' }} onClick={(evt)=>{ evt.preventDefault();  setModal(true)}}>
+												Tirar foto
+											</BotãoPreto>
+									</div>}
 						</div>
 						<div style={{ display: 'flex', flexDirection: 'column', marginBottom: '25px' }}>
 							<label className="noprint" htmlFor="observaçao">
@@ -575,9 +588,8 @@ const Registro: React.FC = () => {
 										<input type="text" id="nrg" value={NRG.current?.value} />
 										<input type="text" id="nomecompleto" value={NomeCompleto.current?.value} />
 										<input type="text" id="posto2" value={Posto.current?.value} />
-										<img src="https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg" id="ImagemCid" />
+										{ imagemRegistro !== 'Optou por não tirar foto' && <img src={imagemRegistro} id="ImagemCid" /> }
 									</div>
-
 						</div>
 					</Form2>
 				</form>

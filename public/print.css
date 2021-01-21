@@ -31,6 +31,8 @@
   z-index: 80;
 }
 
+
+
 @media print {
   * {
     background: transparent;
@@ -338,5 +340,14 @@
   left: 65px;
   z-index: 50;
 }
+
+#camera {
+  display: none;
+  position: fixed;
+  top: 478px;
+  left: 110px;
+  z-index: 80;
+}
+
 
 }
