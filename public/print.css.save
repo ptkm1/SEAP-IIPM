@@ -298,7 +298,8 @@
   top: 332px;
   left: 80px;
   height: max-content;
-  width: 100%;
+  width: 100%
+;
 }
 
 #endereco {
@@ -443,11 +444,6 @@
 
 #tirarBotao {
   display: none;
-}
-
-#optionN {
-  display: none;
-  opacity: 0;
 }
 
 }

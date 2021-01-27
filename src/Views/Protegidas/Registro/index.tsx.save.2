@@ -183,8 +183,8 @@ const Registro: React.FC = () => {
 							<label className="noprint" htmlFor="isenção">
 								Isenção
 							</label>
-							<select className="noprint" id="isenção" ref={Isençao} onChange={(e) => setIsençao(e.target.value)} required>
-								<option value="pago">pago</option>
+							<select id="isenção" ref={Isençao} onChange={(e) => setIsençao(e.target.value)} required>
+								<option id="optionN" value="">Situação do pagamento</option>								<option value="pago">pago</option>
 								<option value="isento">isento</option>
 							</select>
 						</BlocoInputGrande>
@@ -192,7 +192,7 @@ const Registro: React.FC = () => {
 							<label className="noprint" htmlFor="resultado">
 								Resultado
 							</label>
-							<input type="text" className="noprint" id="resultado" value={Resultado} ref={Result} required />
+							<input type="text" id="resultado" value={Resultado} ref={Result} required />
 						</BlocoInputGrande>
 						<div style={{ display: 'flex' }}>
 							<BlocoInputGrande>
