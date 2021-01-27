@@ -21,7 +21,9 @@ const Autenticar = async ( event: React.FormEvent<HTMLFormElement> ) => {
       { email: emailLoginRef.current.value,
 				senha: senhaLoginRef.current.value })
 
-console.log(data)
+console.log(da
+
+ta)
 
 				localStorage.setItem('@pml/usuario', JSON.stringify(data.usuario))
 
