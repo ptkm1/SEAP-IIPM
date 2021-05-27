@@ -144,7 +144,7 @@ const SegundaVia: React.FC = () => {
 		if (ViaSt === '1º VIA' || IsençaoSt === 'isento') {
 			setResultado('0,00')
 		} else {
-			setResultado('37,77')
+			setResultado('39,39')
 		}
 
 		BuscarEstados()

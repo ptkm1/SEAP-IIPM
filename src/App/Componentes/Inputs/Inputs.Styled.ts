@@ -91,8 +91,8 @@ export const PesquisaInput = styled.div<InputProps>`
 		justify-content: center;
 		align-items: center;
 		position: absolute;
-		margin-top: 18px;
-		left: 320px;
+		margin-top: 25px;
+		left: 350px;
 		cursor: pointer;
 			:hover{
 				background-color: #c4c4c4;

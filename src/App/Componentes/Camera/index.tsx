@@ -9,7 +9,7 @@ const Camera: React.FC = () => {
   const [imgSrc, setImgSrc] = React.useState<any>(null);
 
 
-  const { setImagemRegistro } = useContext(RegistroContext)
+  const { setImagemRegistro, setModal, modal  } = useContext(RegistroContext)
 
   const capture = React.useCallback((e) => {
     e.preventDefault();
@@ -20,6 +20,7 @@ const Camera: React.FC = () => {
 
   return (
     <div id="camera">
+      <button onClick={()=> setModal(!modal)} >Abortar Foto</button>
       <Webcam
         audio={false}
         ref={webcamRef}

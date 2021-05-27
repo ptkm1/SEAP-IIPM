@@ -127,7 +127,8 @@ const Registro: React.FC = () => {
 	const [ViaSt, setVia] = useState<any>();
 	const [IsençaoSt, setIsençao] = useState<any>();
 
-	const [modal, setModal] = useState<boolean>(false);
+	// const [modal, setModal] = useState<boolean>(false);
+	const { setModal, modal } = useContext(RegistroContext)
 
 	useEffect(() => {
 		async function BuscarEstados() {
@@ -138,7 +139,7 @@ const Registro: React.FC = () => {
 		if (ViaSt === '1º VIA' || IsençaoSt === 'isento') {
 			setResultado('0,00');
 		} else {
-			setResultado('37,77');
+			setResultado('39,39');
 		}
 
 		BuscarEstados();
@@ -593,7 +594,7 @@ const Registro: React.FC = () => {
 										}}
 										onClick={(evt) => {
 											evt.preventDefault();
-											setModal(true);
+											setModal(!modal);
 										}}
 									>
 										<span id="tirarBotao">Tirar foto</span>
