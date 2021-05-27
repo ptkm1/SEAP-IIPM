@@ -445,4 +445,14 @@
   display: none;
 }
 
+#DiaAtual {
+  display: block;
+  position: fixed;
+  top: 607px;
+  left: 65px;
+  z-index: 50;
+  height: max-content;
+  width: max-content;
+}
+
 }
