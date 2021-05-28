@@ -274,7 +274,7 @@ const Registro: React.FC = () => {
 									<option value="">Escolha uma cidade</option>
 									{Estados.map((e: any) => (
 										<option key={e.id} value={e.id}>
-											{e.estado}
+											{e.id}
 										</option>
 									))}
 								</select>
@@ -629,7 +629,7 @@ const Registro: React.FC = () => {
 									<option value="">Escolha um Estado</option>
 									{EstadosNaturalidade.map((e: any) => (
 										<option key={e.id} value={e.id}>
-											{e.estado}
+											{e.id}
 										</option>
 									))}
 								</select>
