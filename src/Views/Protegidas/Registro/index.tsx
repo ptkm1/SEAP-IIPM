@@ -2,7 +2,9 @@ import axios from 'axios';
 import React, { FormEvent, useCallback, useContext, useEffect, useRef, useState } from 'react';
 //Icones
 import { CgArrowLeft } from 'react-icons/cg';
+import { MdAssignmentTurnedIn } from 'react-icons/md';
 import { useHistory } from 'react-router-dom';
+import { isArrayLiteralExpression } from 'typescript';
 //Componentes e Styleds
 import { BotãoPreto } from '../../../App/Componentes/Botoes/Botoes.Styled';
 import { BTNVoltar } from '../../../App/Componentes/Botoes/BotoesVoltar.Styled';
@@ -22,7 +24,7 @@ const Registro: React.FC = () => {
 	const [ sexo,setSexo ]: any = useState()
 
 	
-
+	console.log(imagemRegistro)
 	const history = useHistory();
 
 	// UseRefs
@@ -113,11 +115,14 @@ const Registro: React.FC = () => {
 			Complemento: Complemento.current?.value,
 			Bairro: Bairro.current?.value,
 			Cep: Cep.current?.value,
-			Estado: Estado.current?.value,
-			Cidade: Cidade.current?.value,
+			EstadoReside: Estado.current?.value,
+			CidadeReside: Cidade.current?.value,
+			EstadoDeNaturalidade: EstadoNaturalidade.current?.value,
+			CidadeDeNaturalidade: CidadeNaturalidade.current?.value, 
 			Observaçao: Observaçao.current?.value,
 			Foto3x4: imagemRegistro,
-			NumeroDaFicha: NumeroDaFicha.current?.value
+			NumeroDaFicha: NumeroDaFicha.current?.value,
+			Folha: Folha.current?.value
 		};
 
 		const { data } = await Api.post('/registrorgbd', obj);
@@ -261,15 +266,13 @@ const Registro: React.FC = () => {
 
 						<div style={{ display: 'flex' }}>
 
-
-						<BlocoInputGrande>
-								<label className="noprint" htmlFor="estadoDeNaturalidade">
-									Est. Naturalidade
+						<BlocoInputGrande> 
+								<label  style={{ fontSize: 15 }} className="noprint" htmlFor="estado"> 
+									Estado Nasci.
 								</label>
-								<select id="estadoDeNaturalidade" ref={EstadoNaturalidade} onChange={(e) => { 
-									setIdCidadeNaturalidade(e.target.value)}} required>
+								<select id="estado" ref={Estado} onChange={(e) => setIdCidade(e.target.value)} required>
 									<option value="">Escolha uma cidade</option>
-									{EstadosNaturalidade.map((e: any) => (
+									{Estados.map((e: any) => (
 										<option key={e.id} value={e.id}>
 											{e.estado}
 										</option>
@@ -278,12 +281,12 @@ const Registro: React.FC = () => {
 							</BlocoInputGrande>
 
 							<BlocoInputGrande>
-								<label style={{ fontSize: '15px' }} className="noprint" htmlFor="cidadeNaturalidade">
-									Cid.de Naturalidade
+								<label style={{ fontSize: 15 }} className="noprint" htmlFor="cidade">
+									Cidade Nasci.
 								</label>
-								<select id="cidadeNaturalidade" ref={CidadeNaturalidade} onClick={() => BuscarCidadeN() } required>
+								<select id="cidade" ref={Cidade} onClick={() => BuscarCidade()} required>
 									<option value="">Escolha um valor</option>
-									{CidadesNaturalidade.map((e: any) => {
+									{Cidades.map((e: any) => {
 										return (
 											<option key={e.estadoId} value={e.cidade}>
 												{e.cidade}
@@ -293,6 +296,8 @@ const Registro: React.FC = () => {
 								</select>
 							</BlocoInputGrande>
 
+
+						
 
 						
 							
@@ -509,7 +514,7 @@ const Registro: React.FC = () => {
 							</BlocoInputGrande>
 
 							<BlocoInputGrande>
-								<label className="noprint" htmlFor="tipo_olhos">
+								<label style={{ fontSize:15 }} className="noprint" htmlFor="tipo_olhos">
 									Tipo dos olhos
 								</label>
 								<select id="tipo_olhos" ref={TipoOlhos} required>
@@ -548,12 +553,7 @@ const Registro: React.FC = () => {
 
 								) }
 							</BlocoInputGrande>
-							<BlocoInputGrande>
-								<label className="noprint" htmlFor="numeroFicha">
-									Nº da Ficha
-								</label>
-								<input type="text" id="numeroFicha" ref={NumeroDaFicha} required  />
-							</BlocoInputGrande>
+							
 						</Form2L>
 					</Form2>
 
@@ -579,19 +579,19 @@ const Registro: React.FC = () => {
 								</label>
 								<input type="text" id="anomalias" ref={Anomalias} required />
 							</BlocoInputGrande>
-							<div style={{ display: 'grid', gridTemplateColumns: '1fr 5fr' }}>
-								<BlocoInputGrande>
-									<label className="noprint" htmlFor="numero">
-										Nº
-									</label>
-									<input type="text" id="numero" ref={Numero} required />
-								</BlocoInputGrande>
+							<div style={{ display: 'grid', gridTemplateColumns: '5fr 1fr' }}>
 
 								<BlocoInputGrande>
 									<label className="noprint" htmlFor="endereco">
 										Endereço
 									</label>
 									<input type="text" id="endereco" ref={Endereco} required />
+								</BlocoInputGrande>
+								<BlocoInputGrande>
+									<label className="noprint" htmlFor="numero">
+										Nº
+									</label>
+									<input type="text" id="numero" ref={Numero} required />
 								</BlocoInputGrande>
 							</div>
 						</Form2X>
@@ -621,12 +621,13 @@ const Registro: React.FC = () => {
 							</BlocoInputGrande>
 
 							<BlocoInputGrande>
-								<label className="noprint" htmlFor="estado">
-									Estado
+								<label className="noprint" htmlFor="estadoDeNaturalidade">
+									Est. Residência
 								</label>
-								<select id="estado" ref={Estado} onChange={(e) => setIdCidade(e.target.value)} required>
-									<option value="">Escolha uma cidade</option>
-									{Estados.map((e: any) => (
+								<select id="estadoDeNaturalidade" ref={EstadoNaturalidade} onChange={(e) => { 
+									setIdCidadeNaturalidade(e.target.value)}} required>
+									<option value="">Escolha um Estado</option>
+									{EstadosNaturalidade.map((e: any) => (
 										<option key={e.id} value={e.id}>
 											{e.estado}
 										</option>
@@ -635,12 +636,12 @@ const Registro: React.FC = () => {
 							</BlocoInputGrande>
 
 							<BlocoInputGrande>
-								<label className="noprint" htmlFor="cidade">
-									Cidade
+								<label style={{ fontSize: '15px' }} className="noprint" htmlFor="cidadeNaturalidade">
+									Cid.de Residência
 								</label>
-								<select id="cidade" ref={Cidade} onClick={() => BuscarCidade()} required>
+								<select id="cidadeNaturalidade" ref={CidadeNaturalidade} onClick={() => BuscarCidadeN() } required>
 									<option value="">Escolha um valor</option>
-									{Cidades.map((e: any) => {
+									{CidadesNaturalidade.map((e: any) => {
 										return (
 											<option key={e.estadoId} value={e.cidade}>
 												{e.cidade}
@@ -649,6 +650,7 @@ const Registro: React.FC = () => {
 									})}
 								</select>
 							</BlocoInputGrande>
+
 
 						</Form2X>
 						<div style={{ display: 'flex' }}>
@@ -694,13 +696,20 @@ const Registro: React.FC = () => {
 								Observação
 							</label>
 							<textarea id="observaçao" ref={Observaçao} />
+							<BlocoInputGrande>
+								<label className="noprint" htmlFor="numeroFicha">
+									Nº da Ficha
+								</label>
+								<input type="text" max="14" id="numeroFicha" ref={NumeroDaFicha} required  />
+							</BlocoInputGrande>
 
 
 							<div id="hiddenInputs">
 								<input type="text" id="nrg" value={NRG.current?.value} />
 								<input type="text" id="nomecompleto" value={NomeCompleto.current?.value} />
 								<input type="text" id="posto2" value={Posto.current?.value} />
-								<input type="hidden" id="DiaAtual" value={ new Date().toLocaleDateString() } />
+								<input type="text" id="DiaAtual" value={ new Date().toLocaleDateString() } />
+								<input type="text" id="DiaAtual1" value={ new Date().toLocaleDateString() } />
 								{imagemRegistro !== 'Optou por não tirar foto' && (
 									<img src={imagemRegistro} id="ImagemCid" />
 								)}
