@@ -148,14 +148,16 @@
   #estado {
     position: fixed;
     top: 198px;
-    left: 215px;
+    left: 350px;
     height: max-content;
     width: max-content;
+    z-index: 999999999999999;
   }
   #cidade {
     position: fixed;
     top: 198px;
-    left: 350px;
+    left: 215px;
+    
     height: max-content;
     width: max-content;
   }
