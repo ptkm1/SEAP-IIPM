@@ -181,7 +181,7 @@ const Registro: React.FC = () => {
 			<Menu />
 
 			<BTNVoltar onClick={() => history.goBack()}>
-				<CgArrowLeft size="17px" />
+				<CgArrowLeft size="17px" /> <h3>Voltar</h3>
 			</BTNVoltar>
 
 			<Container id="conteudos" className="scrollPage">

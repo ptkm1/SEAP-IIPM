@@ -100,7 +100,7 @@
   }
   #sexo {
     position: fixed;
-    top: 105px;
+    top: 102px;
     left: 425px;
     height: max-content;
     width: max-content;
@@ -126,7 +126,7 @@
   #via {
     position: fixed;
     z-index: 50;
-    top: 131px;
+    top: 128.5px;
     left: 425px;
     height: max-content;
     width: max-content;
@@ -178,7 +178,7 @@
   #telefone {
     position: fixed;
     top: 240px;
-    left: 480px;
+    left: 490px;
     height: max-content;
     width: max-content;
   }
@@ -416,7 +416,7 @@
 #nrg {
   display: block;
   position: fixed;
-  top: 552px;
+  top: 555px;
   left: 65px;
   z-index: 50;
   height: max-content;
@@ -427,7 +427,7 @@
   display: block;
   position: fixed;
 
-  top: 573px;
+  top: 576px;
   left: 65px;
   z-index: 50;
   height: max-content;
@@ -437,7 +437,7 @@
 #posto2 {
   display: block;
   position: fixed;
-  top: 616px;
+  top: 619px;
   left: 90px;
   z-index: 50;
   height: max-content;
@@ -478,7 +478,7 @@
 #DiaAtual1 { 
   display: block;
   position: fixed;
-  top: 597px;
+  top: 600px;
   left: 90px;
   z-index: 50;
   height: max-content;
