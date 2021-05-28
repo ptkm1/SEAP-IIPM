@@ -65,7 +65,7 @@
 
   #rg {
     position: fixed;
-    top: 10px;
+    top: 12px;
     left: 40px;
     height: max-content;
     width: max-content;
@@ -205,22 +205,22 @@
   }
   #livro {
     position: fixed;
-    top: 274px;
+    top: 272px;
     left: 40px;
   }
   #folha {
     position: fixed;
-    top: 274px;
+    top: 272px;
     left: 165px;
   }
   #termo {
     position: fixed;
-    top: 274px;
+    top: 272px;
     left: 325px;
   }
   #data_certidao {
     position: fixed;
-    top: 274px;
+    top: 272px;
     left: 472px;
     z-index: 999;
     width: max-content;
@@ -229,7 +229,7 @@
   #data_registro {
     position: fixed;
     z-index: 50;
-    top: 274px;
+    top: 272px;
     left: 630px;
     height: max-content;
     width: max-content;
