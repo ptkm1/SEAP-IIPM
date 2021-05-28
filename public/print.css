@@ -26,11 +26,19 @@
 #ImagemCid {
   display: none;
   position: fixed;
-  top: 478px;
-  left: 110px;
+  top: 472px;
+  left: 120px;
   z-index: 80;
 }
 
+#DiaAtual {
+  display: none;
+}
+
+
+#DiaAtual1 {
+  display: none;
+}
 
 
 @media print {
@@ -104,10 +112,10 @@
     height: max-content;
     width: max-content;
   }
-  #ImagemCid {
+  #ImagemCid { 
     position: fixed;
-    top: 114px;
-    left: 608px;
+    top: 106px;
+    left: 621px;
 
     display: block;
     z-index: 50;
@@ -313,7 +321,7 @@
   position: fixed;
   z-index: 50;
   top: 352px;
-  left: 442px;
+  left: 448px;
   height: max-content;
   width: max-content;
 }
@@ -321,9 +329,13 @@
 #complemento {
   position: fixed;
   top: 352px;
-  left: 530px;
+  left: 532px;
   height: max-content;
   width: max-content;
+  white-space: nowrap;
+  overflow: hidden;
+ text-overflow: ellipsis;
+ z-index: 999999;
 }
 
 #bairro {
@@ -331,37 +343,34 @@
   top: 370px;
   left: 70px;
   height: max-content;
+  z-index: 99999;
   width: max-content;
 }
-
+/* deixa comentado- alteramos de 388 para 378 */
 #observaçao {
   position: fixed;
-  top: 388px;
+  top: 382px;
   left: 40px;
-  width: 860px;
-  height: 30px;
-  -webkit-border-radius: 0px;
-  -webkit-appearance: none !important;
   border: none;
   height: max-content;
   width: max-content;
+  white-space: nowrap;
+   overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-#cidade_mora {
-  position: fixed;
-  top: 370px;
-  left: 310px;
-  height: max-content;
-  width: max-content;
-}
 
-.id_estadomora1 {
+#estadoDeNaturalide { 
   position: fixed;
   z-index: 50;
   top: 370px;
-  left: 580px;
+  left: 300px;
   height: max-content;
   width: max-content;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  z-index: 99999;
+  
 }
 
 #cep {
@@ -371,10 +380,10 @@
   height: max-content;
   width: max-content;
 }
-
-.dataid1 {
+/* deixa comentado- alteramos de 405 para 415 */
+.dataid1 { 
   position: fixed;
-  top: 405px;
+  top: 425px;
   left: 655px;
   height: max-content;
   width: max-content;
@@ -393,7 +402,7 @@
   top: 425px;
   left: 657px;
   height: max-content;
-  width: max-content;
+  width: max-content; 
 }
 
 .quadrado1 {
@@ -426,8 +435,8 @@
 #posto2 {
   display: block;
   position: fixed;
-  top: 618px;
-  left: 65px;
+  top: 616px;
+  left: 90px;
   z-index: 50;
   height: max-content;
   width: max-content;
@@ -444,5 +453,61 @@
 #tirarBotao {
   display: none;
 }
+/* lembrar que o nome aqui é de estado que mora, tem que trocar no html e no banco*/
+#estadoDeNaturalidade { 
+  position: fixed;
+  top: 370px;
+  left: 400px;
+  height: max-content;
+  z-index: 99999;
+  width: max-content;
+}
+
+#DiaAtual { 
+  display: block;
+  position: fixed;
+  z-index: 50;
+  height: max-content;
+  width: max-content;
+  top: 405px;
+  left: 655px; 
+}
+
+#DiaAtual1 { 
+  display: block;
+  position: fixed;
+  top: 597px;
+  left: 90px;
+  z-index: 50;
+  height: max-content;
+  width: max-content;
+ 
+}
+
+
+#estadoDeNaturalidade{
+  position: fixed;
+  top: 370px;
+  left: 585px; 
+  height: max-content;
+  z-index: 99999;
+  width: max-content;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  
+}
+
+/* lembrar que o nome aqui é de cidade que mora, tem que trocar no html e no banco*/
+#cidadeNaturalidade {
+  position: fixed;
+  top: 370px;
+  left: 330px; 
+  height: max-content;
+  z-index: 99999;
+  width: max-content;
+}
+
+
+
 
 }
