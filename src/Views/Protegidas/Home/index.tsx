@@ -33,7 +33,7 @@ const Home: React.FC = () => {
         <span>Verificação Diária</span>
       </BotaoOpcao>
 
-      <BotaoOpcao>
+      <BotaoOpcao onClick={ () => history.push('/relatorios') } >
         <MdContentPaste size="70%" color="#656565" />
         <span>Relatório</span>
       </BotaoOpcao>
