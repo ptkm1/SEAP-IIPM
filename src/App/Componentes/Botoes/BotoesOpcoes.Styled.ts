@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const BotaoOpcao = styled.div`
-  width: 40%;
+  width: 250px;
   height: 40%;
   //background: #273785;
   background: #FFFFFF;

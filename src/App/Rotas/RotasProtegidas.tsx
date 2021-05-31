@@ -5,6 +5,7 @@ import Home from '../../Views/Protegidas/Home'
 import Pesquisar from '../../Views/Protegidas/Pesquisar'
 import Registro from '../../Views/Protegidas/Registro'
 import SegundaVia from '../../Views/Protegidas/SegundaVia'
+import VerificacaoDiaria from '../../Views/Protegidas/VerificacaoDiaria'
 
 
 
@@ -17,6 +18,7 @@ const RotasProtegidas: React.FC = () => {
       <Route path="/registrorgbd" component={ Registro } />
       <Route path="/pesquisarregistro" component={ Pesquisar } />
       <Route path="/segundavia" component={ SegundaVia } />
+      <Route path="/verificacaodiaria" component={ VerificacaoDiaria } />
     </BrowserRouter>
   )
 }

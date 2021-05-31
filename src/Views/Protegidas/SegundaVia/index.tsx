@@ -41,6 +41,7 @@ const SegundaVia: React.FC = () => {
 		async function BuscarDados() {
 
 			const { data }: any = await Api.get(`/registro/${caminho[2]}`)
+			console.log(data)
 
 			return setDados( data[0] )
 		}
@@ -210,10 +211,10 @@ const SegundaVia: React.FC = () => {
 				<form onSubmit={SubmeterDados}>
 					<Form>
 						<BlocoInputGrande>
-							<label className="noprint" htmlFor="rg">
+							<label className="noprint" htmlFor="rg" >
 								Numero do RG
 							</label>
-							<input type="text" id="rg" ref={NRG} required />
+							<input type="text" id="rg" ref={NRG} required value={dados.NRG} />
 						</BlocoInputGrande>
 						<BlocoInputGrande>
 							<label className="noprint" htmlFor="via">
