@@ -73,7 +73,6 @@ const Registro: React.FC = () => {
 	const CidadeNaturalidade: any = useRef<HTMLInputElement>();
 	const NumeroDaFicha: any = useRef<HTMLInputElement>();
 	const Observaçao: any = useRef<HTMLInputElement>();
-	const DataDeCriacao: any = useRef<HTMLInputElement>();
 
 	const SubmeterDados = useCallback(async (e: FormEvent) => {
 		e.preventDefault();
@@ -124,7 +123,6 @@ const Registro: React.FC = () => {
 			Foto3x4: imagemRegistro,
 			NumeroDaFicha: NumeroDaFicha.current?.value,
 			Folha: Folha.current?.value,
-			DataDeCriacao: DataDeCriacao.current?.value
 		};
 
 		const { data } = await Api.post('/registrorgbd', obj);
@@ -716,7 +714,6 @@ const Registro: React.FC = () => {
 								<input type="text" id="nrg" value={NRG.current?.value} />
 								<input type="text" id="nomecompleto" value={NomeCompleto.current?.value} />
 								<input type="text" id="posto2" value={Posto.current?.value} />
-								<input type="text" id="DiaAtual" ref={DataDeCriacao} value={ new Date().toLocaleDateString() } />
 								<input type="text" id="DiaAtual1" value={ new Date().toLocaleDateString() } />
 								{imagemRegistro !== 'Optou por não tirar foto' && (
 									<img src={imagemRegistro} id="ImagemCid" />

@@ -25,7 +25,7 @@ const VerificacaoDiaria: React.FC = () => {
     event?.preventDefault()
 
     try {
-      const { data } = await Api.post(`/verificacaodiaria`, { dia: Dia.current?.value })
+      const { data } = await Api.post(`/verificacaodiaria`, { dia: new Date(Dia.current.value) })
       data && setResultado(data)
     } catch (error) {
       alert(error.response.data.mensagem)
@@ -39,7 +39,7 @@ const VerificacaoDiaria: React.FC = () => {
       if(st) {
         const {data} = await Api.patch('/verificacaodiaria', { id, Status: 'cancelado' })
 
-        setResultado(data)
+        PesquisarDados()
       }
 
     } catch (error) {
