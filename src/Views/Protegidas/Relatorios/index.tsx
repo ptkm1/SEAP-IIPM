@@ -8,11 +8,12 @@ import Menu from '../../../App/Componentes/Menu'
 import { Container } from '../../../App/Styles/Home.Styled'
 import Api from '../../../Infra/Servicos/Api'
 
-const Relatorios: React.FC = () => {
+
+function Relatorios() {
 
   const history = useHistory()
 
-  const [ListFichasGerais, setListFichasGerais]: any = useState()
+  const [ListFichasGerais, setListFichasGerais] = useState()
   console.log(ListFichasGerais)
   const FichasGerais = async () => {
     try {
@@ -23,8 +24,8 @@ const Relatorios: React.FC = () => {
     }
   }
 
-  const [ListPrimeiraVia,setListPrimeiraVia]: any = useState()
-  console.log(ListPrimeiraVia)
+  const [ListPrimeiraVia,setListPrimeiraVia] = useState()
+  // console.log(ListPrimeiraVia)
   const PrimeiraVia = async () => {
     try {
       const {data} = await Api.get('/primeiravia')
@@ -34,8 +35,8 @@ const Relatorios: React.FC = () => {
     }
   }
 
-  const [ListDemaisVias,setListDemaisVias]: any = useState()
-  console.log(ListDemaisVias)
+  const [ListDemaisVias,setListDemaisVias] = useState()
+  // console.log(ListDemaisVias)
   const DemaisVias = async () => {
     try {
       const {data} = await Api.get('/demaisvias')
@@ -45,8 +46,8 @@ const Relatorios: React.FC = () => {
     }
   }
 
-  const [ListCanceladas,setListCanceladas]: any = useState()
-  console.log(ListCanceladas)
+  const [ListCanceladas,setListCanceladas] = useState()
+  // console.log(ListCanceladas)
   const FichasCanceladas = async () => {
     try {
       const {data} = await Api.get('/fichascanceladas')
@@ -82,7 +83,7 @@ const Relatorios: React.FC = () => {
       <BotaoOpcao onClick={ () => FichasCanceladas() } >
         <MdCancel size="70%" color="#656565" />
         <span>Fichas Canceladas</span>
-      </BotaoOpcao>
+      </BotaoOpcao>       
 
       </Container>
     </>
