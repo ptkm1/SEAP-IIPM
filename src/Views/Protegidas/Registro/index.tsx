@@ -73,6 +73,7 @@ const Registro: React.FC = () => {
 	const CidadeNaturalidade: any = useRef<HTMLInputElement>();
 	const NumeroDaFicha: any = useRef<HTMLInputElement>();
 	const Observaçao: any = useRef<HTMLInputElement>();
+	const DataDeCriacao: any = useRef<HTMLInputElement>();
 
 	const SubmeterDados = useCallback(async (e: FormEvent) => {
 		e.preventDefault();
@@ -122,7 +123,8 @@ const Registro: React.FC = () => {
 			Observaçao: Observaçao.current?.value,
 			Foto3x4: imagemRegistro,
 			NumeroDaFicha: NumeroDaFicha.current?.value,
-			Folha: Folha.current?.value
+			Folha: Folha.current?.value,
+			DataDeCriacao: DataDeCriacao.current?.value
 		};
 
 		const { data } = await Api.post('/registrorgbd', obj);
@@ -164,6 +166,7 @@ const Registro: React.FC = () => {
 
 		BuscarEstadosN();
 		BuscarEstados();
+		
 	}, [Resultado, ViaSt, IsençaoSt]);
 
 	async function BuscarCidade() {
@@ -532,7 +535,7 @@ const Registro: React.FC = () => {
 								</label>
 								{ sexo === 'Feminino' ? (
 									<select id="barba" ref={Barba} disabled>
-									<option value="">Escolha um valor</option>
+									<option value=""> </option>
 									<option value="">Em Branco</option>
 									<option value="Imberbe">Imberbe</option>
 									<option value="Rala">Rala</option>
@@ -553,12 +556,7 @@ const Registro: React.FC = () => {
 
 								) }
 							</BlocoInputGrande>
-							
-						</Form2L>
-					</Form2>
 
-					<Form2>
-						<Form2X>
 							<BlocoInputGrande>
 								<label className="noprint" htmlFor="bigode">
 									Bigode
@@ -573,6 +571,13 @@ const Registro: React.FC = () => {
 									<option value="Longo">Longo</option>
 								</select>
 							</BlocoInputGrande>
+							
+						</Form2L>
+					</Form2>
+
+					<Form2>
+						<Form2X>
+							
 							<BlocoInputGrande>
 								<label className="noprint" htmlFor="anomalias">
 									Anomalias
@@ -594,9 +599,8 @@ const Registro: React.FC = () => {
 									<input type="text" id="numero" ref={Numero} required />
 								</BlocoInputGrande>
 							</div>
-						</Form2X>
-
-						<Form2R>
+							<div>
+							<Form2R>
 							<BlocoInputGrande>
 								<label className="noprint" htmlFor="complemento">
 									Complemento
@@ -611,6 +615,10 @@ const Registro: React.FC = () => {
 								<input type="text" id="bairro" ref={Bairro} required />
 							</BlocoInputGrande>
 						</Form2R>
+							</div>
+						</Form2X>
+
+						
 
 						<Form2X>
 							<BlocoInputGrande>
@@ -653,7 +661,7 @@ const Registro: React.FC = () => {
 
 
 						</Form2X>
-						<div style={{ display: 'flex' }}>
+						<div style={{ display: 'flex', flexDirection: 'column', width: "50%", marginTop: 50}}>
 							<BotãoPreto
 								onClick={(evt: FormEvent) => {
 									evt.preventDefault();
@@ -700,7 +708,7 @@ const Registro: React.FC = () => {
 								<label className="noprint" htmlFor="numeroFicha">
 									Nº da Ficha
 								</label>
-								<input type="text" max="14" id="numeroFicha" ref={NumeroDaFicha} required  />
+								<input type="text" className="noprint" max="14" id="numeroFicha" ref={NumeroDaFicha} required  />
 							</BlocoInputGrande>
 
 
@@ -708,7 +716,7 @@ const Registro: React.FC = () => {
 								<input type="text" id="nrg" value={NRG.current?.value} />
 								<input type="text" id="nomecompleto" value={NomeCompleto.current?.value} />
 								<input type="text" id="posto2" value={Posto.current?.value} />
-								<input type="text" id="DiaAtual" value={ new Date().toLocaleDateString() } />
+								<input type="text" id="DiaAtual" ref={DataDeCriacao} value={ new Date().toLocaleDateString() } />
 								<input type="text" id="DiaAtual1" value={ new Date().toLocaleDateString() } />
 								{imagemRegistro !== 'Optou por não tirar foto' && (
 									<img src={imagemRegistro} id="ImagemCid" />

@@ -41,6 +41,8 @@
 }
 
 
+
+
 @media print {
   * {
     background: transparent;
@@ -508,8 +510,5 @@
   z-index: 99999;
   width: max-content;
 }
-
-
-
 
 }
