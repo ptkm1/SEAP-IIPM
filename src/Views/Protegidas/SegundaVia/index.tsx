@@ -79,8 +79,11 @@ const SegundaVia: React.FC = () => {
 		const Complemento:any = useRef<HTMLInputElement>()
 		const Bairro:any = useRef<HTMLInputElement>()
 		const Cep:any = useRef<HTMLInputElement>()
-		const Estado:any = useRef<HTMLInputElement>()
-		const Cidade:any = useRef<HTMLInputElement>()
+		const Estado: any = useRef<HTMLInputElement>();
+		const Cidade: any = useRef<HTMLInputElement>();
+		const EstadoNaturalidade: any = useRef<HTMLInputElement>();
+		const CidadeNaturalidade: any = useRef<HTMLInputElement>();
+		const NumeroDaFicha: any = useRef<HTMLInputElement>();
 		const Observaçao:any = useRef<HTMLInputElement>()
 
 
@@ -125,9 +128,13 @@ const SegundaVia: React.FC = () => {
 			Complemento: Complemento.current?.value,
 			Bairro: Bairro.current?.value,
 			Cep: Cep.current?.value,
-			Estado: Estado.current?.value,
-			Cidade: Cidade.current?.value,
-			Observaçao: Observaçao.current?.value }
+			EstadoReside: Estado.current?.value,
+			CidadeReside: Cidade.current?.value,
+			EstadoDeNaturalidade: EstadoNaturalidade.current?.value,
+			CidadeDeNaturalidade: CidadeNaturalidade.current?.value, 
+			Observaçao: Observaçao.current?.value,
+			NumeroDaFicha: NumeroDaFicha.current?.value,
+			Folha: Folha.current?.value }
 
 		const { data } = await Api.post('/registrorgbd', obj)
 
@@ -480,6 +487,20 @@ const SegundaVia: React.FC = () => {
 							<label className="noprint" htmlFor="cep">CEP</label>
 							<input type="text" id="cep" value={dados.Cep} ref={ Cep } />
 						</BlocoInputGrande>
+						<BlocoInputGrande>
+								<label className="noprint" htmlFor="estadoDeNaturalidade">
+									Est. Residência
+								</label>
+								<select id="estadoDeNaturalidade" ref={EstadoNaturalidade} onChange={(e) => { 
+									setIdCidadeNaturalidade(e.target.value)}} required>
+									<option value="">Escolha um Estado</option>
+									{EstadosNaturalidade.map((e: any) => (
+										<option key={e.id} value={e.id}>
+											{e.id}
+										</option>
+									))}
+								</select>
+							</BlocoInputGrande>
 
 						<BlocoInputGrande>
 							<label className="noprint" htmlFor="estado">Estado</label>

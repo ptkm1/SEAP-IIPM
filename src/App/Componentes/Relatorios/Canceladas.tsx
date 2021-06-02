@@ -38,7 +38,7 @@ const RelatorioCanceladas: React.FC = () => {
     <Container>
       <Inputs>
       <form onSubmit={ PesquisarDados } >
-        <a href="#" onClick={ () => history.replace('/') } > <MdArrowBack /> Voltar </a>
+          <a style={{ color: 'gray', textDecoration: 'none', display: 'flex', alignItems: 'center'}} href="#" onClick={ () => history.replace('/') } > <MdArrowBack /> Voltar </a>
             <PesquisaInput largura="250px" >
             <label htmlFor="DataInicial"> Data Inicial </label>
             <input type="date" id="DataInicial" ref={ DataInicial } />
@@ -47,29 +47,33 @@ const RelatorioCanceladas: React.FC = () => {
             <label htmlFor="DataFinal"> Data Final</label>
             <input type="date" id="DataFinal" ref={ DataFinal } />
           </PesquisaInput>
-            <button type="submit"> <CgSearch /> </button>
+          <BotãoPreto style={{width:40}} type="submit"> <CgSearch /> </BotãoPreto>
         </form>
       </Inputs>
 
     { ListCanceladas && (
       <>
 
-<BotãoPreto
-          style={{zIndex: 99999999999999, position: 'absolute', top: 50, right: 20, width: 150 }}
-          onClick={() => {
-            if (pdfExportComponent.current) {
-              pdfExportComponent.current.save();
-            }
-          }}
-        >
-          Export PDF
-        </BotãoPreto>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+        Relatório gerado
+        <BotãoPreto
+            style={{zIndex: 99999999999999,  width: 150 }}
+            onClick={() => {
+              if (pdfExportComponent.current) {
+                pdfExportComponent.current.save();
+              }
+            }}
+          >
+            Baixar Relatório
+          </BotãoPreto>
+      </div>
+
       
     <PDFExport
       avoidLinks={true}
       paperSize="Letter"
       landscape={true}
-      margin="1cm"
+      margin="0.5cm"
       ref={pdfExportComponent}
     >
       <DataTable data={ListCanceladas} /> 

@@ -11,7 +11,7 @@ import {
   TabelaResultadoPesquisaItem,
 } from '../../../App/Styles/Pesquisa.Styled'
 import Api from '../../../Infra/Servicos/Api'
-import { PDFExport, savePDF } from '@progress/kendo-react-pdf';
+
 
 const VerificacaoDiaria: React.FC = () => {
   const history = useHistory()
@@ -26,7 +26,7 @@ const VerificacaoDiaria: React.FC = () => {
     event?.preventDefault()
 
     try {
-      const { data } = await Api.post(`/verificacaodiaria`, { dia: new Date(Dia.current.value) })
+      const { data } = await Api.post(`/verificacaodiaria`, { dia: new Date(Dia.current.value), Posto: JSON.parse(Usuario).posto })
       data && setResultado(data)
     } catch (error) {
       alert(error.response.data.mensagem)
@@ -85,9 +85,6 @@ const VerificacaoDiaria: React.FC = () => {
     }
   }
 
-  // EXPORTS
-  const pdfExportComponent = React.useRef<PDFExport>(null);
-
   return (
     <>
       <Menu />
@@ -112,21 +109,6 @@ const VerificacaoDiaria: React.FC = () => {
             <button onClick={() => FecharDia()}>
                       <MdDelete  size="17px" /> Fechar dia
                     </button>
-
-                    <button
-          className="k-button"
-          onClick={() => {
-            if (pdfExportComponent.current) {
-              pdfExportComponent.current.save();
-            }
-          }}
-        >
-          Export PDF
-        </button>
-
-
-
-
 
             <TabelaResultadoPesquisaItem style={{ fontWeight: 'bold', marginBottom: 10 }}>
                   <Bloco30item>

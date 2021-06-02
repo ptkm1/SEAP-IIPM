@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Container, Column, Row, NotFound } from './Style'
+import { Container, Column, Row, NotFound, ColumnHead } from './Style'
 import imagem from '../../../../assets/notfound.svg'
 
 import { BiEditAlt, BiTrashAlt } from 'react-icons/bi'
@@ -16,16 +16,17 @@ const DataTable = ({ data }: any) => {
   const MEC = data.filter((via:any)=> via.Via === 'MEC')
   const RET_JUD = data.filter((via:any)=> via.Via === 'RET. JUDICIAL')
   const total = [primeiravia.length, segundavia.length, terceiraviaoumais.length, MEC.length, RET_JUD.length].reduce((acc, el) => acc += el)
-  const totalArrecadado = data.map((e:any)=> e.Result).reduce((acc:number, el:any) => acc + Number(el))
+  const totalArrecadado = data.map((e:any)=> parseFloat(e.Result)).reduce((acc:number, el:any) => acc += el)
+
   
   
 
   return data.length > 0 ? (
-    <Container>
+    <Container style={{ zIndex: 0 }}>
       <Row> Relatório de Fichas</Row>
 
       <Row>
-        {data[0] && columns.map((heading: any) => (<> {  heading === 'NRG' ? <Column> Numero de RG</Column> : <Column> {heading} </Column> } </> ))}
+        {data[0] && columns.map((heading: any) => (<> {  heading === 'NRG' ? <ColumnHead> Numero de RG</ColumnHead> : <ColumnHead> {heading} </ColumnHead> } </> ))}
       </Row>
       <TableContent>
       {data.map((row: any) => (<>
@@ -42,12 +43,12 @@ const DataTable = ({ data }: any) => {
 
         <TableContent>
           <Row>
-            <Column>1º VIA</Column>
-            <Column>2º VIA</Column>
-            <Column>3º VIA ou MAIS</Column>
-            <Column>MEC</Column>
-            <Column>RET. Judicial</Column>
-            <Column>Total</Column>
+            <ColumnHead>1º VIA</ColumnHead>
+            <ColumnHead>2º VIA</ColumnHead>
+            <ColumnHead>3º VIA ou MAIS</ColumnHead>
+            <ColumnHead>MEC</ColumnHead>
+            <ColumnHead>RET. Judicial</ColumnHead>
+            <ColumnHead>Total</ColumnHead>
           </Row>
           <Row>
             <Column>{primeiravia.length}</Column>
@@ -55,6 +56,7 @@ const DataTable = ({ data }: any) => {
             <Column>{terceiraviaoumais.length}</Column>
             <Column>{MEC.length}</Column>
             <Column>{RET_JUD.length}</Column>
+            <Column>{totalArrecadado}</Column>
             <Column>{total}</Column>
           </Row>
         </TableContent>

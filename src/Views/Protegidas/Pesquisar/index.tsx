@@ -16,6 +16,8 @@ const Pesquisar: React.FC = () => {
   const nomeRef:any =  useRef<HTMLInputElement>()
   const nomeMaeRef:any =  useRef<HTMLInputElement>()
 
+  const Usuario: any = localStorage.getItem('@pml/usuario')
+
   const PesquisarDados = useCallback( async ( event: FormEvent )=>{
 
     event.preventDefault()
@@ -24,8 +26,10 @@ const Pesquisar: React.FC = () => {
       const { data } = await Api
       .post(`/pesquisar`,
         { nome: nomeRef.current?.value,
-          mae: nomeMaeRef.current?.value })
-
+          mae: nomeMaeRef.current?.value,
+          Posto: JSON.parse(Usuario).posto })
+    console.log(data)
+    if(data[0].Posto !== JSON.parse(Usuario).posto) delete data[0]
 
     return setResultado(data)
 
