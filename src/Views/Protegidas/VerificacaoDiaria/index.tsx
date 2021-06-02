@@ -11,6 +11,7 @@ import {
   TabelaResultadoPesquisaItem,
 } from '../../../App/Styles/Pesquisa.Styled'
 import Api from '../../../Infra/Servicos/Api'
+import { PDFExport, savePDF } from '@progress/kendo-react-pdf';
 
 const VerificacaoDiaria: React.FC = () => {
   const history = useHistory()
@@ -39,7 +40,7 @@ const VerificacaoDiaria: React.FC = () => {
       if(st) {
         const {data} = await Api.patch('/verificacaodiaria', { id, Status: 'cancelado' })
 
-        PesquisarDados()
+        PesquisarDados() 
       }
 
     } catch (error) {
@@ -84,10 +85,15 @@ const VerificacaoDiaria: React.FC = () => {
     }
   }
 
+  // EXPORTS
+  const pdfExportComponent = React.useRef<PDFExport>(null);
+
   return (
     <>
       <Menu />
       <Container>
+          
+        <TabelaResultadoPesquisa>
         <form onSubmit={PesquisarDados}>
           <a href="#" onClick={() => history.replace('/')}>
             <MdArrowBack /> Voltar
@@ -101,12 +107,27 @@ const VerificacaoDiaria: React.FC = () => {
           </PesquisaInput>
 
         </form>
-        <TabelaResultadoPesquisa>
           { resultado && (
             <>
             <button onClick={() => FecharDia()}>
                       <MdDelete  size="17px" /> Fechar dia
                     </button>
+
+                    <button
+          className="k-button"
+          onClick={() => {
+            if (pdfExportComponent.current) {
+              pdfExportComponent.current.save();
+            }
+          }}
+        >
+          Export PDF
+        </button>
+
+
+
+
+
             <TabelaResultadoPesquisaItem style={{ fontWeight: 'bold', marginBottom: 10 }}>
                   <Bloco30item>
                     <span>Nome completo</span>
@@ -178,10 +199,12 @@ const VerificacaoDiaria: React.FC = () => {
                     </button>
                   </Bloco30item>
                 </TabelaResultadoPesquisaItem>
+                
               )
             })
             
                   
+            
           ) : (
             <div></div>
           )}

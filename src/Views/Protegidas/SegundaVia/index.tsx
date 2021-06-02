@@ -40,7 +40,7 @@ const SegundaVia: React.FC = () => {
 
 		async function BuscarDados() {
 
-			const { data }: any = await Api.get(`/registro/${caminho[2]}`)
+			const { data } = await Api.get(`/registro/${caminho[2]}`)
 			console.log(data)
 
 			return setDados( data[0] )
