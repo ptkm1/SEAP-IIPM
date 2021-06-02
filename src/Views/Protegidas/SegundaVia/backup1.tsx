@@ -1,81 +1,100 @@
 import axios from 'axios';
 import React, { FormEvent, useCallback, useContext, useEffect, useRef, useState } from 'react';
-//Icones
-import { CgArrowLeft } from 'react-icons/cg';
-import { MdAssignmentTurnedIn } from 'react-icons/md';
+import { CgArrowLeft } from "react-icons/cg";
 import { useHistory } from 'react-router-dom';
-import { isArrayLiteralExpression } from 'typescript';
-//Componentes e Styleds
 import { BotãoPreto } from '../../../App/Componentes/Botoes/Botoes.Styled';
 import { BTNVoltar } from '../../../App/Componentes/Botoes/BotoesVoltar.Styled';
 import Camera from '../../../App/Componentes/Camera';
 import { BlocoInputGrande } from '../../../App/Componentes/Inputs/Inputs.Styled';
 import Menu from '../../../App/Componentes/Menu';
 import { RegistroContext } from '../../../App/Contexts/RegistroRGBD';
-import { Container, Form, Form2, Form2L, Form2R, Form2X } from '../../../App/Styles/FormTemplate.Styled';
+import {
+	Container,
+	Form,
+	Form2,
+	Form2L,
+	Form2R,
+	Form2X
+} from '../../../App/Styles/FormTemplate.Styled';
 import Api from '../../../Infra/Servicos/Api';
 
-const Registro: React.FC = () => {
-	const usuario: any = localStorage.getItem('@pml/usuario');
-	const usuarioParseado = JSON.parse(usuario);
+const SegundaVia: React.FC = () => {
 
-	const { imagemRegistro, setImagemRegistro } = useContext(RegistroContext);
+	const usuario: any = localStorage.getItem('@pml/usuario')
+	const usuarioParseado = JSON.parse(usuario)
+	const [ dados,setDados ] = useState<any>()
+
 
 	const [ sexo,setSexo ]: any = useState()
 
-	
-	console.log(imagemRegistro)
-	const history = useHistory();
+	const history = useHistory()
+
+	const caminho: any = window.location.pathname.split('/')
+	const { imagemRegistro, setImagemRegistro } = useContext(RegistroContext);
+
+	useEffect(()=>{
+
+		async function BuscarDados() {
+
+			const { data }: any = await Api.get(`/registro/${caminho[2]}`)
+
+			return setDados( data[0] )
+		}
+
+		BuscarDados()
+	},[])
 
 	// UseRefs
-	const NRG: any = useRef<HTMLInputElement>();
-	const Via: any = useRef<HTMLInputElement>();
-	const Isençao: any = useRef<HTMLInputElement>();
-	const Result: any = useRef<HTMLInputElement>();
-	const Usuario: any = useRef<HTMLInputElement>();
-	const Posto: any = useRef<HTMLInputElement>();
-	const NomeCompleto: any = useRef<HTMLInputElement>();
-	const NomePai: any = useRef<HTMLInputElement>();
-	const NomeMae: any = useRef<HTMLInputElement>();
-	const DataNasc: any = useRef<HTMLInputElement>();
-	const Cpf: any = useRef<HTMLInputElement>();
-	const Pis: any = useRef<HTMLInputElement>();
-	const Tel: any = useRef<HTMLInputElement>();
-	const Sexo: any = useRef<HTMLInputElement>();
-	const Instruçao: any = useRef<HTMLInputElement>();
-	const Profissao: any = useRef<HTMLInputElement>();
-	const EstadoCivil: any = useRef<HTMLInputElement>();
-	const Certidao: any = useRef<HTMLInputElement>();
-	const Comarca: any = useRef<HTMLInputElement>();
-	const Distrito: any = useRef<HTMLInputElement>();
-	const Livro: any = useRef<HTMLInputElement>();
-	const Folha: any = useRef<HTMLInputElement>();
-	const Termo: any = useRef<HTMLInputElement>();
-	const DataRegistro: any = useRef<HTMLInputElement>();
-	const DataCertidao: any = useRef<HTMLInputElement>();
-	const Altura: any = useRef<HTMLInputElement>();
-	const Cutis: any = useRef<HTMLInputElement>();
-	const CorCabelo: any = useRef<HTMLInputElement>();
-	const TipoCabelo: any = useRef<HTMLInputElement>();
-	const CorOlhos: any = useRef<HTMLInputElement>();
-	const TipoOlhos: any = useRef<HTMLInputElement>();
-	const Barba: any = useRef<HTMLInputElement>();
-	const Bigode: any = useRef<HTMLInputElement>();
-	const Anomalias: any = useRef<HTMLInputElement>();
-	const Numero: any = useRef<HTMLInputElement>();
-	const Endereco: any = useRef<HTMLInputElement>();
-	const Complemento: any = useRef<HTMLInputElement>();
-	const Bairro: any = useRef<HTMLInputElement>();
-	const Cep: any = useRef<HTMLInputElement>();
-	const Estado: any = useRef<HTMLInputElement>();
-	const Cidade: any = useRef<HTMLInputElement>();
-	const EstadoNaturalidade: any = useRef<HTMLInputElement>();
-	const CidadeNaturalidade: any = useRef<HTMLInputElement>();
-	const NumeroDaFicha: any = useRef<HTMLInputElement>();
-	const Observaçao: any = useRef<HTMLInputElement>();
+		const NRG:any = useRef<HTMLInputElement>()
+		const Via:any = useRef<HTMLInputElement>()
+		const Isençao:any = useRef<HTMLInputElement>()
+		const Result:any = useRef<HTMLInputElement>()
+		const Usuario:any = useRef<HTMLInputElement>()
+		const Posto:any = useRef<HTMLInputElement>()
+		const NomeCompleto:any = useRef<HTMLInputElement>()
+		const NomePai:any = useRef<HTMLInputElement>()
+		const NomeMae:any = useRef<HTMLInputElement>()
+		const DataNasc:any = useRef<HTMLInputElement>()
+		const Cpf:any = useRef<HTMLInputElement>()
+		const Pis:any = useRef<HTMLInputElement>()
+		const Tel:any = useRef<HTMLInputElement>()
+		const Sexo:any = useRef<HTMLInputElement>()
+		const Instruçao:any = useRef<HTMLInputElement>()
+		const Profissao:any = useRef<HTMLInputElement>()
+		const EstadoCivil:any = useRef<HTMLInputElement>()
+		const Certidao:any = useRef<HTMLInputElement>()
+		const Comarca:any = useRef<HTMLInputElement>()
+		const Distrito:any = useRef<HTMLInputElement>()
+		const Livro:any = useRef<HTMLInputElement>()
+		const Folha:any = useRef<HTMLInputElement>()
+		const Termo:any = useRef<HTMLInputElement>()
+		const DataRegistro:any = useRef<HTMLInputElement>()
+		const DataCertidao:any = useRef<HTMLInputElement>()
+		const Altura:any = useRef<HTMLInputElement>()
+		const Cutis:any = useRef<HTMLInputElement>()
+		const CorCabelo:any = useRef<HTMLInputElement>()
+		const TipoCabelo:any = useRef<HTMLInputElement>()
+		const CorOlhos:any = useRef<HTMLInputElement>()
+		const TipoOlhos:any = useRef<HTMLInputElement>()
+		const Barba:any = useRef<HTMLInputElement>()
+		const Bigode:any = useRef<HTMLInputElement>()
+		const Anomalias: any = useRef<HTMLInputElement>();
+		const Numero:any = useRef<HTMLInputElement>()
+		const Endereco:any = useRef<HTMLInputElement>()
+		const Complemento:any = useRef<HTMLInputElement>()
+		const Bairro:any = useRef<HTMLInputElement>()
+		const Cep:any = useRef<HTMLInputElement>()
+		const Estado:any = useRef<HTMLInputElement>()
+		const Cidade:any = useRef<HTMLInputElement>()
+		const EstadoNaturalidade: any = useRef<HTMLInputElement>();
+		const CidadeNaturalidade: any = useRef<HTMLInputElement>();
+		const NumeroDaFicha: any = useRef<HTMLInputElement>();
+		const Observaçao: any = useRef<HTMLInputElement>();
 
-	const SubmeterDados = useCallback(async (e: FormEvent) => {
-		e.preventDefault();
+
+	const SubmeterDados = useCallback( async ( e: FormEvent ) => {
+
+		e.preventDefault()
 
 		const obj = {
 			NRG: NRG.current?.value,
@@ -123,12 +142,11 @@ const Registro: React.FC = () => {
 			Foto3x4: imagemRegistro,
 			NumeroDaFicha: NumeroDaFicha.current?.value,
 			Folha: Folha.current?.value,
-		};
+		 }
 
-		const { data } = await Api.post('/registrorgbd', obj);
+		const { data } = await Api.post('/registrorgbd', obj)
 
-		alert(data.mensagem);
-	}, []);
+	},[])
 
 	const [Estados, setEstados] = useState<any>([]);
 	const [Cidades, setCidades] = useState<any>([]);
@@ -177,28 +195,30 @@ const Registro: React.FC = () => {
 		setCidadesNaturalidade(data);
 	}
 
+
 	return (
 		<>
 			<Menu />
 
-			<BTNVoltar onClick={() => history.goBack()}>
-				<CgArrowLeft size="17px" /> <h3>Voltar</h3>
-			</BTNVoltar>
+      <BTNVoltar onClick={ ()=> history.goBack() } >
+        <CgArrowLeft size="17px" />
+      </BTNVoltar>
 
-			<Container id="conteudos" className="scrollPage">
-				<form onSubmit={SubmeterDados}>
+			<Container >
+
+				{ dados ? (<form onSubmit={SubmeterDados}>
 					<Form>
 						<BlocoInputGrande>
 							<label className="noprint" htmlFor="rg">
 								Numero do RG
 							</label>
-							<input type="text" id="rg" ref={NRG} required />
+							<input type="text" id="rg" ref={NRG} value={dados.NRG} required />
 						</BlocoInputGrande>
 						<BlocoInputGrande>
 							<label className="noprint" htmlFor="via">
 								Via
 							</label>
-							<select id="via" ref={Via} onChange={(e) => setVia(e.target.value)} required>
+							<select id="via" ref={Via} onChange={(e) => setVia(e.target.value)} value={dados.Via} required>
 								<option value="">Escolha a via</option>
 								<option value="1º VIA">1ª VIA</option>
 								<option value="2ª VIA">2ª VIA</option>
@@ -211,7 +231,7 @@ const Registro: React.FC = () => {
 							<label className="noprint" htmlFor="isenção">
 								Isenção
 							</label>
-							<select className="noprint" id="isenção" ref={Isençao} onChange={(e) => setIsençao(e.target.value)} required>
+							<select className="noprint" id="isenção" ref={Isençao} onChange={(e) => setIsençao(e.target.value)} value={dados.Isençao} required>
 								<option value="">Situação do pagamento</option>
 								<option value="pago">pago</option>
 								<option value="isento">isento</option>
@@ -221,14 +241,14 @@ const Registro: React.FC = () => {
 							<label className="noprint" htmlFor="resultado">
 								Resultado
 							</label>
-							<input type="text" className="noprint" id="resultado" value={Resultado} ref={Result} required />
+							<input type="text" className="noprint" id="resultado" value={Resultado} ref={Result}  required />
 						</BlocoInputGrande>
 						<div style={{ display: 'flex' }}>
 							<BlocoInputGrande>
 								<label className="noprint" htmlFor="usuario">
 									Usuario
 								</label>
-								<input type="text" id="usuario" ref={Usuario} value={usuarioParseado.nome.split(' ')[0]} required />
+								<input type="text" id="usuario" ref={Usuario} value={usuarioParseado.nome.split(' ')[0]}  required />
 							</BlocoInputGrande>
 							<BlocoInputGrande>
 								<label className="noprint" htmlFor="posto">
@@ -242,26 +262,26 @@ const Registro: React.FC = () => {
 							<label className="noprint" htmlFor="nome_completo">
 								Nome Completo
 							</label>
-							<input type="text" id="nome_completo" ref={NomeCompleto} required />
+							<input type="text" id="nome_completo" ref={NomeCompleto} value={dados.NomeCompleto} required />
 						</BlocoInputGrande>
 						<BlocoInputGrande>
 							<label className="noprint" htmlFor="nome_pai">
 								Nome do pai
 							</label>
-							<input type="text" id="nome_pai" ref={NomePai} required />
+							<input type="text" id="nome_pai" ref={NomePai} value={dados.NomePai} required />
 						</BlocoInputGrande>
 						<BlocoInputGrande>
 							<label className="noprint" htmlFor="nome_mae">
 								Nome da mãe
 							</label>
-							<input type="text" id="nome_mae" ref={NomeMae} required />
+							<input type="text" id="nome_mae" ref={NomeMae} value={dados.NomeMae} required />
 						</BlocoInputGrande>
 
 						<BlocoInputGrande>
 							<label className="noprint" htmlFor="data_nascimento">
 								Data de Nascimento
 							</label>
-							<input type="date" id="data_nascimento" ref={DataNasc} required />
+							<input type="date" id="data_nascimento" ref={DataNasc} value={dados.DataNasc} required />
 						</BlocoInputGrande>
 
 
@@ -308,14 +328,14 @@ const Registro: React.FC = () => {
 							<label className="noprint" htmlFor="telefone">
 								Telefone
 							</label>
-							<input type="text" id="telefone" ref={Tel} required />
+							<input type="text" id="telefone" ref={Tel} value={dados.Tel} required />
 						</BlocoInputGrande>
 						<Form2>
 						<BlocoInputGrande>
 							<label className="noprint" htmlFor="sexo">
 								Sexo
 							</label>
-							<select id="sexo" ref={Sexo} onChange={ e => setSexo(e.target.value) } required>
+							<select id="sexo" ref={Sexo} onChange={ e => setSexo(e.target.value) } value={dados.Sexo} required>
 								<option value="Masculino">Masculino</option>
 								<option value="Feminino">Feminino</option>
 							</select>
@@ -324,7 +344,7 @@ const Registro: React.FC = () => {
 							<label className="noprint" htmlFor="instruçao">
 								Instrução
 							</label>
-							<select id="instruçao" ref={Instruçao} required>
+							<select id="instruçao" ref={Instruçao} value={dados.Instruçao} required>
 								<option value="">Escolha um valor</option>
 								<option value="Rudimentar">Rudimentar</option>
 								<option value="Não Alfabetizado">Não Alfabetizado</option>
@@ -343,14 +363,14 @@ const Registro: React.FC = () => {
 								<label className="noprint" htmlFor="cpf">
 									CPF
 								</label>
-								<input type="text" id="cpf" ref={Cpf} required />
+								<input type="text" id="cpf" ref={Cpf} value={dados.Cpf} required />
 							</BlocoInputGrande>
 
 							<BlocoInputGrande>
 								<label className="noprint" htmlFor="pis">
 									PIS
 								</label>
-								<input type="text" id="pis" ref={Pis} required />
+								<input type="text" id="pis" ref={Pis} value={dados.Pis} required />
 							</BlocoInputGrande>
 
 						</Form2>
@@ -359,7 +379,7 @@ const Registro: React.FC = () => {
 							<label className="noprint" htmlFor="profissao">
 								Profissao
 							</label>
-							<select id="profissao" ref={Profissao} style={{ width: "100%" }} required>
+							<select id="profissao" ref={Profissao} style={{ width: "100%" }} value={dados.Profissao} required>
 								<option value="">Escolha um valor</option>
 								<option value="Outros">Outros</option>
 								<option value="Advogado">Advogado</option>
@@ -377,7 +397,7 @@ const Registro: React.FC = () => {
 								<label className="noprint" htmlFor="estado_civil">
 									Estado Civil
 								</label>
-								<select id="estado_civil" ref={EstadoCivil} required>
+								<select id="estado_civil" ref={EstadoCivil} value={dados.EstadoCivil} required>
 									<option value="">Escolha um valor</option>
 									<option value="Solteiro">Solteiro</option>
 									<option value="Casado">Casado</option>
@@ -389,7 +409,7 @@ const Registro: React.FC = () => {
 								<label className="noprint" htmlFor="certidao">
 									Certidão
 								</label>
-								<select id="certidao" ref={Certidao} required>
+								<select id="certidao" ref={Certidao} value={dados.Certidao} required>
 									<option value="">Escolha um valor</option>
 									<option value="Nasc.">Nascimento</option>
 									<option value="Cas.">Casamento</option>
@@ -404,26 +424,26 @@ const Registro: React.FC = () => {
 								<label className="noprint" htmlFor="comarca">
 									Comarca
 								</label>
-								<input type="text" id="comarca" ref={Comarca} required />
+								<input type="text" id="comarca" ref={Comarca} value={dados.Comarca} required />
 							</BlocoInputGrande>
 							<BlocoInputGrande>
 								<label className="noprint" htmlFor="distrito">
 									Distrito
 								</label>
-								<input type="text" id="distrito" className="id_estadomora1" ref={Distrito} required />
+								<input type="text" id="distrito" className="id_estadomora1" ref={Distrito} value={dados.Distrito} required />
 							</BlocoInputGrande>
 
 							<BlocoInputGrande>
 								<label className="noprint" htmlFor="livro">
 									Livro
 								</label>
-								<input type="text" id="livro" ref={Livro} required />
+								<input type="text" id="livro" ref={Livro} value={dados.Livro} required />
 							</BlocoInputGrande>
 							<BlocoInputGrande>
 								<label className="noprint" htmlFor="folha">
 									Folha
 								</label>
-								<input type="text" id="folha" ref={Folha} required />
+								<input type="text" id="folha" ref={Folha} value={dados.Folha} required />
 							</BlocoInputGrande>
 						</Form2L>
 						<Form2R>
@@ -431,13 +451,13 @@ const Registro: React.FC = () => {
 								<label className="noprint" htmlFor="termo">
 									Termo
 								</label>
-								<input type="text" id="termo" ref={Termo} required />
+								<input type="text" id="termo" ref={Termo} value={dados.Termo} required />
 							</BlocoInputGrande>
 							<BlocoInputGrande>
 								<label className="noprint" htmlFor="data_registro">
 									Data de Registro
 								</label>
-								<input type="date" id="data_registro" ref={DataRegistro} required />
+								<input type="date" id="data_registro" ref={DataRegistro} value={dados.DataRegistro} required />
 							</BlocoInputGrande>
 						</Form2R>
 					</Form2>
@@ -448,21 +468,21 @@ const Registro: React.FC = () => {
 								<label className="noprint" htmlFor="data_certidao">
 									Data de Certidão
 								</label>
-								<input type="date" id="data_certidao" ref={DataCertidao} required />
+								<input type="date" id="data_certidao" ref={DataCertidao} value={dados.DataCertidao} required />
 							</BlocoInputGrande>
 
 							<BlocoInputGrande>
 								<label className="noprint" htmlFor="altura">
 									Altura
 								</label>
-								<input type="text" id="altura" ref={Altura} required />
+								<input type="text" id="altura" ref={Altura} value={dados.Altura} required />
 							</BlocoInputGrande>
 
 							<BlocoInputGrande>
 								<label className="noprint" htmlFor="cutis">
 									Cutis
 								</label>
-								<select id="cutis" ref={Cutis} required>
+								<select id="cutis" ref={Cutis} value={dados.Cutis} required>
 									<option value="">Escolha um valor</option>
 									<option value="Preto">Preto</option>
 									<option value="pardo">Pardo</option>
@@ -475,7 +495,7 @@ const Registro: React.FC = () => {
 								<label className="noprint" htmlFor="cor_cabelo">
 									Cor do cabelo
 								</label>
-								<select id="cor_cabelo" ref={CorCabelo} required>
+								<select id="cor_cabelo" ref={CorCabelo} value={dados.CorCabelo} required>
 									<option value="">Escolha um valor</option>
 									<option value="castanhos">Castanhos</option>
 									<option value="preto">Preto</option>
@@ -491,7 +511,7 @@ const Registro: React.FC = () => {
 								<label className="noprint" htmlFor="tipo_cabelo">
 									Tipo do cabelo
 								</label>
-								<select id="tipo_cabelo" ref={TipoCabelo} required>
+								<select id="tipo_cabelo" ref={TipoCabelo} value={dados.} required>
 									<option value="">Escolha um valor</option>
 									<option value="Liso">Liso</option>
 									<option value="Ondulado">Ondulado</option>
@@ -503,7 +523,7 @@ const Registro: React.FC = () => {
 								<label className="noprint" htmlFor="cor_olhos">
 									Cor dos olhos
 								</label>
-								<select id="cor_olhos" ref={CorOlhos} required>
+								<select id="cor_olhos" ref={CorOlhos} value={dados.CorOlhos} required>
 									<option value="">Escolha um valor</option>
 									<option value="Castanhos">Castanhos</option>
 									<option value="Pretos">Pretos</option>
@@ -518,7 +538,7 @@ const Registro: React.FC = () => {
 								<label style={{ fontSize:15 }} className="noprint" htmlFor="tipo_olhos">
 									Tipo dos olhos
 								</label>
-								<select id="tipo_olhos" ref={TipoOlhos} required>
+								<select id="tipo_olhos" ref={TipoOlhos} value={dados.TipoOlhos} required>
 									<option value="">Escolha um valor</option>
 									<option value="Redondos">Redondos</option>
 									<option value="Orientais">Orientais</option>
@@ -559,7 +579,7 @@ const Registro: React.FC = () => {
 								<label className="noprint" htmlFor="bigode">
 									Bigode
 								</label>
-								<select id="bigode" ref={Bigode} required>
+								<select id="bigode" ref={Bigode} value={dados.Bigode} required>
 									<option value="">Em Branco</option>
 									<option value="Nenhum">Nenhum</option>
 									<option value="Fino">Fino</option>
@@ -588,13 +608,13 @@ const Registro: React.FC = () => {
 									<label className="noprint" htmlFor="endereco">
 										Endereço
 									</label>
-									<input type="text" id="endereco" ref={Endereco} required />
+									<input type="text" id="endereco" ref={Endereco} value={dados.Endereco} required />
 								</BlocoInputGrande>
 								<BlocoInputGrande>
 									<label className="noprint" htmlFor="numero">
 										Nº
 									</label>
-									<input type="text" id="numero" ref={Numero} required />
+									<input type="text" id="numero" ref={Numero} value={dados.Numero} required />
 								</BlocoInputGrande>
 							</div>
 							<div>
@@ -603,14 +623,14 @@ const Registro: React.FC = () => {
 								<label className="noprint" htmlFor="complemento">
 									Complemento
 								</label>
-								<input type="text" id="complemento" ref={Complemento} required />
+								<input type="text" id="complemento" ref={Complemento} value={dados.Complemento} required />
 							</BlocoInputGrande>
 
 							<BlocoInputGrande>
 								<label className="noprint" htmlFor="bairro">
 									Bairro
 								</label>
-								<input type="text" id="bairro" ref={Bairro} required />
+								<input type="text" id="bairro" ref={Bairro} value={dados.Bairro} required />
 							</BlocoInputGrande>
 						</Form2R>
 							</div>
@@ -623,7 +643,7 @@ const Registro: React.FC = () => {
 								<label className="noprint" htmlFor="cep">
 									CEP
 								</label>
-								<input type="text" id="cep" ref={Cep} required />
+								<input type="text" id="cep" ref={Cep}  required />
 							</BlocoInputGrande>
 
 							<BlocoInputGrande>
@@ -631,7 +651,7 @@ const Registro: React.FC = () => {
 									Est. Residência
 								</label>
 								<select id="estadoDeNaturalidade" ref={EstadoNaturalidade} onChange={(e) => { 
-									setIdCidadeNaturalidade(e.target.value)}} required>
+									setIdCidadeNaturalidade(e.target.value)}}  required>
 									<option value="">Escolha um Estado</option>
 									{EstadosNaturalidade.map((e: any) => (
 										<option key={e.id} value={e.id}>
@@ -645,7 +665,7 @@ const Registro: React.FC = () => {
 								<label style={{ fontSize: '15px' }} className="noprint" htmlFor="cidadeNaturalidade">
 									Cid.de Residência
 								</label>
-								<select id="cidadeNaturalidade" ref={CidadeNaturalidade} onClick={() => BuscarCidadeN() } required>
+								<select id="cidadeNaturalidade" ref={CidadeNaturalidade} onClick={() => BuscarCidadeN() }  required>
 									<option value="">Escolha um valor</option>
 									{CidadesNaturalidade.map((e: any) => {
 										return (
@@ -706,7 +726,7 @@ const Registro: React.FC = () => {
 								<label className="noprint" htmlFor="numeroFicha">
 									Nº da Ficha
 								</label>
-								<input type="text" className="noprint" max="14" id="numeroFicha" ref={NumeroDaFicha} required  />
+								<input type="text" className="noprint" max="14" id="numeroFicha" ref={NumeroDaFicha} value={dados.NumeroDaFicha} required  />
 							</BlocoInputGrande>
 
 
@@ -721,10 +741,12 @@ const Registro: React.FC = () => {
 							</div>
 						</div>
 					</Form2>
-				</form>
+
+        </form>) : (<div>Carregando Dados...</div>) }
+
 			</Container>
 		</>
-	);
-};
+	)
+}
 
-export default Registro;
+export default SegundaVia

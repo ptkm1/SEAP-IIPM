@@ -1,13 +1,10 @@
-import axios from 'axios';
-import React, { FormEvent, useCallback, useContext, useEffect, useRef, useState } from 'react';
+import React, { FormEvent, useCallback, useEffect, useRef, useState } from 'react';
 import { CgArrowLeft } from "react-icons/cg";
 import { useHistory } from 'react-router-dom';
 import { BotãoPreto } from '../../../App/Componentes/Botoes/Botoes.Styled';
 import { BTNVoltar } from '../../../App/Componentes/Botoes/BotoesVoltar.Styled';
-import Camera from '../../../App/Componentes/Camera';
 import { BlocoInputGrande } from '../../../App/Componentes/Inputs/Inputs.Styled';
 import Menu from '../../../App/Componentes/Menu';
-import { RegistroContext } from '../../../App/Contexts/RegistroRGBD';
 import {
 	Container,
 	Form,
@@ -27,12 +24,7 @@ const SegundaVia: React.FC = () => {
 
 	const [ sexo,setSexo ]: any = useState()
 
-
-	const { imagemRegistro, setImagemRegistro } = useContext(RegistroContext);
-
-	
-	console.log(imagemRegistro)
-	const history = useHistory();
+	const history = useHistory()
 
 	const caminho: any = window.location.pathname.split('/')
 
@@ -40,8 +32,7 @@ const SegundaVia: React.FC = () => {
 
 		async function BuscarDados() {
 
-			const { data } = await Api.get(`/registro/${caminho[2]}`)
-			console.log(data)
+			const { data }: any = await Api.get(`/registro/${caminho[2]}`)
 
 			return setDados( data[0] )
 		}
@@ -50,51 +41,47 @@ const SegundaVia: React.FC = () => {
 	},[])
 
 	// UseRefs
-	const NRG: any = useRef<HTMLInputElement>();
-	const Via: any = useRef<HTMLInputElement>();
-	const Isençao: any = useRef<HTMLInputElement>();
-	const Result: any = useRef<HTMLInputElement>();
-	const Usuario: any = useRef<HTMLInputElement>();
-	const Posto: any = useRef<HTMLInputElement>();
-	const NomeCompleto: any = useRef<HTMLInputElement>();
-	const NomePai: any = useRef<HTMLInputElement>();
-	const NomeMae: any = useRef<HTMLInputElement>();
-	const DataNasc: any = useRef<HTMLInputElement>();
-	const Cpf: any = useRef<HTMLInputElement>();
-	const Pis: any = useRef<HTMLInputElement>();
-	const Tel: any = useRef<HTMLInputElement>();
-	const Sexo: any = useRef<HTMLInputElement>();
-	const Instruçao: any = useRef<HTMLInputElement>();
-	const Profissao: any = useRef<HTMLInputElement>();
-	const EstadoCivil: any = useRef<HTMLInputElement>();
-	const Certidao: any = useRef<HTMLInputElement>();
-	const Comarca: any = useRef<HTMLInputElement>();
-	const Distrito: any = useRef<HTMLInputElement>();
-	const Livro: any = useRef<HTMLInputElement>();
-	const Folha: any = useRef<HTMLInputElement>();
-	const Termo: any = useRef<HTMLInputElement>();
-	const DataRegistro: any = useRef<HTMLInputElement>();
-	const DataCertidao: any = useRef<HTMLInputElement>();
-	const Altura: any = useRef<HTMLInputElement>();
-	const Cutis: any = useRef<HTMLInputElement>();
-	const CorCabelo: any = useRef<HTMLInputElement>();
-	const TipoCabelo: any = useRef<HTMLInputElement>();
-	const CorOlhos: any = useRef<HTMLInputElement>();
-	const TipoOlhos: any = useRef<HTMLInputElement>();
-	const Barba: any = useRef<HTMLInputElement>();
-	const Bigode: any = useRef<HTMLInputElement>();
-	const Anomalias: any = useRef<HTMLInputElement>();
-	const Numero: any = useRef<HTMLInputElement>();
-	const Endereco: any = useRef<HTMLInputElement>();
-	const Complemento: any = useRef<HTMLInputElement>();
-	const Bairro: any = useRef<HTMLInputElement>();
-	const Cep: any = useRef<HTMLInputElement>();
-	const Estado: any = useRef<HTMLInputElement>();
-	const Cidade: any = useRef<HTMLInputElement>();
-	const EstadoNaturalidade: any = useRef<HTMLInputElement>();
-	const CidadeNaturalidade: any = useRef<HTMLInputElement>();
-	const NumeroDaFicha: any = useRef<HTMLInputElement>();
-	const Observaçao: any = useRef<HTMLInputElement>();
+		const NRG:any = useRef<HTMLInputElement>()
+		const Via:any = useRef<HTMLInputElement>()
+		const Isençao:any = useRef<HTMLInputElement>()
+		const Result:any = useRef<HTMLInputElement>()
+		const Usuario:any = useRef<HTMLInputElement>()
+		const Posto:any = useRef<HTMLInputElement>()
+		const NomeCompleto:any = useRef<HTMLInputElement>()
+		const NomePai:any = useRef<HTMLInputElement>()
+		const NomeMae:any = useRef<HTMLInputElement>()
+		const DataNasc:any = useRef<HTMLInputElement>()
+		const Cpf:any = useRef<HTMLInputElement>()
+		const Pis:any = useRef<HTMLInputElement>()
+		const Tel:any = useRef<HTMLInputElement>()
+		const Sexo:any = useRef<HTMLInputElement>()
+		const Instruçao:any = useRef<HTMLInputElement>()
+		const Profissao:any = useRef<HTMLInputElement>()
+		const EstadoCivil:any = useRef<HTMLInputElement>()
+		const Certidao:any = useRef<HTMLInputElement>()
+		const Comarca:any = useRef<HTMLInputElement>()
+		const Distrito:any = useRef<HTMLInputElement>()
+		const Livro:any = useRef<HTMLInputElement>()
+		const Folha:any = useRef<HTMLInputElement>()
+		const Termo:any = useRef<HTMLInputElement>()
+		const DataRegistro:any = useRef<HTMLInputElement>()
+		const DataCertidao:any = useRef<HTMLInputElement>()
+		const Altura:any = useRef<HTMLInputElement>()
+		const Cutis:any = useRef<HTMLInputElement>()
+		const CorCabelo:any = useRef<HTMLInputElement>()
+		const TipoCabelo:any = useRef<HTMLInputElement>()
+		const CorOlhos:any = useRef<HTMLInputElement>()
+		const TipoOlhos:any = useRef<HTMLInputElement>()
+		const Barba:any = useRef<HTMLInputElement>()
+		const Bigode:any = useRef<HTMLInputElement>()
+		const Numero:any = useRef<HTMLInputElement>()
+		const Endereco:any = useRef<HTMLInputElement>()
+		const Complemento:any = useRef<HTMLInputElement>()
+		const Bairro:any = useRef<HTMLInputElement>()
+		const Cep:any = useRef<HTMLInputElement>()
+		const Estado:any = useRef<HTMLInputElement>()
+		const Cidade:any = useRef<HTMLInputElement>()
+		const Observaçao:any = useRef<HTMLInputElement>()
 
 
 	const SubmeterDados = useCallback( async ( e: FormEvent ) => {
@@ -133,220 +120,137 @@ const SegundaVia: React.FC = () => {
 			TipoOlhos: TipoOlhos.current?.value,
 			Barba: Barba.current?.value,
 			Bigode: Bigode.current?.value,
-			Anomalias: Anomalias.current?.value,
 			Numero: Numero.current?.value,
 			Endereco: Endereco.current?.value,
 			Complemento: Complemento.current?.value,
 			Bairro: Bairro.current?.value,
 			Cep: Cep.current?.value,
-			EstadoReside: Estado.current?.value,
-			CidadeReside: Cidade.current?.value,
-			EstadoDeNaturalidade: EstadoNaturalidade.current?.value,
-			CidadeDeNaturalidade: CidadeNaturalidade.current?.value, 
-			Observaçao: Observaçao.current?.value,
-			Foto3x4: imagemRegistro,
-			NumeroDaFicha: NumeroDaFicha.current?.value,
-			Folha: Folha.current?.value
-		}
+			Estado: Estado.current?.value,
+			Cidade: Cidade.current?.value,
+			Observaçao: Observaçao.current?.value }
 
 		const { data } = await Api.post('/registrorgbd', obj)
-		alert(data.mensagem + 'Segunda via cadastrada');
+
 	},[])
 
-	const [Estados, setEstados] = useState<any>([]);
-	const [Cidades, setCidades] = useState<any>([]);
-	const [IdCidade, setIdCidade] = useState<any>();
-
-	const [EstadosNaturalidade, setEstadosNaturalidade] = useState<any>([]);
-	const [CidadesNaturalidade, setCidadesNaturalidade] = useState<any>([]);
-	const [IdCidadeNaturalidade, setIdCidadeNaturalidade] = useState<any>();
-
-
-	const [Resultado, setResultado] = useState<any>();
-	const [ViaSt, setVia] = useState<any>();
-	const [IsençaoSt, setIsençao] = useState<any>();
-
-	const { setModal, modal } = useContext(RegistroContext)
+	const [Estados, setEstados] = useState<any>([])
+	const [Resultado, setResultado] = useState<any>()
+	const [ViaSt, setVia] = useState<any>()
+	const [IsençaoSt, setIsençao] = useState<any>()
 
 	useEffect(() => {
 		async function BuscarEstados() {
-			const { data } = await axios.get('https://br-cidade-estado-nodejs.glitch.me/estados');
-			setEstados(data);
-		}
-		async function BuscarEstadosN() {
-			const { data } = await axios.get('https://br-cidade-estado-nodejs.glitch.me/estados');
-			setEstadosNaturalidade(data);
+			const { data } = await Api.get('/estados')
+			setEstados(data)
 		}
 
 		if (ViaSt === '1º VIA' || IsençaoSt === 'isento') {
-			setResultado('0,00');
+			setResultado('0,00')
 		} else {
-			setResultado('39,39');
+			setResultado('39,39')
 		}
 
-		BuscarEstadosN();
-		BuscarEstados();
-	}, [Resultado, ViaSt, IsençaoSt]);
-
-	async function BuscarCidade() {
-		const { data } = await axios.get(`https://br-cidade-estado-nodejs.glitch.me/estados/${IdCidade}/cidades`);
-		setCidades(data);
-	}
-
-	async function BuscarCidadeN() {
-		const { data } = await axios.get(`https://br-cidade-estado-nodejs.glitch.me/estados/${IdCidadeNaturalidade}/cidades`);
-		setCidadesNaturalidade(data);
-	}
+		BuscarEstados()
+	}, [Resultado, ViaSt, IsençaoSt])
 
 
 	return (
 		<>
 			<Menu />
 
-			<BTNVoltar onClick={() => history.goBack()}>
-				<CgArrowLeft size="17px" />
-			</BTNVoltar>
+      <BTNVoltar onClick={ ()=> history.goBack() } >
+        <CgArrowLeft size="17px" />
+      </BTNVoltar>
 
-			<Container id="conteudos" className="scrollPage">
-				<form onSubmit={SubmeterDados}>
-					<Form>
-						<BlocoInputGrande>
-							<label className="noprint" htmlFor="rg" >
-								Numero do RG
-							</label>
-							<input type="text" id="rg" ref={NRG} required value={dados.NRG} />
-						</BlocoInputGrande>
-						<BlocoInputGrande>
-							<label className="noprint" htmlFor="via">
-								Via
-							</label>
-							<select id="via" ref={Via} onChange={(e) => setVia(e.target.value)} required>
+			<Container >
+
+				{ dados ? (<form onSubmit={SubmeterDados}>
+				<Form>
+					<BlocoInputGrande>
+						<label className="noprint" htmlFor="rg" >Numero do RG</label>
+						<input type="text" id="rg" value={ dados.NRG } ref={ NRG } />
+					</BlocoInputGrande>
+					<BlocoInputGrande>
+						<label className="noprint" htmlFor="via">Via</label>
+						<select id="via" value={ dados.Via } ref={Via} onChange={(e) => setVia(e.target.value)}>
 								<option value="">Escolha a via</option>
 								<option value="1º VIA">1ª VIA</option>
 								<option value="2ª VIA">2ª VIA</option>
 								<option value="3ª OU MAIS VIAS">3ª OU MAIS VIAS</option>
 								<option value="MUDANÇA DE ESTADO CIVIL">MEC</option>
 								<option value="RET. JUDICIAL">RET. JUDICIAL</option>
-							</select>
-						</BlocoInputGrande>
-						<BlocoInputGrande>
-							<label className="noprint" htmlFor="isenção">
-								Isenção
-							</label>
-							<select className="noprint" id="isenção" ref={Isençao} onChange={(e) => setIsençao(e.target.value)} required>
+						</select>
+
+					</BlocoInputGrande>
+					<BlocoInputGrande>
+						<label className="noprint" htmlFor="isenção">Isenção</label>
+						<select className="noprint" id="isenção" value={ dados.Isençao } ref={Isençao} onChange={(e) => setIsençao(e.target.value)}>
 								<option value="">Situação do pagamento</option>
 								<option value="pago">pago</option>
 								<option value="isento">isento</option>
 							</select>
+					</BlocoInputGrande>
+					<BlocoInputGrande>
+						<label className="noprint" htmlFor="resultado">Resultado</label>
+
+							{/* Verificar esse input de Resultado */}
+						<input type="text" className="noprint" id="resultado" value={ dados.Result } ref={ Result } />
+					</BlocoInputGrande>
+					<div style={{ display: 'flex' }}>
+						<BlocoInputGrande>
+							<label className="noprint" htmlFor="usuario">Usuario</label>
+							<input type="text" id="usuario" ref={ Usuario } value={usuarioParseado.nome} />
 						</BlocoInputGrande>
 						<BlocoInputGrande>
-							<label className="noprint" htmlFor="resultado">
-								Resultado
-							</label>
-							<input type="text" className="noprint" id="resultado" value={Resultado} ref={Result} required />
+							<label className="noprint" htmlFor="posto">Posto</label>
+							<input type="text" id="posto"  value={dados.Posto} ref={ Posto } />
 						</BlocoInputGrande>
-						<div style={{ display: 'flex' }}>
-							<BlocoInputGrande>
-								<label className="noprint" htmlFor="usuario">
-									Usuario
-								</label>
-								<input type="text" id="usuario" ref={Usuario} value={usuarioParseado.nome.split(' ')[0]} required />
-							</BlocoInputGrande>
-							<BlocoInputGrande>
-								<label className="noprint" htmlFor="posto">
-									Posto
-								</label>
-								<input type="text" id="posto" ref={Posto} value={usuarioParseado.posto} required />
-							</BlocoInputGrande>
-						</div>
+					</div>
 
+					<BlocoInputGrande>
+						<label className="noprint" htmlFor="nome_completo">Nome Completo</label>
+						<input type="text" id="nome_completo" ref={ NomeCompleto } value={usuarioParseado.posto} />
+					</BlocoInputGrande>
+					<BlocoInputGrande>
+						<label className="noprint" htmlFor="nome_pai">Nome do pai</label>
+						<input type="text" id="nome_pai" value={dados.NomePai} ref={ NomePai } />
+					</BlocoInputGrande>
+					<BlocoInputGrande>
+						<label className="noprint" htmlFor="nome_mae">Nome da mãe</label>
+						<input type="text" id="nome_mae" value={dados.NomeMae} ref={ NomeMae } />
+					</BlocoInputGrande>
+
+					<BlocoInputGrande>
+						<label className="noprint" htmlFor="data_nascimento">Data de Nascimento</label>
+						<input type="date" id="data_nascimento" value={dados.DataNasc} ref={ DataNasc } />
+					</BlocoInputGrande>
+
+					<div style={{ display: 'flex' }}>
 						<BlocoInputGrande>
-							<label className="noprint" htmlFor="nome_completo">
-								Nome Completo
-							</label>
-							<input type="text" id="nome_completo" ref={NomeCompleto} required />
-						</BlocoInputGrande>
-						<BlocoInputGrande>
-							<label className="noprint" htmlFor="nome_pai">
-								Nome do pai
-							</label>
-							<input type="text" id="nome_pai" ref={NomePai} required />
+							<label className="noprint" htmlFor="cpf">CPF</label>
+							<input type="text" id="cpf" value={dados.Cpf} ref={ Cpf } />
 						</BlocoInputGrande>
 						<BlocoInputGrande>
-							<label className="noprint" htmlFor="nome_mae">
-								Nome da mãe
-							</label>
-							<input type="text" id="nome_mae" ref={NomeMae} required />
+							<label className="noprint" htmlFor="pis">PIS</label>
+							<input type="text" id="pis" value={dados.Pis} ref={ Pis } />
 						</BlocoInputGrande>
+					</div>
 
-						<BlocoInputGrande>
-							<label className="noprint" htmlFor="data_nascimento">
-								Data de Nascimento
-							</label>
-							<input type="date" id="data_nascimento" ref={DataNasc} required />
-						</BlocoInputGrande>
-
-
-						<div style={{ display: 'flex' }}>
-
-						<BlocoInputGrande> 
-								<label  style={{ fontSize: 15 }} className="noprint" htmlFor="estado"> 
-									Estado Nasci.
-								</label>
-								<select id="estado" ref={Estado} onChange={(e) => setIdCidade(e.target.value)} required>
-									<option value="">Escolha uma cidade</option>
-									{Estados.map((e: any) => (
-										<option key={e.id} value={e.id}>
-											{e.id}
-										</option>
-									))}
-								</select>
-							</BlocoInputGrande>
-
-							<BlocoInputGrande>
-								<label style={{ fontSize: 15 }} className="noprint" htmlFor="cidade">
-									Cidade Nasci.
-								</label>
-								<select id="cidade" ref={Cidade} onClick={() => BuscarCidade()} required>
-									<option value="">Escolha um valor</option>
-									{Cidades.map((e: any) => {
-										return (
-											<option key={e.estadoId} value={e.cidade}>
-												{e.cidade}
-											</option>
-										);
-									})}
-								</select>
-							</BlocoInputGrande>
-
-
-						
-
-						
-							
-						</div>
-
-						<BlocoInputGrande>
-							<label className="noprint" htmlFor="telefone">
-								Telefone
-							</label>
-							<input type="text" id="telefone" ref={Tel} required />
-						</BlocoInputGrande>
-						<Form2>
-						<BlocoInputGrande>
-							<label className="noprint" htmlFor="sexo">
-								Sexo
-							</label>
-							<select id="sexo" ref={Sexo} onChange={ e => setSexo(e.target.value) } required>
+					<BlocoInputGrande>
+						<label className="noprint" htmlFor="telefone">Telefone</label>
+						<input type="text" id="telefone" value={dados.Tel} ref={ Tel } />
+					</BlocoInputGrande>
+					<BlocoInputGrande>
+						<label className="noprint" htmlFor="sexo">Sexo</label>
+						<select id="sexo" value={dados.Sexo} ref={Sexo} onChange={ e => setSexo(e.target.value) }>
 								<option value="Masculino">Masculino</option>
 								<option value="Feminino">Feminino</option>
-							</select>
-						</BlocoInputGrande>
-						<BlocoInputGrande>
-							<label className="noprint" htmlFor="instruçao">
-								Instrução
-							</label>
-							<select id="instruçao" ref={Instruçao} required>
+						</select>
+
+					</BlocoInputGrande>
+					<BlocoInputGrande>
+						<label className="noprint" htmlFor="instruçao">Instrução</label>
+						<select id="instruçao" value={dados.Instruçao} ref={ Instruçao } >
 								<option value="">Escolha um valor</option>
 								<option value="Rudimentar">Rudimentar</option>
 								<option value="Não Alfabetizado">Não Alfabetizado</option>
@@ -356,32 +260,11 @@ const SegundaVia: React.FC = () => {
 								<option value="2º Grau completo">2º Grau completo</option>
 								<option value="Sup. Incompleto">Sup. Incompleto</option>
 								<option value="Sup.Completo">Sup.Completo</option>
-							</select>
-						</BlocoInputGrande>
-						</Form2>
-						
-						<Form2>
-						<BlocoInputGrande>
-								<label className="noprint" htmlFor="cpf">
-									CPF
-								</label>
-								<input type="text" id="cpf" ref={Cpf} required />
-							</BlocoInputGrande>
-
-							<BlocoInputGrande>
-								<label className="noprint" htmlFor="pis">
-									PIS
-								</label>
-								<input type="text" id="pis" ref={Pis} required />
-							</BlocoInputGrande>
-
-						</Form2>
-
-							<BlocoInputGrande>
-							<label className="noprint" htmlFor="profissao">
-								Profissao
-							</label>
-							<select id="profissao" ref={Profissao} style={{ width: "100%" }} required>
+						</select>
+					</BlocoInputGrande>
+					<BlocoInputGrande>
+						<label className="noprint" htmlFor="profissao">Profissao</label>
+						<select id="profissao" value={dados.Profissao} ref={ Profissao } >
 								<option value="">Escolha um valor</option>
 								<option value="Outros">Outros</option>
 								<option value="Advogado">Advogado</option>
@@ -390,114 +273,89 @@ const SegundaVia: React.FC = () => {
 								<option value="Dona de Casa">Dona de Casa</option>
 								<option value="Empregada Doméstica">Empregada Doméstica</option>
 								<option value="Estudante">Estudante</option>
-							</select>
-						</BlocoInputGrande>
+						</select>
+					</BlocoInputGrande>
 
-
-						<div style={{ display: 'flex' }}>
-							<BlocoInputGrande>
-								<label className="noprint" htmlFor="estado_civil">
-									Estado Civil
-								</label>
-								<select id="estado_civil" ref={EstadoCivil} required>
+					<div style={{ display: 'flex' }}>
+						<BlocoInputGrande>
+							<label className="noprint" htmlFor="estado_civil">Estado Civil</label>
+							<select id="estado_civil" value={dados.EstadoCivil} ref={ EstadoCivil } >
 									<option value="">Escolha um valor</option>
 									<option value="Solteiro">Solteiro</option>
 									<option value="Casado">Casado</option>
 									<option value="Divorciado">Divorciado</option>
 									<option value="Viuvo4">Viuvo</option>
-								</select>
-							</BlocoInputGrande>
-							<BlocoInputGrande>
-								<label className="noprint" htmlFor="certidao">
-									Certidão
-								</label>
-								<select id="certidao" ref={Certidao} required>
+							</select>
+						</BlocoInputGrande>
+						<BlocoInputGrande>
+							<label className="noprint" htmlFor="certidao">Certidão</label>
+							<select id="certidao" value={dados.Certidao} ref={ Certidao } >
 									<option value="">Escolha um valor</option>
 									<option value="Nasc.">Nascimento</option>
 									<option value="Cas.">Casamento</option>
-								</select>
-							</BlocoInputGrande>
-						</div>
-					</Form>
+							</select>
+						</BlocoInputGrande>
+					</div>
+				</Form>
 
-					<Form2>
-						<Form2L>
-							<BlocoInputGrande>
-								<label className="noprint" htmlFor="comarca">
-									Comarca
-								</label>
-								<input type="text" id="comarca" ref={Comarca} required />
-							</BlocoInputGrande>
-							<BlocoInputGrande>
-								<label className="noprint" htmlFor="distrito">
-									Distrito
-								</label>
-								<input type="text" id="distrito" className="id_estadomora1" ref={Distrito} required />
-							</BlocoInputGrande>
+				<Form2>
+					<Form2L>
+						<BlocoInputGrande>
+							<label className="noprint" htmlFor="comarca">Comarca</label>
+							<input type="text" id="comarca" value={dados.Comarca} ref={ Comarca } />
+						</BlocoInputGrande>
+						<BlocoInputGrande>
+							<label className="noprint" htmlFor="distrito">Distrito</label>
+							<input type="text" id="distrito" value={dados.Distrito} ref={ Distrito } />
+						</BlocoInputGrande>
 
-							<BlocoInputGrande>
-								<label className="noprint" htmlFor="livro">
-									Livro
-								</label>
-								<input type="text" id="livro" ref={Livro} required />
-							</BlocoInputGrande>
-							<BlocoInputGrande>
-								<label className="noprint" htmlFor="folha">
-									Folha
-								</label>
-								<input type="text" id="folha" ref={Folha} required />
-							</BlocoInputGrande>
-						</Form2L>
-						<Form2R>
-							<BlocoInputGrande>
-								<label className="noprint" htmlFor="termo">
-									Termo
-								</label>
-								<input type="text" id="termo" ref={Termo} required />
-							</BlocoInputGrande>
-							<BlocoInputGrande>
-								<label className="noprint" htmlFor="data_registro">
-									Data de Registro
-								</label>
-								<input type="date" id="data_registro" ref={DataRegistro} required />
-							</BlocoInputGrande>
-						</Form2R>
-					</Form2>
+						<BlocoInputGrande>
+							<label className="noprint" htmlFor="livro">Livro</label>
+							<input type="text" id="livro" value={dados.Livro} ref={ Livro } />
+						</BlocoInputGrande>
+						<BlocoInputGrande>
+							<label className="noprint" htmlFor="folha">Folha</label>
+							<input type="text" id="folha" value={dados.Folha} ref={ Folha } />
+						</BlocoInputGrande>
+					</Form2L>
+					<Form2R>
+						<BlocoInputGrande>
+							<label className="noprint" htmlFor="termo">Termo</label>
+							<input type="text" id="termo" value={dados.Termo} ref={ Termo } />
+						</BlocoInputGrande>
+						<BlocoInputGrande>
+							<label className="noprint" htmlFor="data_registro">Data de Registro</label>
+							<input type="date" id="data_registro" value={dados.DataRegistro} ref={ DataRegistro } />
+						</BlocoInputGrande>
+					</Form2R>
+				</Form2>
 
-					<Form2>
-						<Form2L>
-							<BlocoInputGrande>
-								<label className="noprint" htmlFor="data_certidao">
-									Data de Certidão
-								</label>
-								<input type="date" id="data_certidao" ref={DataCertidao} required />
-							</BlocoInputGrande>
+				<Form2>
+					<Form2L>
+						<BlocoInputGrande>
+							<label className="noprint" htmlFor="data_certidao">Data de Certidão</label>
+							<input type="date" id="data_certidao" value={dados.DataCertidao} ref={ DataCertidao } />
+						</BlocoInputGrande>
 
-							<BlocoInputGrande>
-								<label className="noprint" htmlFor="altura">
-									Altura
-								</label>
-								<input type="text" id="altura" ref={Altura} required />
-							</BlocoInputGrande>
+						<BlocoInputGrande>
+							<label className="noprint" htmlFor="altura">Altura</label>
+							<input type="text" id="altura" value={dados.Altura} ref={ Altura } />
+						</BlocoInputGrande>
 
-							<BlocoInputGrande>
-								<label className="noprint" htmlFor="cutis">
-									Cutis
-								</label>
-								<select id="cutis" ref={Cutis} required>
+						<BlocoInputGrande>
+							<label className="noprint" htmlFor="cutis">Cutis</label>
+							<select id="cutis" value={dados.Cutis} ref={ Cutis } >
 									<option value="">Escolha um valor</option>
 									<option value="Preto">Preto</option>
 									<option value="pardo">Pardo</option>
 									<option value="Amarelo">Amarelo</option>
 									<option value="branco">Branco</option>
-								</select>
-							</BlocoInputGrande>
+							</select>
+						</BlocoInputGrande>
 
-							<BlocoInputGrande>
-								<label className="noprint" htmlFor="cor_cabelo">
-									Cor do cabelo
-								</label>
-								<select id="cor_cabelo" ref={CorCabelo} required>
+						<BlocoInputGrande>
+							<label className="noprint" htmlFor="cor_cabelo">Cor do cabelo</label>
+							<select id="cor_cabelo" value={dados.CorCabelo} ref={ CorCabelo } >
 									<option value="">Escolha um valor</option>
 									<option value="castanhos">Castanhos</option>
 									<option value="preto">Preto</option>
@@ -505,27 +363,23 @@ const SegundaVia: React.FC = () => {
 									<option value="grisalho">Grisalho</option>
 									<option value="ruivos">Ruivos</option>
 									<option value="brancos">Brancos</option>
-								</select>
-							</BlocoInputGrande>
-						</Form2L>
-						<Form2L>
-							{/* <BlocoInputGrande>
-								<label className="noprint" htmlFor="tipo_cabelo">
-									Tipo do cabelo
-								</label>
-								<select id="tipo_cabelo" ref={TipoCabelo} required>
+							</select>
+						</BlocoInputGrande>
+					</Form2L>
+					<Form2L>
+						{/* <BlocoInputGrande>
+							<label className="noprint" htmlFor="tipo_cabelo">Tipo do cabelo</label>
+							<select id="tipo_cabelo" value={dados.TipoCabelo} ref={ TipoCabelo } >
 									<option value="">Escolha um valor</option>
 									<option value="Liso">Liso</option>
 									<option value="Ondulado">Ondulado</option>
 									<option value="Encaracolado">Encaracolado</option>
 									<option value="Crespo">Crespo</option>
-								</select>
-							</BlocoInputGrande> */}
-							<BlocoInputGrande>
-								<label className="noprint" htmlFor="cor_olhos">
-									Cor dos olhos
-								</label>
-								<select id="cor_olhos" ref={CorOlhos} required>
+							</select>
+						</BlocoInputGrande> */}
+						<BlocoInputGrande>
+							<label className="noprint" htmlFor="cor_olhos">Cor dos olhos</label>
+							<select id="cor_olhos" value={dados.CorOlhos} ref={ CorOlhos } >
 									<option value="">Escolha um valor</option>
 									<option value="Castanhos">Castanhos</option>
 									<option value="Pretos">Pretos</option>
@@ -533,28 +387,25 @@ const SegundaVia: React.FC = () => {
 									<option value="Duas Cores">Duas Cores</option>
 									<option value="Verdes">Verdes</option>
 									<option value="Acizentados">Acizentados</option>
-								</select>
-							</BlocoInputGrande>
+							</select>
+						</BlocoInputGrande>
 
-							<BlocoInputGrande>
-								<label style={{ fontSize:15 }} className="noprint" htmlFor="tipo_olhos">
-									Tipo dos olhos
-								</label>
-								<select id="tipo_olhos" ref={TipoOlhos} required>
+						<BlocoInputGrande>
+							<label className="noprint" htmlFor="tipo_olhos">Tipo dos olhos</label>
+							<select id="tipo_olhos" value={dados.TipoOlhos} ref={ TipoOlhos } >
 									<option value="">Escolha um valor</option>
 									<option value="Redondos">Redondos</option>
 									<option value="Orientais">Orientais</option>
 									<option value="Grandes">Grandes</option>
 									<option value="Pequenos">Pequenos</option>
-								</select>
-							</BlocoInputGrande>
+							</select>
+						</BlocoInputGrande>
 
-							<BlocoInputGrande>
-								<label className="noprint" htmlFor="barba">
-									Barba
-								</label>
-								{ sexo === 'Feminino' ? (
-									<select id="barba" ref={Barba} disabled>
+						<BlocoInputGrande>
+							<label className="noprint" htmlFor="barba">Barba</label>
+
+							{ sexo === 'Feminino' ? (
+									<select id="barba" value={dados.Barba} ref={Barba} disabled>
 									<option value="">Escolha um valor</option>
 									<option value="">Em Branco</option>
 									<option value="Imberbe">Imberbe</option>
@@ -575,18 +426,16 @@ const SegundaVia: React.FC = () => {
 								</select>
 
 								) }
-							</BlocoInputGrande>
-							
-						</Form2L>
-					</Form2>
 
-					<Form2>
-						<Form2X>
-							<BlocoInputGrande>
-								<label className="noprint" htmlFor="bigode">
-									Bigode
-								</label>
-								<select id="bigode" ref={Bigode} required>
+						</BlocoInputGrande>
+					</Form2L>
+				</Form2>
+
+				<Form2>
+					<Form2X>
+						<BlocoInputGrande>
+							<label className="noprint" htmlFor="bigode">Bigode</label>
+							<select id="bigode" value={dados.Bigode} ref={ Bigode } >
 									<option value="">Em Branco</option>
 									<option value="Nenhum">Nenhum</option>
 									<option value="Fino">Fino</option>
@@ -594,152 +443,74 @@ const SegundaVia: React.FC = () => {
 									<option value="Rapado">Rapado</option>
 									<option value="Aparado">Aparado</option>
 									<option value="Longo">Longo</option>
-								</select>
-							</BlocoInputGrande>
+							</select>
+						</BlocoInputGrande>
+						<BlocoInputGrande>
+							<label className="noprint" htmlFor="cor_olhos">Cor dos olhos</label>
+							<select id="cor_olhos">
+								<option value="0">Escolha um valor</option>
+							</select>
+						</BlocoInputGrande>
+						<div style={{ display: 'grid', gridTemplateColumns: '1fr 5fr' }}>
 							<BlocoInputGrande>
-								<label className="noprint" htmlFor="anomalias">
-									Anomalias
-								</label>
-								<input type="text" id="anomalias" ref={Anomalias} required />
-							</BlocoInputGrande>
-							<div style={{ display: 'grid', gridTemplateColumns: '5fr 1fr' }}>
-
-								<BlocoInputGrande>
-									<label className="noprint" htmlFor="endereco">
-										Endereço
-									</label>
-									<input type="text" id="endereco" ref={Endereco} required />
-								</BlocoInputGrande>
-								<BlocoInputGrande>
-									<label className="noprint" htmlFor="numero">
-										Nº
-									</label>
-									<input type="text" id="numero" ref={Numero} required />
-								</BlocoInputGrande>
-							</div>
-						</Form2X>
-
-						<Form2R>
-							<BlocoInputGrande>
-								<label className="noprint" htmlFor="complemento">
-									Complemento
-								</label>
-								<input type="text" id="complemento" ref={Complemento} required />
+								<label className="noprint" htmlFor="numero">Nº</label>
+								<input type="text" id="numero" value={dados.Numero} ref={ Numero } />
 							</BlocoInputGrande>
 
 							<BlocoInputGrande>
-								<label className="noprint" htmlFor="bairro">
-									Bairro
-								</label>
-								<input type="text" id="bairro" ref={Bairro} required />
+								<label className="noprint" htmlFor="endereco">Endereço</label>
+								<input type="text" id="endereco" value={dados.Endereco} ref={ Endereco } />
 							</BlocoInputGrande>
-						</Form2R>
+						</div>
+					</Form2X>
 
-						<Form2X>
-							<BlocoInputGrande>
-								<label className="noprint" htmlFor="cep">
-									CEP
-								</label>
-								<input type="text" id="cep" ref={Cep} required />
-							</BlocoInputGrande>
+					<Form2R>
+						<BlocoInputGrande>
+							<label className="noprint" htmlFor="complemento">Complemento</label>
+							<input type="text" id="complemento" value={dados.Complemento} ref={ Complemento } />
+						</BlocoInputGrande>
+						<BlocoInputGrande>
+							<label className="noprint" htmlFor="bairro">Bairro</label>
+							<input type="text" id="bairro" value={dados.Bairro} ref={ Bairro } />
+						</BlocoInputGrande>
+					</Form2R>
 
-							<BlocoInputGrande>
-								<label className="noprint" htmlFor="estadoDeNaturalidade">
-									Est. Residência
-								</label>
-								<select id="estadoDeNaturalidade" ref={EstadoNaturalidade} onChange={(e) => { 
-									setIdCidadeNaturalidade(e.target.value)}} required>
-									<option value="">Escolha um Estado</option>
-									{EstadosNaturalidade.map((e: any) => (
-										<option key={e.id} value={e.id}>
-											{e.id}
+					<Form2X>
+						<BlocoInputGrande>
+							<label className="noprint" htmlFor="cep">CEP</label>
+							<input type="text" id="cep" value={dados.Cep} ref={ Cep } />
+						</BlocoInputGrande>
+
+						<BlocoInputGrande>
+							<label className="noprint" htmlFor="estado">Estado</label>
+							<select id="estado" value={dados.Estado} ref={ Estado } >
+								<option value="0">Escolha um valor</option>
+								{Estados.map((e: any) => (
+										<option key={e.id} value={e.nome}>
+											{e.nome}
 										</option>
 									))}
-								</select>
-							</BlocoInputGrande>
-
-							<BlocoInputGrande>
-								<label style={{ fontSize: '15px' }} className="noprint" htmlFor="cidadeNaturalidade">
-									Cid.de Residência
-								</label>
-								<select id="cidadeNaturalidade" ref={CidadeNaturalidade} onClick={() => BuscarCidadeN() } required>
-									<option value="">Escolha um valor</option>
-									{CidadesNaturalidade.map((e: any) => {
-										return (
-											<option key={e.estadoId} value={e.cidade}>
-												{e.cidade}
-											</option>
-										);
-									})}
-								</select>
-							</BlocoInputGrande>
-
-
-						</Form2X>
+							</select>
+						</BlocoInputGrande>
+						<BlocoInputGrande>
+							<label className="noprint" htmlFor="cidade">Cidade</label>
+							<select id="cidade" value={dados.Cidade} ref={ Cidade } >
+								<option value="0">Escolha um valor</option>
+							</select>
+						</BlocoInputGrande>
 						<div style={{ display: 'flex' }}>
-							<BotãoPreto
-								onClick={(evt: FormEvent) => {
-									evt.preventDefault();
-									window.print();
-								}}
-							>
-								Imprimir
-							</BotãoPreto>
-							<BotãoPreto type="submit"> Enviar </BotãoPreto>
-							{modal ? (
-								<Camera />
-							) : (
-								<div className="noprint" style={{ display: 'flex' }}>
-									<BotãoPreto
-										id="botaoPreto"
-										className="noprint"
-										style={{
-											marginTop: 5,
-											width: 50,
-											height: 40,
-											display: 'flex',
-											alignItems: 'center',
-											justifyContent: 'center',
-											border: 'none',
-											background: '#282a36',
-											color: '#fff',
-										}}
-										onClick={(evt) => {
-											evt.preventDefault();
-											setModal(!modal);
-										}}
-									>
-										<span id="tirarBotao">Tirar foto</span>
-									</BotãoPreto>
-								</div>
-							)}
+							<BotãoPreto onClick={ ()=> window.print()} > Imprimir </BotãoPreto>
+							<BotãoPreto type="submit" > Enviar </BotãoPreto>
 						</div>
-						<div style={{ display: 'flex', flexDirection: 'column', marginBottom: '25px' }}>
-							<label className="noprint" htmlFor="observaçao">
-								Observação
-							</label>
-							<textarea id="observaçao" ref={Observaçao} />
-							<BlocoInputGrande>
-								<label className="noprint" htmlFor="numeroFicha">
-									Nº da Ficha
-								</label>
-								<input type="text" max="14" id="numeroFicha" ref={NumeroDaFicha} required  />
-							</BlocoInputGrande>
+					</Form2X>
+					<div style={{ display: 'flex', flexDirection: 'column' }}>
+						<label className="noprint" htmlFor="observaçao">Observação</label>
+						<textarea id="observaçao" value={dados.Observaçao} ref={ Observaçao } />
+					</div>
+				</Form2>
 
+        </form>) : (<div>Carregando Dados...</div>) }
 
-							<div id="hiddenInputs">
-								<input type="text" id="nrg" value={NRG.current?.value} />
-								<input type="text" id="nomecompleto" value={NomeCompleto.current?.value} />
-								<input type="text" id="posto2" value={Posto.current?.value} />
-								<input type="text" id="DiaAtual" value={ new Date().toLocaleDateString() } />
-								<input type="text" id="DiaAtual1" value={ new Date().toLocaleDateString() } />
-								{imagemRegistro !== 'Optou por não tirar foto' && (
-									<img src={imagemRegistro} id="ImagemCid" />
-								)}
-							</div>
-						</div>
-					</Form2>
-				</form>
 			</Container>
 		</>
 	)

@@ -6,7 +6,7 @@ import Pesquisar from '../../Views/Protegidas/Pesquisar'
 import Registro from '../../Views/Protegidas/Registro'
 import Relatorios from '../../Views/Protegidas/Relatorios'
 import Relatorios2 from '../../Views/Protegidas/Relatorios2'
-import SegundaVia from '../../Views/Protegidas/SegundaVia'
+import SegundaVia from '../../Views/Protegidas/SegundaVia/backup1'
 import VerificacaoDiaria from '../../Views/Protegidas/VerificacaoDiaria'
 
 
