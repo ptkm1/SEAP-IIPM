@@ -563,7 +563,7 @@ const Registro: React.FC = () => {
 
 								{ sexo === 'Feminino' ? (
 									<select id="bigode" ref={Bigode} disabled>
-									<option value="">Em Branco</option>
+									<option value=""></option>
 									<option value="Nenhum">Nenhum</option>
 									<option value="Fino">Fino</option>
 									<option value="Grosso">Grosso</option>
