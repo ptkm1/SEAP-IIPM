@@ -383,6 +383,7 @@
   left: 655px;
   height: max-content;
   width: max-content;
+  z-index: 9999999999;
 }
 /* deixa comentado- alteramos de 405 para 415 */
 .dataid1 { 
@@ -464,7 +465,7 @@
   left: 400px;
   height: max-content;
   z-index: 99999;
-  width: max-content;
+  width: 100%;
 }
 
 #DiaAtual { 
