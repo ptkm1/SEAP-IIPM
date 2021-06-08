@@ -559,7 +559,10 @@ const Registro: React.FC = () => {
 								<label className="noprint" htmlFor="bigode">
 									Bigode
 								</label>
-								<select id="bigode" ref={Bigode} required>
+								
+
+								{ sexo === 'Feminino' ? (
+									<select id="bigode" ref={Bigode} disabled>
 									<option value="">Em Branco</option>
 									<option value="Nenhum">Nenhum</option>
 									<option value="Fino">Fino</option>
@@ -568,6 +571,18 @@ const Registro: React.FC = () => {
 									<option value="Aparado">Aparado</option>
 									<option value="Longo">Longo</option>
 								</select>
+								) : (
+									<select id="bigode" ref={Bigode} required>
+									<option value="">Em Branco</option>
+									<option value="Nenhum">Nenhum</option>
+									<option value="Fino">Fino</option>
+									<option value="Grosso">Grosso</option>
+									<option value="Rapado">Rapado</option>
+									<option value="Aparado">Aparado</option>
+									<option value="Longo">Longo</option>
+								</select>
+
+								) }
 							</BlocoInputGrande>
 							
 						</Form2L>
@@ -714,7 +729,8 @@ const Registro: React.FC = () => {
 								<input type="text" id="nrg" value={NRG.current?.value} />
 								<input type="text" id="nomecompleto" value={NomeCompleto.current?.value} />
 								<input type="text" id="posto2" value={Posto.current?.value} />
-								<input type="text" id="DiaAtual1" value={ new Date().toLocaleDateString() } />
+								<input type="text" id="DiaAtual1" value={ new Date().toLocaleDateString("pt-BR") } />
+								<input type="text" id="dataid1" value={ new Date().toLocaleDateString("pt-BR") } />
 								{imagemRegistro !== 'Optou por não tirar foto' && (
 									<img src={imagemRegistro} id="ImagemCid" />
 								)}
