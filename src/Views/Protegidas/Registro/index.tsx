@@ -343,14 +343,14 @@ const Registro: React.FC = () => {
 								<label className="noprint" htmlFor="cpf">
 									CPF
 								</label>
-								<input type="text" id="cpf" ref={Cpf} required />
+								<input type="text" id="cpf" ref={Cpf} />
 							</BlocoInputGrande>
 
 							<BlocoInputGrande>
 								<label className="noprint" htmlFor="pis">
 									PIS
 								</label>
-								<input type="text" id="pis" ref={Pis} required />
+								<input type="text" id="pis" ref={Pis} />
 							</BlocoInputGrande>
 
 						</Form2>
