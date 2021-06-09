@@ -122,7 +122,7 @@ const Registro: React.FC = () => {
 			Observaçao: Observaçao.current?.value,
 			Foto3x4: imagemRegistro,
 			NumeroDaFicha: NumeroDaFicha.current?.value,
-			Folha: Folha.current?.value
+			Folha: Folha.current?.value,
 		};
 
 		const { data } = await Api.post('/registrorgbd', obj);
@@ -164,6 +164,7 @@ const Registro: React.FC = () => {
 
 		BuscarEstadosN();
 		BuscarEstados();
+		
 	}, [Resultado, ViaSt, IsençaoSt]);
 
 	async function BuscarCidade() {
@@ -181,7 +182,7 @@ const Registro: React.FC = () => {
 			<Menu />
 
 			<BTNVoltar onClick={() => history.goBack()}>
-				<CgArrowLeft size="17px" />
+				<CgArrowLeft size="17px" /> <h3>Voltar</h3>
 			</BTNVoltar>
 
 			<Container id="conteudos" className="scrollPage">
@@ -274,7 +275,7 @@ const Registro: React.FC = () => {
 									<option value="">Escolha uma cidade</option>
 									{Estados.map((e: any) => (
 										<option key={e.id} value={e.id}>
-											{e.estado}
+											{e.id}
 										</option>
 									))}
 								</select>
@@ -342,14 +343,14 @@ const Registro: React.FC = () => {
 								<label className="noprint" htmlFor="cpf">
 									CPF
 								</label>
-								<input type="text" id="cpf" ref={Cpf} required />
+								<input type="text" id="cpf" ref={Cpf} />
 							</BlocoInputGrande>
 
 							<BlocoInputGrande>
 								<label className="noprint" htmlFor="pis">
 									PIS
 								</label>
-								<input type="text" id="pis" ref={Pis} required />
+								<input type="text" id="pis" ref={Pis} />
 							</BlocoInputGrande>
 
 						</Form2>
@@ -532,7 +533,7 @@ const Registro: React.FC = () => {
 								</label>
 								{ sexo === 'Feminino' ? (
 									<select id="barba" ref={Barba} disabled>
-									<option value="">Escolha um valor</option>
+									<option value=""> </option>
 									<option value="">Em Branco</option>
 									<option value="Imberbe">Imberbe</option>
 									<option value="Rala">Rala</option>
@@ -553,17 +554,25 @@ const Registro: React.FC = () => {
 
 								) }
 							</BlocoInputGrande>
-							
-						</Form2L>
-					</Form2>
 
-					<Form2>
-						<Form2X>
 							<BlocoInputGrande>
 								<label className="noprint" htmlFor="bigode">
 									Bigode
 								</label>
-								<select id="bigode" ref={Bigode} required>
+								
+
+								{ sexo === 'Feminino' ? (
+									<select id="bigode" ref={Bigode} disabled>
+									<option value=""></option>
+									<option value="Nenhum">Nenhum</option>
+									<option value="Fino">Fino</option>
+									<option value="Grosso">Grosso</option>
+									<option value="Rapado">Rapado</option>
+									<option value="Aparado">Aparado</option>
+									<option value="Longo">Longo</option>
+								</select>
+								) : (
+									<select id="bigode" ref={Bigode} required>
 									<option value="">Em Branco</option>
 									<option value="Nenhum">Nenhum</option>
 									<option value="Fino">Fino</option>
@@ -572,12 +581,21 @@ const Registro: React.FC = () => {
 									<option value="Aparado">Aparado</option>
 									<option value="Longo">Longo</option>
 								</select>
+
+								) }
 							</BlocoInputGrande>
+							
+						</Form2L>
+					</Form2>
+
+					<Form2>
+						<Form2X>
+							
 							<BlocoInputGrande>
 								<label className="noprint" htmlFor="anomalias">
 									Anomalias
 								</label>
-								<input type="text" id="anomalias" ref={Anomalias} required />
+								<input type="text" id="anomalias" ref={Anomalias} />
 							</BlocoInputGrande>
 							<div style={{ display: 'grid', gridTemplateColumns: '5fr 1fr' }}>
 
@@ -594,9 +612,8 @@ const Registro: React.FC = () => {
 									<input type="text" id="numero" ref={Numero} required />
 								</BlocoInputGrande>
 							</div>
-						</Form2X>
-
-						<Form2R>
+							<div>
+							<Form2R>
 							<BlocoInputGrande>
 								<label className="noprint" htmlFor="complemento">
 									Complemento
@@ -611,6 +628,10 @@ const Registro: React.FC = () => {
 								<input type="text" id="bairro" ref={Bairro} required />
 							</BlocoInputGrande>
 						</Form2R>
+							</div>
+						</Form2X>
+
+						
 
 						<Form2X>
 							<BlocoInputGrande>
@@ -629,7 +650,7 @@ const Registro: React.FC = () => {
 									<option value="">Escolha um Estado</option>
 									{EstadosNaturalidade.map((e: any) => (
 										<option key={e.id} value={e.id}>
-											{e.estado}
+											{e.id}
 										</option>
 									))}
 								</select>
@@ -653,7 +674,7 @@ const Registro: React.FC = () => {
 
 
 						</Form2X>
-						<div style={{ display: 'flex' }}>
+						<div style={{ display: 'flex', flexDirection: 'column', width: "50%", marginTop: 50}}>
 							<BotãoPreto
 								onClick={(evt: FormEvent) => {
 									evt.preventDefault();
@@ -700,7 +721,7 @@ const Registro: React.FC = () => {
 								<label className="noprint" htmlFor="numeroFicha">
 									Nº da Ficha
 								</label>
-								<input type="text" max="14" id="numeroFicha" ref={NumeroDaFicha} required  />
+								<input type="text" className="noprint" max="14" id="numeroFicha" ref={NumeroDaFicha} required  />
 							</BlocoInputGrande>
 
 
@@ -708,8 +729,8 @@ const Registro: React.FC = () => {
 								<input type="text" id="nrg" value={NRG.current?.value} />
 								<input type="text" id="nomecompleto" value={NomeCompleto.current?.value} />
 								<input type="text" id="posto2" value={Posto.current?.value} />
-								<input type="text" id="DiaAtual" value={ new Date().toLocaleDateString() } />
-								<input type="text" id="DiaAtual1" value={ new Date().toLocaleDateString() } />
+								<input type="text" id="DiaAtual1" value={ new Date().toLocaleDateString("pt-BR") } />
+								<input type="text" id="dataid1" value={ new Date().toLocaleDateString("pt-BR") } />
 								{imagemRegistro !== 'Optou por não tirar foto' && (
 									<img src={imagemRegistro} id="ImagemCid" />
 								)}

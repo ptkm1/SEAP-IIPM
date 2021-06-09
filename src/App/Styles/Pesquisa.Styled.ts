@@ -47,7 +47,7 @@ export const TabelaResultadoPesquisaItem = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 15px 0px;
+  padding: 15px 25px;
 
   button {
     width: 30px;

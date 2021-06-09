@@ -2,7 +2,8 @@ import React from 'react';
 import {
   MdAddToQueue,
   MdContentPaste,
-  MdSearch
+  MdSearch,
+  MdViewDay
 } from "react-icons/md";
 import { useHistory } from 'react-router-dom';
 import { BotaoOpcao } from '../../../App/Componentes/Botoes/BotoesOpcoes.Styled';
@@ -26,10 +27,17 @@ const Home: React.FC = () => {
         <MdSearch size="70%" color="#656565" />
         <span>Procurar</span>
       </BotaoOpcao>
-      <BotaoOpcao>
+
+      <BotaoOpcao onClick={ () => history.push('/verificacaodiaria') } >
+        <MdViewDay size="70%" color="#656565" />
+        <span>Verificação Diária</span>
+      </BotaoOpcao>
+
+      <BotaoOpcao onClick={ () => history.push('/relatorios') } >
         <MdContentPaste size="70%" color="#656565" />
         <span>Relatório</span>
       </BotaoOpcao>
+
 
     </Container>
     </>

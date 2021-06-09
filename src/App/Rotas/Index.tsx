@@ -11,6 +11,7 @@ const Rotas: React.FC = () => {
   const { logado } = useContext( AutContext )
 
   return ( logado ? <RotasProtegidas /> : <RotasLiberadas /> )
+  // return <RotasProtegidas />
 
 }
 
