@@ -41,6 +41,8 @@
 }
 
 
+
+
 @media print {
   * {
     background: transparent;
@@ -65,7 +67,7 @@
 
   #rg {
     position: fixed;
-    top: 10px;
+    top: 12px;
     left: 40px;
     height: max-content;
     width: max-content;
@@ -75,21 +77,21 @@
     top: 39px;
     left: 40px;
     height: max-content;
-    width: max-content;
+    width: 100%;
   }
   #nome_pai {
     position: fixed;
     top: 57px;
     left: 40px;
     height: max-content;
-    width: max-content;
+    width: 100%;
   }
   #nome_mae {
     position: fixed;
     top: 80px;
     left: 40px;
     height: max-content;
-    width: max-content;
+    width: 100%;
   }
   #data_nascimento {
     position: fixed;
@@ -100,7 +102,7 @@
   }
   #sexo {
     position: fixed;
-    top: 105px;
+    top: 102px;
     left: 425px;
     height: max-content;
     width: max-content;
@@ -126,7 +128,7 @@
   #via {
     position: fixed;
     z-index: 50;
-    top: 131px;
+    top: 128.5px;
     left: 425px;
     height: max-content;
     width: max-content;
@@ -148,14 +150,16 @@
   #estado {
     position: fixed;
     top: 198px;
-    left: 215px;
+    left: 350px;
     height: max-content;
     width: max-content;
+    z-index: 999999999999999;
   }
   #cidade {
     position: fixed;
     top: 198px;
-    left: 350px;
+    left: 215px;
+    
     height: max-content;
     width: max-content;
   }
@@ -176,7 +180,7 @@
   #telefone {
     position: fixed;
     top: 240px;
-    left: 480px;
+    left: 490px;
     height: max-content;
     width: max-content;
   }
@@ -203,22 +207,22 @@
   }
   #livro {
     position: fixed;
-    top: 274px;
+    top: 272px;
     left: 40px;
   }
   #folha {
     position: fixed;
-    top: 274px;
+    top: 272px;
     left: 165px;
   }
   #termo {
     position: fixed;
-    top: 274px;
+    top: 272px;
     left: 325px;
   }
   #data_certidao {
     position: fixed;
-    top: 274px;
+    top: 272px;
     left: 472px;
     z-index: 999;
     width: max-content;
@@ -227,7 +231,7 @@
   #data_registro {
     position: fixed;
     z-index: 50;
-    top: 274px;
+    top: 272px;
     left: 630px;
     height: max-content;
     width: max-content;
@@ -414,7 +418,7 @@
 #nrg {
   display: block;
   position: fixed;
-  top: 552px;
+  top: 555px;
   left: 65px;
   z-index: 50;
   height: max-content;
@@ -425,7 +429,7 @@
   display: block;
   position: fixed;
 
-  top: 573px;
+  top: 576px;
   left: 65px;
   z-index: 50;
   height: max-content;
@@ -435,7 +439,7 @@
 #posto2 {
   display: block;
   position: fixed;
-  top: 616px;
+  top: 619px;
   left: 90px;
   z-index: 50;
   height: max-content;
@@ -476,7 +480,7 @@
 #DiaAtual1 { 
   display: block;
   position: fixed;
-  top: 597px;
+  top: 600px;
   left: 90px;
   z-index: 50;
   height: max-content;
@@ -506,8 +510,5 @@
   z-index: 99999;
   width: max-content;
 }
-
-
-
 
 }
