@@ -137,7 +137,7 @@
     height: max-content;
     width: max-content;
   }
-  #instruçao {
+  #instruÃ§ao {
     position: fixed;
     top: 154px;
     left: 215px;
@@ -355,7 +355,7 @@
   width: max-content;
 }
 /* deixa comentado- alteramos de 388 para 378 */
-#observaçao {
+#observaÃ§ao {
   position: fixed;
   top: 382px;
   left: 40px;
@@ -465,7 +465,7 @@
 #tirarBotao {
   display: none;
 }
-/* lembrar que o nome aqui é de estado que mora, tem que trocar no html e no banco*/
+/* lembrar que o nome aqui Ã© de estado que mora, tem que trocar no html e no banco*/
 #estadoDeNaturalidade { 
   position: fixed;
   top: 370px;
@@ -509,7 +509,7 @@
   
 }
 
-/* lembrar que o nome aqui é de cidade que mora, tem que trocar no html e no banco*/
+/* lembrar que o nome aqui Ã© de cidade que mora, tem que trocar no html e no banco*/
 #cidadeNaturalidade {
   position: fixed;
   top: 370px;
