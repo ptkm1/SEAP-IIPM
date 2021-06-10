@@ -6,32 +6,27 @@ import Api from '../../../Infra/Servicos/Api';
 
 const AdminLogin: React.FC = () => {
 
-
-
   const emailLoginRef: any = useRef()
 	const senhaLoginRef: any = useRef()
 
 const Autenticar = async ( event: React.FormEvent<HTMLFormElement> ) => {
 		event.preventDefault()
 		try{
-      const {data} = await Api.post('/autenticar',
+      const {data} = await Api.post('/admin/autenticar',
       { email: emailLoginRef.current.value,
 				senha: senhaLoginRef.current.value })
 
-				localStorage.setItem('@pml/usuario', JSON.stringify(data.usuario))
+				localStorage.setItem('@pml/admin', JSON.stringify(data.usuario))
 
       if(data.token){
-				localStorage.setItem('@pml/token', data.token)
+				localStorage.setItem('@pml/tokenadm', data.token)
 				return window.location.href = "/"
 			}
 
 		}catch (erro) {
-
 			console.log(erro)
 			alert("Não foi possivel autenticar")
-
 		}
-
 }
 
   return (

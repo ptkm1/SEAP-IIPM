@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
 import AdminDashboard from '../../Views/Protegidas/Admin/dashboard'
 import Admin from '../../Views/Protegidas/Admin'
@@ -11,11 +11,15 @@ import Relatorios2 from '../../Views/Protegidas/Relatorios2'
 import SegundaVia from '../../Views/Protegidas/SegundaVia'
 import VerificacaoDiaria from '../../Views/Protegidas/VerificacaoDiaria'
 import CriarUsuario from '../../Views/Protegidas/Admin/criarUsuario'
+import RelatoriosAdmin from '../../Views/Protegidas/Admin/relatorio'
+import AutContext from '../Contexts/Autenticacao'
 
 
 
 
 const RotasProtegidas: React.FC = () => {
+
+  const { AdminAuth } = useContext(AutContext)
 
   return (
     <BrowserRouter>
@@ -26,9 +30,12 @@ const RotasProtegidas: React.FC = () => {
       <Route path="/verificacaodiaria" component={ VerificacaoDiaria } />
       <Route path="/relatorios" component={ Relatorios2 } />
 
+      
       <Route path="/adminlogin" component={ Admin } />
-      <Route path="/dashboard" component={ AdminDashboard } />
-      <Route path="/criarusuario" component={CriarUsuario} />
+        <Route path="/dashboard" component={AdminDashboard} />
+        <Route path="/criarusuario" component={CriarUsuario} />
+        <Route path="/relatoriosadmin" component={RelatoriosAdmin} />
+
     </BrowserRouter>
   )
 }

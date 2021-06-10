@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
 // Importações das Views
 import Login from '../../Views/Liberadas/Login'
+import Admin from '../../Views/Protegidas/Admin'
 
 
 
