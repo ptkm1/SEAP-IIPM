@@ -1,4 +1,5 @@
 import React from 'react'
+import { BiUser } from 'react-icons/bi'
 import {
   MdAddToQueue,
   MdSearch,
@@ -27,11 +28,16 @@ const AdminDashboard: React.FC = () => {
         </BotaoOpcao>
 
         <BotaoOpcao onClick={() => history.push('/verificacaodiaria')}>
+          <BiUser size="70%" color="#656565" />
+          <span>Criação de usuário</span>
+        </BotaoOpcao>
+
+        <BotaoOpcao onClick={() => history.push('/criarusuario')}>
           <MdViewDay size="70%" color="#656565" />
           <span>Verificação Diária</span>
         </BotaoOpcao>
 
-        <BotaoOpcao onClick={() => history.push('/relatorios')}>
+        <BotaoOpcao onClick={() => history.push('/relatoriosadmin')}>
           <MdContentPaste size="70%" color="#656565" />
           <span>Relatório</span>
         </BotaoOpcao>
