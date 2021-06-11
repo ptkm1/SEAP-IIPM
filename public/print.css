@@ -314,7 +314,7 @@
   top: 332px;
   left: 80px;
   height: max-content;
-  width: max-content;
+  width: 100%;
 }
 
 #endereco {
@@ -361,7 +361,7 @@
   left: 40px;
   border: none;
   height: max-content;
-  width: max-content;
+  width: 83%;
   white-space: nowrap;
    overflow: hidden;
   text-overflow: ellipsis;
