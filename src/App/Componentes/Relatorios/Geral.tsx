@@ -73,7 +73,7 @@ const RelatorioGeral: React.FC = () => {
       avoidLinks={true}
       paperSize="Letter"
       landscape={true}
-      margin="1cm"
+      margin="3mm"
       ref={pdfExportComponent}
     >
         <DataTable data={ListDemaisVias} /> 

@@ -8,6 +8,8 @@ import { TableContent } from '../../Styles'
 
 const DataTable = ({ data }: any) => {
 
+  const usuario: any = localStorage.getItem('@pml/usuario')
+
   let columns = data && data[0] && Object.keys(data[0])
 
   const primeiravia = data.filter((via:any)=> via.Via === '1ª VIA')
@@ -27,6 +29,7 @@ const DataTable = ({ data }: any) => {
 
       <Row>
         {data[0] && columns.map((heading: any) => (<> {  heading === 'NRG' ? <ColumnHead> Numero de RG</ColumnHead> : <ColumnHead> {heading} </ColumnHead> } </> ))}
+        <ColumnHead>Usuario</ColumnHead>
       </Row>
       <TableContent>
       {data.map((row: any) => (<>
@@ -36,6 +39,7 @@ const DataTable = ({ data }: any) => {
               { column === null ? null : <Column>{row[column]}</Column>}
               </>
             ))}
+            <Column>{JSON.parse(usuario).nome}</Column>
           </Row>
           <hr style={{ border: '1px solid #EEF0F8', width: '95%', margin: '0 auto' }} />
         </>))}

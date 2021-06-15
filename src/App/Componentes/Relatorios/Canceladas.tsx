@@ -73,7 +73,7 @@ const RelatorioCanceladas: React.FC = () => {
       avoidLinks={true}
       paperSize="Letter"
       landscape={true}
-      margin="0.5cm"
+      margin="4mm"
       ref={pdfExportComponent}
     >
       <DataTable data={ListCanceladas} /> 

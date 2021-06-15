@@ -1,11 +1,13 @@
 import React, { createContext, useEffect, useState } from 'react'
 
-const AutContext = createContext({ logado: false, Usuario: {} })
+const AutContext = createContext({ logado: false, Usuario: {}, AdminAuth: {} })
 
 export const AutProvider: React.FC = ({ children }) => {
 
   const [ Usuario, setUsuario ] = useState<any>()
+  const [ AdminAuth, setAdminAuth ] = useState<any>(false)
 
+  
 
   useEffect(()=>{
 
@@ -13,7 +15,7 @@ export const AutProvider: React.FC = ({ children }) => {
       localStorage
         .getItem('@pml/token')
 
-    setUsuario( token )
+    setUsuario(token)
 
     if(window.location.pathname !== '/') {
       if(!token) {
@@ -24,7 +26,7 @@ export const AutProvider: React.FC = ({ children }) => {
   },[])
 
   return (
-    <AutContext.Provider value={{ logado: Boolean(Usuario), Usuario }}>
+    <AutContext.Provider value={{ logado: Boolean(Usuario), Usuario, AdminAuth }}>
       { children }
     </AutContext.Provider>
   )

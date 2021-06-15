@@ -6,6 +6,10 @@
   z-index: 50;
 }
 
+#dataid1 { 
+  display: none;
+}
+
 #nomecompleto {
   display: none;
   position: fixed;
@@ -310,7 +314,7 @@
   top: 332px;
   left: 80px;
   height: max-content;
-  width: max-content;
+  width: 100%;
 }
 
 #endereco {
@@ -357,7 +361,7 @@
   left: 40px;
   border: none;
   height: max-content;
-  width: max-content;
+  width: 83%;
   white-space: nowrap;
    overflow: hidden;
   text-overflow: ellipsis;
@@ -383,14 +387,17 @@
   left: 655px;
   height: max-content;
   width: max-content;
+  z-index: 9999999999;
 }
 /* deixa comentado- alteramos de 405 para 415 */
-.dataid1 { 
+#dataid1 { 
   position: fixed;
-  top: 425px;
+  top: 406px;
   left: 655px;
   height: max-content;
   width: max-content;
+  z-index: 99999999;
+  display: block;
 }
 
 #usuario {
@@ -408,6 +415,7 @@
   height: max-content;
   width: max-content; 
 }
+/* AQI */
 
 .quadrado1 {
   border: none;
@@ -464,7 +472,7 @@
   left: 400px;
   height: max-content;
   z-index: 99999;
-  width: max-content;
+  width: 100%;
 }
 
 #DiaAtual { 
