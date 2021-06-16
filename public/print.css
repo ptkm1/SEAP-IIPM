@@ -55,7 +55,7 @@
     filter: none;
     -ms-filter: none;
     border: none;
-    font-size: 10px;
+    font-size: 11px;
   }
 
   .noprint {
@@ -414,6 +414,7 @@
   left: 657px;
   height: max-content;
   width: max-content; 
+  z-index: 9999999999;
 }
 /* AQI */
 
