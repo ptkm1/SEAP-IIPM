@@ -3,6 +3,7 @@ import React, { FormEvent, useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Api from '../../../../Infra/Servicos/Api';
 import { BotãoPreto } from '../../Botoes/Botoes.Styled';
+import { AutoComplete } from '../../Inputs/Autocomplete.Styled';
 import { BlocoInputGrande } from '../../Inputs/Inputs.Styled';
 import { Container, Inputs } from '../Styles';
 import { DataTable } from '../tables/Canceladas/Index';
@@ -14,6 +15,7 @@ interface IFormInput {
 }
 
 
+
 const RelatorioComFiltragem: React.FC = () => {
 
   const [ListDemaisVias, setListDemaisVias] = useState()
@@ -23,9 +25,13 @@ const RelatorioComFiltragem: React.FC = () => {
 
   const Pesquisar = async (data: IFormInput) => {
     try {
-      console.log(data)
+      console.log("primeiro: "+ data)
+      data.Posto = Search
+      console.log("segundo: "+ data)
       const { data: response } = await Api.post('/demaisvias', data) // Mudar a rota
-      setListDemaisVias(response)
+      if(response.length > 0) {
+        setListDemaisVias(response)
+      }
     } catch (error) {
       console.log(error)
     }
@@ -33,16 +39,36 @@ const RelatorioComFiltragem: React.FC = () => {
 
 
   const [Postos, setPostos]: any = useState()
+
   const [Display, setDisplay]: any = useState(false)
   const [Search, setSearch]: any = useState('')
+  console.log(Search)
+
+  const wrapperRef = useRef(null);
+
+  const handleClickOutside = (event: any) => {
+    const { wrap }: any = wrapperRef.current
+    if (wrap && !wrap.contains(event.target)) {
+      setDisplay(false);
+    }
+  };
 
 
   useEffect(() => {
     (async () => {
       const { data } = await Api.get('/usuarios')
-      setPostos(data)
+      const newarray = data.map((posto: any) => posto.posto)
+      console.log(newarray)
+      setPostos(newarray)
     })()
   }, [])
+
+  useEffect(() => {
+    window.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      window.removeEventListener("mousedown", handleClickOutside);
+    };
+  });
 
   const updateValor = (posto:any) => {
     setSearch(posto);
@@ -54,7 +80,7 @@ const RelatorioComFiltragem: React.FC = () => {
   const pdfExportComponent = React.useRef<PDFExport>(null);
 
   return (
-    <Container>
+    <Container ref={wrapperRef}>
       <Inputs>
         <form onSubmit={handleSubmit(Pesquisar)}>
           <BlocoInputGrande>
@@ -71,20 +97,23 @@ const RelatorioComFiltragem: React.FC = () => {
               onChange={event => setSearch(event.target.value)}
               onClick={() => setDisplay(!Display)}
               value={Search}
+              required
             />
           </BlocoInputGrande>
 
-          <ul>
+{Display && ( <AutoComplete>
           {Display &&
-            Postos.filter(({posto}: any) => posto.indexOf(Search.toLowerCase()) > -1)
+            Postos.filter((posto: any) => posto.indexOf(Search.toLowerCase()) > -1)
             .map((data: any, i: any) => {
-              console.log(data)
               return (
-                    <li key={i} onClick={() => updateValor(data.posto)}>{data.posto}</li>
+                    <li key={i} onClick={() => { 
+                      setSearch(data);
+                      setDisplay(!Display);
+                     }}>{data}</li>
                     )
                   })
                 }
-          </ul>
+          </AutoComplete>) }
 
           <BotãoPreto type="submit"> Criar </BotãoPreto>
         </form>

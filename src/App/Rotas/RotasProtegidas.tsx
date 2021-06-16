@@ -34,10 +34,10 @@ const RotasProtegidas: React.FC = () => {
 
       
       <Route path="/adminlogin" component={ Admin } />
-        <Route path="/dashboard" component={AdminDashboard} />
-        <Route path="/criarusuario" component={CriarUsuario} />
-        <Route path="/relatoriosadmin" component={RelatoriosAdmin} />
-        <Route path="/try" component={RelatorioComFiltragem} />
+      <Route path="/dashboard" component={AdminDashboard} />
+      <Route path="/criarusuario" component={CriarUsuario} />
+      <Route path="/relatoriosadmin" component={RelatoriosAdmin} />
+      <Route path="/relatoriosadm" component={RelatorioComFiltragem} />
 
     </BrowserRouter>
   )

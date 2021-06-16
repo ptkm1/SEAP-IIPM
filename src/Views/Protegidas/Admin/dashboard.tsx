@@ -37,7 +37,7 @@ const AdminDashboard: React.FC = () => {
           <span>Verificação Diária</span>
         </BotaoOpcao>
 
-        <BotaoOpcao onClick={() => history.push('/relatoriosadmin')}>
+        <BotaoOpcao onClick={() => history.push('/relatoriosadm')}>
           <MdContentPaste size="70%" color="#656565" />
           <span>Relatório</span>
         </BotaoOpcao>
