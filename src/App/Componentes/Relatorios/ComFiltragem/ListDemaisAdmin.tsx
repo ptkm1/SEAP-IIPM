@@ -16,7 +16,7 @@ interface IFormInput {
 
 
 
-const RelatorioComFiltragem: React.FC = () => {
+const RelatorioListDemais: React.FC = () => {
 
   const [ListDemaisVias, setListDemaisVias] = useState()
   
@@ -25,9 +25,9 @@ const RelatorioComFiltragem: React.FC = () => {
 
   const Pesquisar = async (data: IFormInput) => {
     try {
-      console.log("primeiro: "+ data)
+
       data.Posto = Search
-      console.log("segundo: "+ data)
+
       const { data: response } = await Api.post('/demaisvias', data) // Mudar a rota
       if(response.length > 0) {
         setListDemaisVias(response)
@@ -152,4 +152,4 @@ const RelatorioComFiltragem: React.FC = () => {
   )
 }
 
-export default RelatorioComFiltragem;
+export default RelatorioListDemais;

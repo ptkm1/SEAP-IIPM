@@ -9,15 +9,17 @@ import { TableContent } from '../../Styles'
 const DataTable = ({ data }: any) => {
 
   const usuario: any = localStorage.getItem('@pml/usuario')
+  console.log(data)
 
   let columns = data && data[0] && Object.keys(data[0])
 
   const primeiravia = data.filter((via:any)=> via.Via === '1ª VIA')
   const segundavia = data.filter((via:any)=> via.Via === '2ª VIA')
   const terceiraviaoumais = data.filter((via:any)=> via.Via === '3ª OU MAIS VIAS')
-  const MEC = data.filter((via:any)=> via.Via === 'MEC')
-  const RET_JUD = data.filter((via:any)=> via.Via === 'RET. JUDICIAL')
-  const total = [primeiravia.length, segundavia.length, terceiraviaoumais.length, MEC.length, RET_JUD.length].reduce((acc, el) => acc += el)
+  const mec = data.filter((via:any)=> via.Via === 'MEC')
+  const retjud = data.filter((via:any)=> via.Via === 'RET. JUDICIAL')
+  
+  const total = [primeiravia.length, segundavia.length, terceiraviaoumais.length, mec.length, retjud.length].reduce((acc, el) => acc += el)
   const totalArrecadado = data.map((e:any)=> parseFloat(e.Result)).reduce((acc:number, el:any) => acc += el)
 
   
@@ -29,7 +31,6 @@ const DataTable = ({ data }: any) => {
 
       <Row>
         {data[0] && columns.map((heading: any) => (<> {  heading === 'NRG' ? <ColumnHead> Numero de RG</ColumnHead> : <ColumnHead> {heading} </ColumnHead> } </> ))}
-        <ColumnHead>Usuario</ColumnHead>
       </Row>
       <TableContent>
       {data.map((row: any) => (<>
@@ -39,7 +40,6 @@ const DataTable = ({ data }: any) => {
               { column === null ? null : <Column>{row[column]}</Column>}
               </>
             ))}
-            <Column>{JSON.parse(usuario).nome}</Column>
           </Row>
           <hr style={{ border: '1px solid #EEF0F8', width: '95%', margin: '0 auto' }} />
         </>))}
@@ -52,14 +52,15 @@ const DataTable = ({ data }: any) => {
             <ColumnHead>3º VIA ou MAIS</ColumnHead>
             <ColumnHead>MEC</ColumnHead>
             <ColumnHead>RET. Judicial</ColumnHead>
+            <ColumnHead>Total Arrecadado</ColumnHead>
             <ColumnHead>Total</ColumnHead>
           </Row>
           <Row>
             <Column>{primeiravia.length}</Column>
             <Column>{segundavia.length}</Column>
             <Column>{terceiraviaoumais.length}</Column>
-            <Column>{MEC.length}</Column>
-            <Column>{RET_JUD.length}</Column>
+            <Column>{mec.length}</Column>
+            <Column>{retjud.length}</Column>
             <Column>{totalArrecadado}</Column>
             <Column>{total}</Column>
           </Row>

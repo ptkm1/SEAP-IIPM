@@ -13,7 +13,8 @@ import VerificacaoDiaria from '../../Views/Protegidas/VerificacaoDiaria'
 import CriarUsuario from '../../Views/Protegidas/Admin/criarUsuario'
 import RelatoriosAdmin from '../../Views/Protegidas/Admin/relatorio'
 import AutContext from '../Contexts/Autenticacao'
-import RelatorioComFiltragem from '../Componentes/Relatorios/ComFiltragem'
+import RelatorioListDemais from '../Componentes/Relatorios/ComFiltragem/ListDemaisAdmin'
+import ListCanceladasAdmin from '../Componentes/Relatorios/ComFiltragem/ListCanceladasAdmin'
 
 
 
@@ -37,7 +38,8 @@ const RotasProtegidas: React.FC = () => {
       <Route path="/dashboard" component={AdminDashboard} />
       <Route path="/criarusuario" component={CriarUsuario} />
       <Route path="/relatoriosadmin" component={RelatoriosAdmin} />
-      <Route path="/relatoriosadm" component={RelatorioComFiltragem} />
+      <Route path="/adminrel" component={RelatorioListDemais} />
+      <Route path="/adminrelcanceladas" component={ListCanceladasAdmin} />
 
     </BrowserRouter>
   )

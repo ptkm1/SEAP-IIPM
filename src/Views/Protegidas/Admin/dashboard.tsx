@@ -3,7 +3,6 @@ import { BiUser } from 'react-icons/bi'
 import {
   MdAddToQueue,
   MdSearch,
-  MdViewDay,
   MdContentPaste,
 } from 'react-icons/md'
 import { useHistory } from 'react-router-dom'
@@ -32,14 +31,19 @@ const AdminDashboard: React.FC = () => {
           <span>Criação de usuário</span>
         </BotaoOpcao>
 
-        <BotaoOpcao onClick={() => history.push('/verificacaodiaria')}>
+        {/* <BotaoOpcao onClick={() => history.push('/verificacaodiaria')}>
           <MdViewDay size="70%" color="#656565" />
           <span>Verificação Diária</span>
+        </BotaoOpcao> */}
+
+        <BotaoOpcao onClick={() => history.push('/adminrel')}>
+          <MdContentPaste size="70%" color="#656565" />
+          <span>Relatório de demais vias</span>
         </BotaoOpcao>
 
-        <BotaoOpcao onClick={() => history.push('/relatoriosadm')}>
+        <BotaoOpcao onClick={() => history.push('/adminrelcanceladas')}>
           <MdContentPaste size="70%" color="#656565" />
-          <span>Relatório</span>
+          <span>Rel. fichas Canceladas</span>
         </BotaoOpcao>
       </Container>
     </>
