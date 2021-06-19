@@ -5,8 +5,8 @@ import Api from '../../../../Infra/Servicos/Api';
 import { BotãoPreto } from '../../Botoes/Botoes.Styled';
 import { AutoComplete } from '../../Inputs/Autocomplete.Styled';
 import { BlocoInputGrande } from '../../Inputs/Inputs.Styled';
+import { RelatoriosPDF } from '../../Tables/Table.Canceladas';
 import { Container, Inputs } from '../Styles';
-import { DataTable } from '../tables/Canceladas/Index';
 
 interface IFormInput {
   DataDeCriacaoInicial?: string
@@ -27,6 +27,7 @@ const ListCanceladasAdmin: React.FC = () => {
     try {
 
       data.Posto = Search
+      sessionStorage.setItem('FichasDados',  JSON.stringify(data))
 
       const { data: response } = await Api.post('/fichascanceladas', data) // Mudar a rota
       if(response.length > 0) {
@@ -42,7 +43,6 @@ const ListCanceladasAdmin: React.FC = () => {
 
   const [Display, setDisplay]: any = useState(false)
   const [Search, setSearch]: any = useState('')
-  console.log(Search)
 
   const wrapperRef = useRef(null);
 
@@ -58,7 +58,6 @@ const ListCanceladasAdmin: React.FC = () => {
     (async () => {
       const { data } = await Api.get('/usuarios')
       const newarray = data.map((posto: any) => posto.posto)
-      console.log(newarray)
       setPostos(newarray)
     })()
   }, [])
@@ -142,7 +141,8 @@ const ListCanceladasAdmin: React.FC = () => {
               margin="4mm"
               ref={pdfExportComponent}
             >
-              <DataTable data={ListCanceladasAdmin} />
+              
+              <RelatoriosPDF data={ListCanceladasAdmin} />
             </PDFExport>
           </div>
         </>

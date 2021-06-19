@@ -75,7 +75,7 @@ const Registro: React.FC = () => {
 	const Observaçao: any = useRef<HTMLInputElement>();
 
 	const SubmeterDados = useCallback(async (e: FormEvent) => {
-		e.preventDefault();
+		// e.preventDefault();
 
 		const obj = {
 			NRG: NRG.current?.value,

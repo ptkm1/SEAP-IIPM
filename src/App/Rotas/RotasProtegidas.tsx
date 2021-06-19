@@ -15,6 +15,7 @@ import RelatoriosAdmin from '../../Views/Protegidas/Admin/relatorio'
 import AutContext from '../Contexts/Autenticacao'
 import RelatorioListDemais from '../Componentes/Relatorios/ComFiltragem/ListDemaisAdmin'
 import ListCanceladasAdmin from '../Componentes/Relatorios/ComFiltragem/ListCanceladasAdmin'
+import {RelatoriosPDF} from '../Componentes/Tables/Table.Canceladas'
 
 
 

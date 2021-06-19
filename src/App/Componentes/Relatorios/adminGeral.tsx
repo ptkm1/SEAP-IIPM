@@ -4,8 +4,8 @@ import { useForm } from 'react-hook-form';
 import Api from '../../../Infra/Servicos/Api';
 import { BotãoPreto } from '../Botoes/Botoes.Styled';
 import { BlocoInputGrande, PesquisaInput } from '../Inputs/Inputs.Styled';
+import { RelatoriosPDF } from '../Tables/Table.Canceladas';
 import { Container, Inputs } from './Styles';
-import { DataTable } from './tables/Canceladas/Index';
 
 
 interface IFormInput {
@@ -17,13 +17,15 @@ interface IFormInput {
 
 const RelatorioGeralAdmin: React.FC = () => {
 
-  const [ListDemaisVias,setListDemaisVias] = useState()
+  const [ListDemaisVias,setListDemaisVias]: any = useState()
 
   const { register, handleSubmit } = useForm()
 
   const Pesquisar = async (data: IFormInput) => {
+    console.log(data)
     try {
       const {data: response} = await Api.post('/demaisvias',data) // Mudar a rota
+
       setListDemaisVias(response)
     } catch (error) {
       console.log(error)
@@ -70,12 +72,12 @@ const RelatorioGeralAdmin: React.FC = () => {
     <div style={{ position: "absolute", left: "-1000px", top: 0 }}>
     <PDFExport
       avoidLinks={true}
-      paperSize="Letter"
+      paperSize="letter"
       landscape={true}
       margin="4mm"
       ref={pdfExportComponent}
     >
-        <DataTable data={ListDemaisVias} /> 
+        <RelatoriosPDF data={ListDemaisVias} /> 
     </PDFExport>
     </div>
     </>

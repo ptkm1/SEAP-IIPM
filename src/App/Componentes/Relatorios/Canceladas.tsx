@@ -6,8 +6,8 @@ import { useHistory } from 'react-router-dom';
 import Api from '../../../Infra/Servicos/Api';
 import { BotãoPreto } from '../Botoes/Botoes.Styled';
 import { PesquisaInput } from '../Inputs/Inputs.Styled';
+import { RelatoriosPDF } from '../Tables/Table.Canceladas';
 import { Container, Inputs } from './Styles';
-import { DataTable } from './tables/Canceladas/Index';
 
 const RelatorioCanceladas: React.FC = () => {
   const history = useHistory()
@@ -76,7 +76,7 @@ const RelatorioCanceladas: React.FC = () => {
       margin="4mm"
       ref={pdfExportComponent}
     >
-      <DataTable data={ListCanceladas} /> 
+      <RelatoriosPDF data={ListCanceladas} /> 
 
     </PDFExport>
     </>

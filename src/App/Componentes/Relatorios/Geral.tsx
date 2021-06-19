@@ -7,8 +7,8 @@ import Api from '../../../Infra/Servicos/Api';
 import { BotãoPreto } from '../Botoes/Botoes.Styled';
 import { BotaoOpcao } from '../Botoes/BotoesOpcoes.Styled';
 import { PesquisaInput } from '../Inputs/Inputs.Styled';
+import { RelatoriosPDF } from '../Tables/Table.Canceladas';
 import { Container, Inputs } from './Styles';
-import { DataTable } from './tables/Canceladas/Index';
 
 const RelatorioGeral: React.FC = () => {
 
@@ -76,7 +76,7 @@ const RelatorioGeral: React.FC = () => {
       margin="3mm"
       ref={pdfExportComponent}
     >
-        <DataTable data={ListDemaisVias} /> 
+        <RelatoriosPDF data={ListDemaisVias} /> 
     </PDFExport>
     </div>
     </>

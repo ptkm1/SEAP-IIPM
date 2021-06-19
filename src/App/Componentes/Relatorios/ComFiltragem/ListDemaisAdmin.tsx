@@ -1,12 +1,13 @@
 import { PDFExport } from '@progress/kendo-react-pdf';
+
 import React, { FormEvent, useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Api from '../../../../Infra/Servicos/Api';
 import { BotãoPreto } from '../../Botoes/Botoes.Styled';
 import { AutoComplete } from '../../Inputs/Autocomplete.Styled';
 import { BlocoInputGrande } from '../../Inputs/Inputs.Styled';
+import { RelatoriosPDF } from '../../Tables/Table.Canceladas';
 import { Container, Inputs } from '../Styles';
-import { DataTable } from '../tables/Canceladas/Index';
 
 interface IFormInput {
   DataDeCriacaoInicial?: string
@@ -137,12 +138,12 @@ const RelatorioListDemais: React.FC = () => {
           <div style={{ position: "absolute", left: "-1000px", top: 0 }}>
             <PDFExport
               avoidLinks={true}
-              paperSize="Letter"
+              paperSize="auto"
               landscape={true}
               margin="4mm"
               ref={pdfExportComponent}
             >
-              <DataTable data={ListDemaisVias} />
+              <RelatoriosPDF data={ListDemaisVias} />
             </PDFExport>
           </div>
         </>
