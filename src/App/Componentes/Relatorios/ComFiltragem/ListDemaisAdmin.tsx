@@ -29,6 +29,9 @@ const RelatorioListDemais: React.FC = () => {
 
       data.Posto = Search
 
+      console.log(data)
+      sessionStorage.setItem('FichasDados',  JSON.stringify(data))
+
       const { data: response } = await Api.post('/demaisvias', data) // Mudar a rota
       if(response.length > 0) {
         setListDemaisVias(response)

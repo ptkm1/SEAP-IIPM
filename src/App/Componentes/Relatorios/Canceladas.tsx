@@ -1,5 +1,6 @@
 import { PDFExport } from '@progress/kendo-react-pdf';
 import React, { FormEvent, useRef, useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { CgSearch } from 'react-icons/cg';
 import { MdArrowBack } from 'react-icons/md';
 import { useHistory } from 'react-router-dom';
@@ -9,24 +10,31 @@ import { PesquisaInput } from '../Inputs/Inputs.Styled';
 import { RelatoriosPDF } from '../Tables/Table.Canceladas';
 import { Container, Inputs } from './Styles';
 
+interface IFormInput {
+  DataDeCriacaoInicial?: string
+  DataDeCriacaoFinal?: string
+  Posto?: string
+}
+
 const RelatorioCanceladas: React.FC = () => {
   const history = useHistory()
-
-  const DataInicial = useRef<any>()
-  const DataFinal = useRef<any>()
   const Posto: any = localStorage.getItem('@pml/usuario')
 
   const [ListCanceladas,setListCanceladas] = useState()
 
-  const PesquisarDados = async (event: FormEvent) => {
-    event.preventDefault()
+  const { register, handleSubmit } = useForm()
+
+  const PesquisarDados = async (data: IFormInput) => {
     try {
-      const {data} = await Api.post('/fichascanceladas',{ 
-        DataDeCriacaoInicial: DataInicial.current.value,
-        DataDeCriacaoFinal: DataFinal.current.value,
-        Posto: JSON.parse(Posto).posto
-      })
-      setListCanceladas(data)
+
+      data.Posto = JSON.parse(Posto).posto
+      console.log(data)
+
+      sessionStorage.setItem('FichasDados',  JSON.stringify(data))
+
+      const { data: response } = await Api.post('/fichascanceladas', data) // Mudar a rota
+      setListCanceladas(response)
+
     } catch (error) {
       console.log(error)
     }
@@ -37,15 +45,15 @@ const RelatorioCanceladas: React.FC = () => {
   return (
     <Container>
       <Inputs>
-      <form onSubmit={ PesquisarDados } >
+      <form onSubmit={ handleSubmit(PesquisarDados) } >
           <a style={{ color: 'gray', textDecoration: 'none', display: 'flex', alignItems: 'center'}} href="#" onClick={ () => history.replace('/') } > <MdArrowBack /> Voltar </a>
             <PesquisaInput largura="250px" >
             <label htmlFor="DataInicial"> Data Inicial </label>
-            <input type="date" id="DataInicial" ref={ DataInicial } />
+            <input type="date" {...register("DataDeCriacaoInicial")} id="DataInicial" />
           </PesquisaInput>
           <PesquisaInput largura="250px" >
             <label htmlFor="DataFinal"> Data Final</label>
-            <input type="date" id="DataFinal" ref={ DataFinal } />
+            <input type="date" id="DataFinal" {...register("DataDeCriacaoFinal")} />
           </PesquisaInput>
           <BotãoPreto style={{width:40}} type="submit"> <CgSearch /> </BotãoPreto>
         </form>
@@ -68,7 +76,7 @@ const RelatorioCanceladas: React.FC = () => {
           </BotãoPreto>
       </div>
 
-      
+      <div style={{ position: "absolute", left: "-1000px", top: 0 }}>
     <PDFExport
       avoidLinks={true}
       paperSize="Letter"
@@ -79,6 +87,7 @@ const RelatorioCanceladas: React.FC = () => {
       <RelatoriosPDF data={ListCanceladas} /> 
 
     </PDFExport>
+    </div>
     </>
       )}
 
