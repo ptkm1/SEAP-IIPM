@@ -13,7 +13,9 @@ import { BlocoInputGrande } from '../../../App/Componentes/Inputs/Inputs.Styled'
 import Menu from '../../../App/Componentes/Menu';
 import { RegistroContext } from '../../../App/Contexts/RegistroRGBD';
 import { Container, Form, Form2, Form2L, Form2R, Form2X } from '../../../App/Styles/FormTemplate.Styled';
+import { profissoes } from '../../../Infra/Data/ProfissoesData';
 import Api from '../../../Infra/Servicos/Api';
+
 
 const Registro: React.FC = () => {
 	const usuario: any = localStorage.getItem('@pml/usuario');
@@ -362,12 +364,13 @@ const Registro: React.FC = () => {
 							<select id="profissao" ref={Profissao} style={{ width: "100%" }} required>
 								<option value="">Escolha um valor</option>
 								<option value="Outros">Outros</option>
-								<option value="Advogado">Advogado</option>
-								<option value="Agricultor">Agricultor</option>
 								<option value="Cozinheiro">Cozinheiro</option>
 								<option value="Dona de Casa">Dona de Casa</option>
 								<option value="Empregada Doméstica">Empregada Doméstica</option>
 								<option value="Estudante">Estudante</option>
+								{ profissoes.map((e: any,i: any) => (
+									<option key={i} value={e.profissao} >{e.profissao}</option>
+								))}
 							</select>
 						</BlocoInputGrande>
 
