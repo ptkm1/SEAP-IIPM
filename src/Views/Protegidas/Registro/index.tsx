@@ -288,7 +288,7 @@ const Registro: React.FC = () => {
 									Cidade Nasci.
 								</label>
 								<select id="cidade" ref={Cidade} onClick={() => BuscarCidade()} required>
-									<option value="">Escolha um valor</option>
+									<option value=""></option>
 									{Cidades.map((e: any) => {
 										return (
 											<option key={e.estadoId} value={e.cidade}>
@@ -327,7 +327,7 @@ const Registro: React.FC = () => {
 								Instrução
 							</label>
 							<select id="instruçao" ref={Instruçao} required>
-								<option value="">Escolha um valor</option>
+								<option value=""></option>
 								<option value="Rudimentar">Rudimentar</option>
 								<option value="Não Alfabetizado">Não Alfabetizado</option>
 								<option value="1º Grau incompleto">1º Grau incompleto</option>
@@ -362,7 +362,7 @@ const Registro: React.FC = () => {
 								Profissao
 							</label>
 							<select id="profissao" ref={Profissao} style={{ width: "100%" }} required>
-								<option value="">Escolha um valor</option>
+								<option value=""></option>
 								<option value="Outros">Outros</option>
 								<option value="Cozinheiro">Cozinheiro</option>
 								<option value="Dona de Casa">Dona de Casa</option>
@@ -381,7 +381,7 @@ const Registro: React.FC = () => {
 									Estado Civil
 								</label>
 								<select id="estado_civil" ref={EstadoCivil} required>
-									<option value="">Escolha um valor</option>
+									<option value=""></option>
 									<option value="Solteiro">Solteiro</option>
 									<option value="Casado">Casado</option>
 									<option value="Divorciado">Divorciado</option>
@@ -393,7 +393,7 @@ const Registro: React.FC = () => {
 									Certidão
 								</label>
 								<select id="certidao" ref={Certidao} required>
-									<option value="">Escolha um valor</option>
+									<option value=""></option>
 									<option value="Nasc.">Nascimento</option>
 									<option value="Cas.">Casamento</option>
 								</select>
@@ -466,7 +466,7 @@ const Registro: React.FC = () => {
 									Cutis
 								</label>
 								<select id="cutis" ref={Cutis} required>
-									<option value="">Escolha um valor</option>
+									<option value=""></option>
 									<option value="Preto">Preto</option>
 									<option value="pardo">Pardo</option>
 									<option value="Amarelo">Amarelo</option>
@@ -479,7 +479,7 @@ const Registro: React.FC = () => {
 									Cor do cabelo
 								</label>
 								<select id="cor_cabelo" ref={CorCabelo} required>
-									<option value="">Escolha um valor</option>
+									<option value=""></option>
 									<option value="castanhos">Castanhos</option>
 									<option value="preto">Preto</option>
 									<option value="louro">Louros</option>
@@ -495,7 +495,7 @@ const Registro: React.FC = () => {
 									Tipo do cabelo
 								</label>
 								<select id="tipo_cabelo" ref={TipoCabelo} required>
-									<option value="">Escolha um valor</option>
+									<option value=""></option>
 									<option value="Liso">Liso</option>
 									<option value="Ondulado">Ondulado</option>
 									<option value="Encaracolado">Encaracolado</option>
@@ -507,7 +507,7 @@ const Registro: React.FC = () => {
 									Cor dos olhos
 								</label>
 								<select id="cor_olhos" ref={CorOlhos} required>
-									<option value="">Escolha um valor</option>
+									<option value=""></option>
 									<option value="Castanhos">Castanhos</option>
 									<option value="Pretos">Pretos</option>
 									<option value="Azuis">Azuis</option>
@@ -522,7 +522,7 @@ const Registro: React.FC = () => {
 									Tipo dos olhos
 								</label>
 								<select id="tipo_olhos" ref={TipoOlhos} required>
-									<option value="">Escolha um valor</option>
+									<option value=""></option>
 									<option value="Redondos">Redondos</option>
 									<option value="Orientais">Orientais</option>
 									<option value="Grandes">Grandes</option>
@@ -546,7 +546,7 @@ const Registro: React.FC = () => {
 								</select>
 								) : (
 								<select id="barba" ref={Barba}>
-									<option value="">Escolha um valor</option>
+									<option value=""></option>
 									<option value="">Em Branco</option>
 									<option value="Imberbe">Imberbe</option>
 									<option value="Rala">Rala</option>
@@ -576,7 +576,7 @@ const Registro: React.FC = () => {
 								</select>
 								) : (
 									<select id="bigode" ref={Bigode} required>
-									<option value="">Em Branco</option>
+									<option value="" className="noprint"></option>
 									<option value="Nenhum">Nenhum</option>
 									<option value="Fino">Fino</option>
 									<option value="Grosso">Grosso</option>
@@ -664,7 +664,7 @@ const Registro: React.FC = () => {
 									Cid.de Residência
 								</label>
 								<select id="cidadeNaturalidade" ref={CidadeNaturalidade} onClick={() => BuscarCidadeN() } required>
-									<option value="">Escolha um valor</option>
+									<option value=""></option>
 									{CidadesNaturalidade.map((e: any) => {
 										return (
 											<option key={e.estadoId} value={e.cidade}>
