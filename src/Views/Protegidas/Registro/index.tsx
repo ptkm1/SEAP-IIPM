@@ -194,7 +194,7 @@ const Registro: React.FC = () => {
 							<label className="noprint" htmlFor="rg">
 								Numero do RG
 							</label>
-							<input type="text" id="rg" ref={NRG} required />
+							<input type="text" id="rg" ref={NRG} />
 						</BlocoInputGrande>
 						<BlocoInputGrande>
 							<label className="noprint" htmlFor="via">
