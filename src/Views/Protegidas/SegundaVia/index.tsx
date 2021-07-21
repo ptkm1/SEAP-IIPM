@@ -36,7 +36,7 @@ const SegundaVia: React.FC = () => {
 
 		async function BuscarDados() {
 
-			const { data }: any = await Api.get(`/registro1via/${caminho[2]}`)
+			const { data }: any = await Api.get(`/registro/${caminho[2]}`)
 
 			return setDados( data[0] )
 		}
