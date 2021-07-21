@@ -36,7 +36,7 @@ const SegundaVia: React.FC = () => {
 
 		async function BuscarDados() {
 
-			const { data }: any = await Api.get(`/registro/${caminho[2]}`)
+			const { data }: any = await Api.get(`/registro1via/${caminho[2]}`)
 
 			return setDados( data[0] )
 		}
@@ -212,7 +212,7 @@ const SegundaVia: React.FC = () => {
 							<label className="noprint" htmlFor="rg">
 								Numero do RG
 							</label>
-							<input type="text" id="rg" ref={NRG} value={dados.NRG} required />
+							<input type="text" id="rg" ref={NRG} defaultValue={dados.NRG} required />
 						</BlocoInputGrande>
 						<BlocoInputGrande>
 							<label className="noprint" htmlFor="via">
@@ -220,6 +220,7 @@ const SegundaVia: React.FC = () => {
 							</label>
 							<select id="via" ref={Via} onChange={(e) => setVia(e.target.value)} value={dados.Via} required>
 								<option value="">Escolha a via</option>
+								<option value={dados.Via}>{dados.Via}</option>
 								<option value="1º VIA">1ª VIA</option>
 								<option value="2ª VIA">2ª VIA</option>
 								<option value="3ª OU MAIS VIAS">3ª OU MAIS VIAS</option>
@@ -231,7 +232,7 @@ const SegundaVia: React.FC = () => {
 							<label className="noprint" htmlFor="isenção">
 								Isenção
 							</label>
-							<select className="noprint" id="isenção" ref={Isençao} onChange={(e) => setIsençao(e.target.value)} value={dados.Isençao} required>
+							<select className="noprint" id="isenção" ref={Isençao} onChange={(e) => setIsençao(e.target.value)} defaultValue={dados.Isençao} required>
 								<option value="">Situação do pagamento</option>
 								<option value="pago">pago</option>
 								<option value="isento">isento</option>
@@ -262,26 +263,26 @@ const SegundaVia: React.FC = () => {
 							<label className="noprint" htmlFor="nome_completo">
 								Nome Completo
 							</label>
-							<input type="text" id="nome_completo" ref={NomeCompleto} value={dados.NomeCompleto} required />
+							<input type="text" id="nome_completo" ref={NomeCompleto} defaultValue={dados.NomeCompleto} required />
 						</BlocoInputGrande>
 						<BlocoInputGrande>
 							<label className="noprint" htmlFor="nome_pai">
 								Nome do pai
 							</label>
-							<input type="text" id="nome_pai" ref={NomePai} value={dados.NomePai} required />
+							<input type="text" id="nome_pai" ref={NomePai} defaultValue={dados.NomePai} required />
 						</BlocoInputGrande>
 						<BlocoInputGrande>
 							<label className="noprint" htmlFor="nome_mae">
 								Nome da mãe
 							</label>
-							<input type="text" id="nome_mae" ref={NomeMae} value={dados.NomeMae} required />
+							<input type="text" id="nome_mae" ref={NomeMae} defaultValue={dados.NomeMae} required />
 						</BlocoInputGrande>
 
 						<BlocoInputGrande>
 							<label className="noprint" htmlFor="data_nascimento">
 								Data de Nascimento
 							</label>
-							<input type="date" id="data_nascimento" ref={DataNasc} value={dados.DataNasc} required />
+							<input type="date" id="data_nascimento" ref={DataNasc} defaultValue={dados.DataNasc} required />
 						</BlocoInputGrande>
 
 
@@ -291,8 +292,9 @@ const SegundaVia: React.FC = () => {
 								<label  style={{ fontSize: 15 }} className="noprint" htmlFor="estado"> 
 									Estado Nasci.
 								</label>
-								<select id="estado" ref={Estado} onChange={(e) => setIdCidade(e.target.value)} required>
-									<option value="">Escolha uma cidade</option>
+								<select id="estado" ref={Estado} defaultValue={dados.EstadoDeNaturalidade} onChange={(e) => setIdCidade(e.target.value)} required>
+									<option value="">Escolha um valor</option>
+									<option value={dados.EstadoDeNaturalidade}>{dados.EstadoDeNaturalidade}</option>
 									{Estados.map((e: any) => (
 										<option key={e.id} value={e.id}>
 											{e.id}
@@ -305,8 +307,9 @@ const SegundaVia: React.FC = () => {
 								<label style={{ fontSize: 15 }} className="noprint" htmlFor="cidade">
 									Cidade Nasci.
 								</label>
-								<select id="cidade" ref={Cidade} onClick={() => BuscarCidade()} required>
+								<select id="cidade" ref={Cidade} defaultValue={dados.CidadeDeNaturalidade} onClick={() => BuscarCidade()} required>
 									<option value="">Escolha um valor</option>
+									<option value={dados.CidadeDeNaturalidade}>{dados.CidadeDeNaturalidade}</option>
 									{Cidades.map((e: any) => {
 										return (
 											<option key={e.estadoId} value={e.cidade}>
@@ -328,14 +331,14 @@ const SegundaVia: React.FC = () => {
 							<label className="noprint" htmlFor="telefone">
 								Telefone
 							</label>
-							<input type="text" id="telefone" ref={Tel} value={dados.Tel} required />
+							<input type="text" id="telefone" ref={Tel} defaultValue={dados.Tel} required />
 						</BlocoInputGrande>
 						<Form2>
 						<BlocoInputGrande>
 							<label className="noprint" htmlFor="sexo">
 								Sexo
 							</label>
-							<select id="sexo" ref={Sexo} onChange={ e => setSexo(e.target.value) } value={dados.Sexo} required>
+							<select id="sexo" ref={Sexo} onChange={ e => setSexo(e.target.value) } defaultValue={dados.Sexo} required>
 								<option value="Masculino">Masculino</option>
 								<option value="Feminino">Feminino</option>
 							</select>
@@ -344,7 +347,7 @@ const SegundaVia: React.FC = () => {
 							<label className="noprint" htmlFor="instruçao">
 								Instrução
 							</label>
-							<select id="instruçao" ref={Instruçao} value={dados.Instruçao} required>
+							<select id="instruçao" ref={Instruçao} defaultValue={dados.Instruçao} required>
 								<option value="">Escolha um valor</option>
 								<option value="Rudimentar">Rudimentar</option>
 								<option value="Não Alfabetizado">Não Alfabetizado</option>
@@ -363,14 +366,14 @@ const SegundaVia: React.FC = () => {
 								<label className="noprint" htmlFor="cpf">
 									CPF
 								</label>
-								<input type="text" id="cpf" ref={Cpf} value={dados.Cpf} required />
+								<input type="text" id="cpf" ref={Cpf} defaultValue={dados.Cpf} required />
 							</BlocoInputGrande>
 
 							<BlocoInputGrande>
 								<label className="noprint" htmlFor="pis">
 									PIS
 								</label>
-								<input type="text" id="pis" ref={Pis} value={dados.Pis} required />
+								<input type="text" id="pis" ref={Pis} defaultValue={dados.Pis} required />
 							</BlocoInputGrande>
 
 						</Form2>
@@ -379,7 +382,7 @@ const SegundaVia: React.FC = () => {
 							<label className="noprint" htmlFor="profissao">
 								Profissao
 							</label>
-							<select id="profissao" ref={Profissao} style={{ width: "100%" }} value={dados.Profissao} required>
+							<select id="profissao" ref={Profissao} style={{ width: "100%" }} defaultValue={dados.Profissao} required>
 								<option value="">Escolha um valor</option>
 								<option value="Outros">Outros</option>
 								<option value="Advogado">Advogado</option>
@@ -397,7 +400,7 @@ const SegundaVia: React.FC = () => {
 								<label className="noprint" htmlFor="estado_civil">
 									Estado Civil
 								</label>
-								<select id="estado_civil" ref={EstadoCivil} value={dados.EstadoCivil} required>
+								<select id="estado_civil" ref={EstadoCivil} defaultValue={dados.EstadoCivil} required>
 									<option value="">Escolha um valor</option>
 									<option value="Solteiro">Solteiro</option>
 									<option value="Casado">Casado</option>
@@ -409,7 +412,7 @@ const SegundaVia: React.FC = () => {
 								<label className="noprint" htmlFor="certidao">
 									Certidão
 								</label>
-								<select id="certidao" ref={Certidao} value={dados.Certidao} required>
+								<select id="certidao" ref={Certidao} defaultValue={dados.Certidao} required>
 									<option value="">Escolha um valor</option>
 									<option value="Nasc.">Nascimento</option>
 									<option value="Cas.">Casamento</option>
@@ -424,26 +427,26 @@ const SegundaVia: React.FC = () => {
 								<label className="noprint" htmlFor="comarca">
 									Comarca
 								</label>
-								<input type="text" id="comarca" ref={Comarca} value={dados.Comarca} required />
+								<input type="text" id="comarca" ref={Comarca} defaultValue={dados.Comarca} required />
 							</BlocoInputGrande>
 							<BlocoInputGrande>
 								<label className="noprint" htmlFor="distrito">
 									Distrito
 								</label>
-								<input type="text" id="distrito" className="id_estadomora1" ref={Distrito} value={dados.Distrito} required />
+								<input type="text" id="distrito" className="id_estadomora1" ref={Distrito} defaultValue={dados.Distrito} required />
 							</BlocoInputGrande>
 
 							<BlocoInputGrande>
 								<label className="noprint" htmlFor="livro">
 									Livro
 								</label>
-								<input type="text" id="livro" ref={Livro} value={dados.Livro} required />
+								<input type="text" id="livro" ref={Livro} defaultValue={dados.Livro} required />
 							</BlocoInputGrande>
 							<BlocoInputGrande>
 								<label className="noprint" htmlFor="folha">
 									Folha
 								</label>
-								<input type="text" id="folha" ref={Folha} value={dados.Folha} required />
+								<input type="text" id="folha" ref={Folha} defaultValue={dados.Folha} required />
 							</BlocoInputGrande>
 						</Form2L>
 						<Form2R>
@@ -451,13 +454,13 @@ const SegundaVia: React.FC = () => {
 								<label className="noprint" htmlFor="termo">
 									Termo
 								</label>
-								<input type="text" id="termo" ref={Termo} value={dados.Termo} required />
+								<input type="text" id="termo" ref={Termo} defaultValue={dados.Termo} required />
 							</BlocoInputGrande>
 							<BlocoInputGrande>
 								<label className="noprint" htmlFor="data_registro">
 									Data de Registro
 								</label>
-								<input type="date" id="data_registro" ref={DataRegistro} value={dados.DataRegistro} required />
+								<input type="date" id="data_registro" ref={DataRegistro} defaultValue={dados.DataRegistro} required />
 							</BlocoInputGrande>
 						</Form2R>
 					</Form2>
@@ -468,21 +471,21 @@ const SegundaVia: React.FC = () => {
 								<label className="noprint" htmlFor="data_certidao">
 									Data de Certidão
 								</label>
-								<input type="date" id="data_certidao" ref={DataCertidao} value={dados.DataCertidao} required />
+								<input type="date" id="data_certidao" ref={DataCertidao} defaultValue={dados.DataCertidao} required />
 							</BlocoInputGrande>
 
 							<BlocoInputGrande>
 								<label className="noprint" htmlFor="altura">
 									Altura
 								</label>
-								<input type="text" id="altura" ref={Altura} value={dados.Altura} required />
+								<input type="text" id="altura" ref={Altura} defaultValue={dados.Altura} required />
 							</BlocoInputGrande>
 
 							<BlocoInputGrande>
 								<label className="noprint" htmlFor="cutis">
 									Cutis
 								</label>
-								<select id="cutis" ref={Cutis} value={dados.Cutis} required>
+								<select id="cutis" ref={Cutis} defaultValue={dados.Cutis} required>
 									<option value="">Escolha um valor</option>
 									<option value="Preto">Preto</option>
 									<option value="pardo">Pardo</option>
@@ -495,7 +498,7 @@ const SegundaVia: React.FC = () => {
 								<label className="noprint" htmlFor="cor_cabelo">
 									Cor do cabelo
 								</label>
-								<select id="cor_cabelo" ref={CorCabelo} value={dados.CorCabelo} required>
+								<select id="cor_cabelo" ref={CorCabelo} defaultValue={dados.CorCabelo} required>
 									<option value="">Escolha um valor</option>
 									<option value="castanhos">Castanhos</option>
 									<option value="preto">Preto</option>
@@ -511,7 +514,7 @@ const SegundaVia: React.FC = () => {
 								<label className="noprint" htmlFor="tipo_cabelo">
 									Tipo do cabelo
 								</label>
-								<select id="tipo_cabelo" ref={TipoCabelo} value={dados.} required>
+								<select id="tipo_cabelo" ref={TipoCabelo} defaultValue={dados.} required>
 									<option value="">Escolha um valor</option>
 									<option value="Liso">Liso</option>
 									<option value="Ondulado">Ondulado</option>
@@ -523,7 +526,7 @@ const SegundaVia: React.FC = () => {
 								<label className="noprint" htmlFor="cor_olhos">
 									Cor dos olhos
 								</label>
-								<select id="cor_olhos" ref={CorOlhos} value={dados.CorOlhos} required>
+								<select id="cor_olhos" ref={CorOlhos} defaultValue={dados.CorOlhos} required>
 									<option value="">Escolha um valor</option>
 									<option value="Castanhos">Castanhos</option>
 									<option value="Pretos">Pretos</option>
@@ -538,7 +541,7 @@ const SegundaVia: React.FC = () => {
 								<label style={{ fontSize:15 }} className="noprint" htmlFor="tipo_olhos">
 									Tipo dos olhos
 								</label>
-								<select id="tipo_olhos" ref={TipoOlhos} value={dados.TipoOlhos} required>
+								<select id="tipo_olhos" ref={TipoOlhos} defaultValue={dados.TipoOlhos} required>
 									<option value="">Escolha um valor</option>
 									<option value="Redondos">Redondos</option>
 									<option value="Orientais">Orientais</option>
@@ -551,7 +554,7 @@ const SegundaVia: React.FC = () => {
 								<label className="noprint" htmlFor="barba">
 									Barba
 								</label>
-								{ sexo === 'Feminino' ? (
+								{ dados.Sexo === 'Feminino' ? (
 									<select id="barba" ref={Barba} disabled>
 									<option value=""> </option>
 									<option value="">Em Branco</option>
@@ -579,7 +582,7 @@ const SegundaVia: React.FC = () => {
 								<label className="noprint" htmlFor="bigode">
 									Bigode
 								</label>
-								<select id="bigode" ref={Bigode} value={dados.Bigode} required>
+								<select id="bigode" ref={Bigode} defaultValue={dados.Bigode} required>
 									<option value="">Em Branco</option>
 									<option value="Nenhum">Nenhum</option>
 									<option value="Fino">Fino</option>
@@ -600,7 +603,7 @@ const SegundaVia: React.FC = () => {
 								<label className="noprint" htmlFor="anomalias">
 									Anomalias
 								</label>
-								<input type="text" id="anomalias" ref={Anomalias} />
+								<input type="text" id="anomalias" ref={Anomalias} defaultValue={dados.Anomalias} />
 							</BlocoInputGrande>
 							<div style={{ display: 'grid', gridTemplateColumns: '5fr 1fr' }}>
 
@@ -608,13 +611,13 @@ const SegundaVia: React.FC = () => {
 									<label className="noprint" htmlFor="endereco">
 										Endereço
 									</label>
-									<input type="text" id="endereco" ref={Endereco} value={dados.Endereco} required />
+									<input type="text" id="endereco" ref={Endereco} defaultValue={dados.Endereco} required />
 								</BlocoInputGrande>
 								<BlocoInputGrande>
 									<label className="noprint" htmlFor="numero">
 										Nº
 									</label>
-									<input type="text" id="numero" ref={Numero} value={dados.Numero} required />
+									<input type="text" id="numero" ref={Numero} defaultValue={dados.Numero} required />
 								</BlocoInputGrande>
 							</div>
 							<div>
@@ -623,14 +626,14 @@ const SegundaVia: React.FC = () => {
 								<label className="noprint" htmlFor="complemento">
 									Complemento
 								</label>
-								<input type="text" id="complemento" ref={Complemento} value={dados.Complemento} required />
+								<input type="text" id="complemento" ref={Complemento} defaultValue={dados.Complemento} required />
 							</BlocoInputGrande>
 
 							<BlocoInputGrande>
 								<label className="noprint" htmlFor="bairro">
 									Bairro
 								</label>
-								<input type="text" id="bairro" ref={Bairro} value={dados.Bairro} required />
+								<input type="text" id="bairro" ref={Bairro} defaultValue={dados.Bairro} required />
 							</BlocoInputGrande>
 						</Form2R>
 							</div>
@@ -643,16 +646,17 @@ const SegundaVia: React.FC = () => {
 								<label className="noprint" htmlFor="cep">
 									CEP
 								</label>
-								<input type="text" id="cep" ref={Cep}  required />
+								<input type="text" id="cep" ref={Cep} defaultValue={dados.Cep}  required />
 							</BlocoInputGrande>
 
 							<BlocoInputGrande>
 								<label className="noprint" htmlFor="estadoDeNaturalidade">
 									Est. Residência
 								</label>
-								<select id="estadoDeNaturalidade" ref={EstadoNaturalidade} onChange={(e) => { 
+								<select id="estadoDeNaturalidade" defaultValue={dados.EstadoReside} ref={EstadoNaturalidade} onChange={(e) => { 
 									setIdCidadeNaturalidade(e.target.value)}}  required>
 									<option value="">Escolha um Estado</option>
+									<option value={dados.EstadoReside}>{dados.EstadoReside}</option>
 									{EstadosNaturalidade.map((e: any) => (
 										<option key={e.id} value={e.id}>
 											{e.id}
@@ -665,8 +669,9 @@ const SegundaVia: React.FC = () => {
 								<label style={{ fontSize: '15px' }} className="noprint" htmlFor="cidadeNaturalidade">
 									Cid.de Residência
 								</label>
-								<select id="cidadeNaturalidade" ref={CidadeNaturalidade} onClick={() => BuscarCidadeN() }  required>
+								<select id="cidadeNaturalidade" ref={CidadeNaturalidade} defaultValue={dados.CidadeReside} onClick={() => BuscarCidadeN() }  required>
 									<option value="">Escolha um valor</option>
+									<option value={dados.CidadeReside}>{dados.CidadeReside}</option>
 									{CidadesNaturalidade.map((e: any) => {
 										return (
 											<option key={e.estadoId} value={e.cidade}>
@@ -721,12 +726,12 @@ const SegundaVia: React.FC = () => {
 							<label className="noprint" htmlFor="observaçao">
 								Observação
 							</label>
-							<textarea id="observaçao" ref={Observaçao} />
+							<textarea id="observaçao" ref={Observaçao} defaultValue={dados.Observaçao} />
 							<BlocoInputGrande>
 								<label className="noprint" htmlFor="numeroFicha">
 									Nº da Ficha
 								</label>
-								<input type="text" className="noprint" max="14" id="numeroFicha" ref={NumeroDaFicha} value={dados.NumeroDaFicha} required  />
+								<input type="text" className="noprint" max="14" id="numeroFicha" ref={NumeroDaFicha} defaultValue={dados.NumeroDaFicha} required  />
 							</BlocoInputGrande>
 
 

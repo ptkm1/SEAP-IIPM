@@ -12,6 +12,7 @@ const Pesquisar: React.FC = () => {
   const history = useHistory()
 
   const [ resultado, setResultado ] = useState<any>(null)
+  console.log(resultado)
 
   const nomeRef:any =  useRef<HTMLInputElement>()
   const nomeMaeRef:any =  useRef<HTMLInputElement>()
@@ -29,7 +30,7 @@ const Pesquisar: React.FC = () => {
           mae: nomeMaeRef.current?.value,
           Posto: JSON.parse(Usuario).posto })
     console.log(data)
-    if(data[0].Posto !== JSON.parse(Usuario).posto) delete data[0]
+    // if(data[0].Posto !== JSON.parse(Usuario).posto) delete data[0]
 
     return setResultado(data)
 
