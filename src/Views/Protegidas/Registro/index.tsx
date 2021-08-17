@@ -37,6 +37,7 @@ const Registro: React.FC = () => {
   const { imagemRegistro, setImagemRegistro } = useContext(RegistroContext);
 
   const [sexo, setSexo]: any = useState();
+  const [apenasBrasil, setApenasBrasil]: any = useState(false);
 
   console.log(imagemRegistro);
   const history = useHistory();
@@ -89,7 +90,7 @@ const Registro: React.FC = () => {
   const Observaçao: any = useRef<HTMLInputElement>();
 
   const SubmeterDados = useCallback(async (e: FormEvent) => {
-    // e.preventDefault();
+    e.preventDefault();
 
     const obj = {
       NRG: NRG.current?.value,
@@ -138,7 +139,7 @@ const Registro: React.FC = () => {
       NumeroDaFicha: NumeroDaFicha.current?.value,
       Folha: Folha.current?.value,
     };
-
+    console.log(obj);
     const { data } = await Api.post("/registrorgbd", obj);
 
     alert(data.mensagem);
@@ -320,53 +321,85 @@ const Registro: React.FC = () => {
             </BlocoInputGrande>
 
             <div style={{ display: "flex" }}>
-              <BlocoInputGrande>
-                <label
-                  style={{ fontSize: 15 }}
-                  className="noprint"
-                  htmlFor="estado"
-                >
-                  Estado Nasci.
-                </label>
-                <select
-                  id="estado"
-                  ref={Estado}
-                  onChange={(e) => setIdCidade(e.target.value)}
-                  required
-                >
-                  <option value=""></option>
-                  {Estados.map((e: any) => (
-                    <option key={e.id} value={e.id}>
-                      {e.id}
-                    </option>
-                  ))}
-                </select>
-              </BlocoInputGrande>
+              {apenasBrasil ? (
+                <>
+                  <button
+                    style={{ position: "absolute", right: 0 }}
+                    onClick={() => setApenasBrasil(!apenasBrasil)}
+                    className="noprint"
+                  >
+                    cidade/estado
+                  </button>
+                  <BlocoInputGrande>
+                    <label
+                      style={{ fontSize: 15 }}
+                      className="noprint"
+                      htmlFor="cidade"
+                    >
+                      Naturalidade
+                    </label>
 
-              <BlocoInputGrande>
-                <label
-                  style={{ fontSize: 15 }}
-                  className="noprint"
-                  htmlFor="cidade"
-                >
-                  Cidade Nasci.
-                </label>
-                <select
-                  id="cidade"
-                  ref={Cidade}
-                  onClick={() => BuscarCidade()}
-                  required
-                >
-                  <option value=""></option>
-                  {Cidades.map((e: any) => {
-                    return (
-                      <option key={e.estadoId} value={e.cidade}>
-                        {e.cidade}
-                      </option>
-                    );
-                  })}
-                </select>
-              </BlocoInputGrande>
+                    <input id="cidade" ref={Cidade} value="Brasil" required />
+                  </BlocoInputGrande>
+                </>
+              ) : (
+                <>
+                  <BlocoInputGrande>
+                    <button
+                      style={{ position: "absolute", right: 0 }}
+                      onClick={() => setApenasBrasil(!apenasBrasil)}
+                      className="noprint"
+                    >
+                      apenas
+                    </button>
+                    <label
+                      style={{ fontSize: 15 }}
+                      className="noprint"
+                      htmlFor="estado"
+                    >
+                      Estado Nasci.
+                    </label>
+                    <select
+                      id="estado"
+                      ref={Estado}
+                      onChange={(e) => setIdCidade(e.target.value)}
+                      required
+                    >
+                      <option value=""></option>
+                      {Estados.map((e: any) => (
+                        <option key={e.id} value={e.id}>
+                          {e.id}
+                        </option>
+                      ))}
+                    </select>
+                  </BlocoInputGrande>
+
+                  <BlocoInputGrande>
+                    <label
+                      style={{ fontSize: 15 }}
+                      className="noprint"
+                      htmlFor="cidade"
+                    >
+                      Cidade Nasci.
+                    </label>
+                    <select
+                      id="cidade"
+                      ref={Cidade}
+                      onClick={() => BuscarCidade()}
+                      required
+                    >
+                      <option value=""></option>
+                      {Cidades.map((e: any) => {
+                        return (
+                          <option key={e.estadoId} value={e.cidade}>
+                            {e.cidade}
+                          </option>
+                        );
+                      })}
+                    </select>
+                  </BlocoInputGrande>
+                </>
+              )}
             </div>
 
             <BlocoInputGrande>
@@ -456,9 +489,10 @@ const Registro: React.FC = () => {
                 <select id="estado_civil" ref={EstadoCivil} required>
                   <option value=""></option>
                   <option value="Solteiro">Solteiro</option>
+                  <option value="Separado">Separado</option>
                   <option value="Casado">Casado</option>
                   <option value="Divorciado">Divorciado</option>
-                  <option value="Viuvo4">Viuvo</option>
+                  <option value="Viuvo">Viuvo</option>
                 </select>
               </BlocoInputGrande>
               <BlocoInputGrande>

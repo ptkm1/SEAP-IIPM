@@ -48,6 +48,8 @@ const SegundaVia: React.FC = () => {
     BuscarDados();
   }, []);
 
+  const [apenasBrasil, setApenasBrasil]: any = useState(false);
+  console.log(apenasBrasil);
   // UseRefs
   const NRG: any = useRef<HTMLInputElement>();
   const Via: any = useRef<HTMLInputElement>();
@@ -188,6 +190,10 @@ const SegundaVia: React.FC = () => {
 
     BuscarEstadosN();
     BuscarEstados();
+
+    if (dados && dados.CidadeReside === "Brasil") {
+      setApenasBrasil(!apenasBrasil);
+    }
   }, [Resultado, ViaSt, IsençaoSt]);
 
   async function BuscarCidade() {
@@ -355,61 +361,85 @@ const SegundaVia: React.FC = () => {
               </BlocoInputGrande>
 
               <div style={{ display: "flex" }}>
-                <BlocoInputGrande>
-                  <label
-                    style={{ fontSize: 15 }}
-                    className="noprint"
-                    htmlFor="estado"
-                  >
-                    Estado Nasci.
-                  </label>
-                  <select
-                    id="estado"
-                    ref={Estado}
-                    defaultValue={dados.EstadoDeNaturalidade}
-                    onChange={(e) => setIdCidade(e.target.value)}
-                    required
-                  >
-                    <option value=""></option>
-                    <option value={dados.EstadoDeNaturalidade}>
-                      {dados.EstadoDeNaturalidade}
-                    </option>
-                    {Estados.map((e: any) => (
-                      <option key={e.id} value={e.id}>
-                        {e.id}
-                      </option>
-                    ))}
-                  </select>
-                </BlocoInputGrande>
+                {apenasBrasil ? (
+                  <>
+                    <button
+                      style={{ position: "absolute", right: 0 }}
+                      onClick={() => setApenasBrasil(!apenasBrasil)}
+                      className="noprint"
+                    >
+                      cidade/estado
+                    </button>
+                    <BlocoInputGrande>
+                      <label
+                        style={{ fontSize: 15 }}
+                        className="noprint"
+                        htmlFor="cidade"
+                      >
+                        Naturalidade
+                      </label>
 
-                <BlocoInputGrande>
-                  <label
-                    style={{ fontSize: 15 }}
-                    className="noprint"
-                    htmlFor="cidade"
-                  >
-                    Cidade Nasci.
-                  </label>
-                  <select
-                    id="cidade"
-                    ref={Cidade}
-                    defaultValue={dados.CidadeDeNaturalidade}
-                    onClick={() => BuscarCidade()}
-                    required
-                  >
-                    <option value=""></option>
-                    <option value={dados.CidadeDeNaturalidade}>
-                      {dados.CidadeDeNaturalidade}
-                    </option>
-                    {Cidades.map((e: any) => {
-                      return (
-                        <option key={e.estadoId} value={e.cidade}>
-                          {e.cidade}
-                        </option>
-                      );
-                    })}
-                  </select>
-                </BlocoInputGrande>
+                      <input id="cidade" ref={Cidade} value="Brasil" required />
+                    </BlocoInputGrande>
+                  </>
+                ) : (
+                  <>
+                    <BlocoInputGrande>
+                      <button
+                        style={{ position: "absolute", right: 0 }}
+                        onClick={() => setApenasBrasil(!apenasBrasil)}
+                        className="noprint"
+                      >
+                        apenas
+                      </button>
+                      <label
+                        style={{ fontSize: 15 }}
+                        className="noprint"
+                        htmlFor="estado"
+                      >
+                        Estado Nasci.
+                      </label>
+                      <select
+                        id="estado"
+                        ref={Estado}
+                        onChange={(e) => setIdCidade(e.target.value)}
+                        required
+                      >
+                        <option value=""></option>
+                        {Estados.map((e: any) => (
+                          <option key={e.id} value={e.id}>
+                            {e.id}
+                          </option>
+                        ))}
+                      </select>
+                    </BlocoInputGrande>
+
+                    <BlocoInputGrande>
+                      <label
+                        style={{ fontSize: 15 }}
+                        className="noprint"
+                        htmlFor="cidade"
+                      >
+                        Cidade Nasci.
+                      </label>
+                      <select
+                        id="cidade"
+                        ref={Cidade}
+                        onClick={() => BuscarCidade()}
+                        required
+                      >
+                        <option value=""></option>
+                        {Cidades.map((e: any) => {
+                          return (
+                            <option key={e.estadoId} value={e.cidade}>
+                              {e.cidade}
+                            </option>
+                          );
+                        })}
+                      </select>
+                    </BlocoInputGrande>
+                  </>
+                )}
               </div>
 
               <BlocoInputGrande>

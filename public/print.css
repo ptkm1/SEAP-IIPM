@@ -6,7 +6,7 @@
   z-index: 50;
 }
 
-#dataid1 { 
+#dataid1 {
   display: none;
 }
 
@@ -39,13 +39,9 @@
   display: none;
 }
 
-
 #DiaAtual1 {
   display: none;
 }
-
-
-
 
 @media print {
   * {
@@ -118,7 +114,7 @@
     height: max-content;
     width: max-content;
   }
-  #ImagemCid { 
+  #ImagemCid {
     position: fixed;
     top: 106px;
     left: 621px;
@@ -163,7 +159,7 @@
     position: fixed;
     top: 198px;
     left: 215px;
-    
+
     height: max-content;
     width: max-content;
   }
@@ -265,259 +261,253 @@
   }
 
   #tipo_cabelo {
-  position: fixed;
-  top: 296px;
-  left: 400px;
-  z-index: 999;
-  height: max-content;
-  width: max-content;
-}
+    position: fixed;
+    top: 296px;
+    left: 400px;
+    z-index: 999;
+    height: max-content;
+    width: max-content;
+  }
 
-#barba {
-  position: fixed;
-  top: 314px;
-  left: 60px;
-  z-index: 999;
-  height: max-content;
-  width: max-content;
-}
+  #barba {
+    position: fixed;
+    top: 314px;
+    left: 60px;
+    z-index: 999;
+    height: max-content;
+    width: max-content;
+  }
 
-#bigode {
-  position: fixed;
-  top: 314px;
-  left: 310px;
-  z-index: 999;
-  height: max-content;
-  width: max-content;
-}
+  #bigode {
+    position: fixed;
+    top: 314px;
+    left: 310px;
+    z-index: 999;
+    height: max-content;
+    width: max-content;
+  }
 
   #cor_olhos {
-  position: fixed;
-  z-index: 15;
-  top: 314px;
-  left: 590px;
-  height: max-content;
-  width: max-content;
-}
+    position: fixed;
+    z-index: 15;
+    top: 314px;
+    left: 590px;
+    height: max-content;
+    width: max-content;
+  }
 
-#tipo_olhos {
-  position: fixed;
-  top: 314px;
-  left: 660px;
-  height: max-content;
-  z-index: 9999;
-  width: 100%;
-}
+  #tipo_olhos {
+    position: fixed;
+    top: 314px;
+    left: 660px;
+    height: max-content;
+    z-index: 9999;
+    width: 100%;
+  }
 
-#anomalias {
-  position: fixed;
-  top: 332px;
-  left: 80px;
-  height: max-content;
-  width: 100%;
-}
+  #anomalias {
+    position: fixed;
+    top: 332px;
+    left: 80px;
+    height: max-content;
+    width: 100%;
+  }
 
-#endereco {
-  position: fixed;
-  top: 352px;
-  left: 70px;
-  height: max-content;
-  width: 100%;
-}
+  #endereco {
+    position: fixed;
+    top: 352px;
+    left: 70px;
+    height: max-content;
+    width: 100%;
+  }
 
-#numero {
-  position: fixed;
-  z-index: 50;
-  top: 352px;
-  left: 448px;
-  height: max-content;
-  width: max-content;
-}
+  #numero {
+    position: fixed;
+    z-index: 50;
+    top: 352px;
+    left: 448px;
+    height: max-content;
+    width: max-content;
+  }
 
-#complemento {
-  position: fixed;
-  top: 352px;
-  left: 532px;
-  height: max-content;
-  width: max-content;
-  white-space: nowrap;
-  overflow: hidden;
- text-overflow: ellipsis;
- z-index: 999999;
-}
+  #complemento {
+    position: fixed;
+    top: 352px;
+    left: 532px;
+    height: max-content;
+    width: max-content;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    z-index: 999999;
+  }
 
-#bairro {
-  position: fixed;
-  top: 370px;
-  left: 70px;
-  height: max-content;
-  z-index: 99999;
-  width: max-content;
-}
-/* deixa comentado- alteramos de 388 para 378 */
-#observaçao {
-  position: fixed;
-  top: 382px;
-  left: 40px;
-  border: none;
-  height: max-content;
-  width: 83%;
-  white-space: nowrap;
-   overflow: hidden;
-  text-overflow: ellipsis;
-}
+  #bairro {
+    position: fixed;
+    top: 370px;
+    left: 70px;
+    height: max-content;
+    z-index: 99999;
+    width: max-content;
+  }
+  /* deixa comentado- alteramos de 388 para 378 */
+  #observaçao {
+    position: fixed;
+    top: 382px;
+    left: 40px;
+    border: none;
+    height: max-content;
+    width: 83%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
+  #estadoDeNaturalide {
+    position: fixed;
+    z-index: 50;
+    top: 370px;
+    left: 300px;
+    height: max-content;
+    width: max-content;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    z-index: 99999;
+  }
 
-#estadoDeNaturalide { 
-  position: fixed;
-  z-index: 50;
-  top: 370px;
-  left: 300px;
-  height: max-content;
-  width: max-content;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  z-index: 99999;
-  
-}
+  #cep {
+    position: fixed;
+    top: 370px;
+    left: 655px;
+    height: max-content;
+    width: max-content;
+    z-index: 9999999999;
+  }
+  /* deixa comentado- alteramos de 405 para 415 */
+  #dataid1 {
+    position: fixed;
+    top: 406px;
+    left: 655px;
+    height: max-content;
+    width: max-content;
+    z-index: 99999999;
+    display: block;
+  }
 
-#cep {
-  position: fixed;
-  top: 370px;
-  left: 655px;
-  height: max-content;
-  width: max-content;
-  z-index: 9999999999;
-}
-/* deixa comentado- alteramos de 405 para 415 */
-#dataid1 { 
-  position: fixed;
-  top: 406px;
-  left: 655px;
-  height: max-content;
-  width: max-content;
-  z-index: 99999999;
-  display: block;
-}
+  #usuario {
+    position: fixed;
+    top: 442px;
+    left: 655px;
+    height: max-content;
+    width: max-content;
+  }
 
-#usuario {
-  position: fixed;
-  top: 442px;
-  left: 655px;
-  height: max-content;
-  width: max-content;
-}
+  #posto {
+    position: fixed;
+    top: 425px;
+    left: 657px;
+    height: max-content;
+    width: max-content;
+    z-index: 9999999999;
+  }
+  /* AQI */
 
-#posto {
-  position: fixed;
-  top: 425px;
-  left: 657px;
-  height: max-content;
-  width: max-content; 
-  z-index: 9999999999;
-}
-/* AQI */
+  .quadrado1 {
+    border: none;
+    -webkit-border-radius: 0px;
+    -webkit-appearance: none !important;
+  }
 
-.quadrado1 {
-  border: none;
-  -webkit-border-radius: 0px;
-  -webkit-appearance: none !important;
-}
+  #nrg {
+    display: block;
+    position: fixed;
+    top: 555px;
+    left: 65px;
+    z-index: 50;
+    height: max-content;
+    width: max-content;
+  }
 
-#nrg {
-  display: block;
-  position: fixed;
-  top: 555px;
-  left: 65px;
-  z-index: 50;
-  height: max-content;
-  width: max-content;
-}
+  #nomecompleto {
+    display: block;
+    position: fixed;
 
-#nomecompleto {
-  display: block;
-  position: fixed;
+    top: 576px;
+    left: 65px;
+    z-index: 50;
+    height: max-content;
+    width: max-content;
+  }
 
-  top: 576px;
-  left: 65px;
-  z-index: 50;
-  height: max-content;
-  width: max-content;
-}
+  #posto2 {
+    display: block;
+    position: fixed;
+    top: 619px;
+    left: 90px;
+    z-index: 50;
+    height: max-content;
+    width: 100%;
+  }
 
-#posto2 {
-  display: block;
-  position: fixed;
-  top: 619px;
-  left: 90px;
-  z-index: 50;
-  height: max-content;
-  width: max-content;
-}
+  #camera {
+    display: none;
+    position: fixed;
+    top: 478px;
+    left: 110px;
+    z-index: 80;
+  }
 
-#camera {
-  display: none;
-  position: fixed;
-  top: 478px;
-  left: 110px;
-  z-index: 80;
-}
+  #tirarBotao {
+    display: none;
+  }
+  /* lembrar que o nome aqui é de estado que mora, tem que trocar no html e no banco*/
+  #estadoDeNaturalidade {
+    position: fixed;
+    top: 370px;
+    left: 400px;
+    height: max-content;
+    z-index: 99999;
+    width: 100%;
+  }
 
-#tirarBotao {
-  display: none;
-}
-/* lembrar que o nome aqui é de estado que mora, tem que trocar no html e no banco*/
-#estadoDeNaturalidade { 
-  position: fixed;
-  top: 370px;
-  left: 400px;
-  height: max-content;
-  z-index: 99999;
-  width: 100%;
-}
+  #DiaAtual {
+    display: block;
+    position: fixed;
+    z-index: 50;
+    height: max-content;
+    width: max-content;
+    top: 405px;
+    left: 655px;
+  }
 
-#DiaAtual { 
-  display: block;
-  position: fixed;
-  z-index: 50;
-  height: max-content;
-  width: max-content;
-  top: 405px;
-  left: 655px; 
-}
+  #DiaAtual1 {
+    display: block;
+    position: fixed;
+    top: 600px;
+    left: 90px;
+    z-index: 50;
+    height: max-content;
+    width: max-content;
+  }
 
-#DiaAtual1 { 
-  display: block;
-  position: fixed;
-  top: 600px;
-  left: 90px;
-  z-index: 50;
-  height: max-content;
-  width: max-content;
- 
-}
+  #estadoDeNaturalidade {
+    position: fixed;
+    top: 370px;
+    left: 585px;
+    height: max-content;
+    z-index: 99999;
+    width: max-content;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
-
-#estadoDeNaturalidade{
-  position: fixed;
-  top: 370px;
-  left: 585px; 
-  height: max-content;
-  z-index: 99999;
-  width: max-content;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  
-}
-
-/* lembrar que o nome aqui é de cidade que mora, tem que trocar no html e no banco*/
-#cidadeNaturalidade {
-  position: fixed;
-  top: 370px;
-  left: 330px; 
-  height: max-content;
-  z-index: 99999;
-  width: max-content;
-}
-
+  /* lembrar que o nome aqui é de cidade que mora, tem que trocar no html e no banco*/
+  #cidadeNaturalidade {
+    position: fixed;
+    top: 370px;
+    left: 330px;
+    height: max-content;
+    z-index: 99999;
+    width: max-content;
+  }
 }
