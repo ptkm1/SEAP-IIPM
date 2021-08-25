@@ -196,7 +196,7 @@
     top: 257px;
     left: 165px;
     height: max-content;
-    width: max-content;
+    width: 100%;
   }
   #distrito {
     position: fixed;
@@ -405,9 +405,9 @@
   #posto {
     position: fixed;
     top: 425px;
-    left: 657px;
+    left: 620px;
     height: max-content;
-    width: max-content;
+    width: 100%;
     z-index: 9999999999;
   }
   /* AQI */
