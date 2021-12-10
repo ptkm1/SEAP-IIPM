@@ -28,7 +28,7 @@ const VerificacaoDiaria: React.FC = () => {
     try {
       const { data } = await Api.post(`/verificacaodiaria`, { dia: new Date(Dia.current.value), Posto: JSON.parse(Usuario).posto })
       data && setResultado(data)
-    } catch (error) {
+    } catch (error: any) {
       alert(error.response.data.mensagem)
     }
   }
@@ -43,7 +43,7 @@ const VerificacaoDiaria: React.FC = () => {
         PesquisarDados() 
       }
 
-    } catch (error) {
+    } catch (error: any) {
       alert(error.response.data.mensagem)
     }
   }
@@ -60,7 +60,7 @@ const VerificacaoDiaria: React.FC = () => {
       }
 
       
-    } catch (error) {
+    } catch (error: any) {
       alert(error.response.data.mensagem)
     }
   }
@@ -80,7 +80,7 @@ const VerificacaoDiaria: React.FC = () => {
       }
 
       
-    } catch (error) {
+    } catch (error: any) {
       alert(error.response.data.mensagem)
     }
   }

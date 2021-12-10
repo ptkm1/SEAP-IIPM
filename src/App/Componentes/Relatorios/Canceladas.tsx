@@ -35,7 +35,7 @@ const RelatorioCanceladas: React.FC = () => {
       const { data: response } = await Api.post('/fichascanceladas', data) // Mudar a rota
       setListCanceladas(response)
 
-    } catch (error) {
+    } catch (error: any) {
       console.log(error)
     }
   }

@@ -162,15 +162,11 @@ const Registro: React.FC = () => {
 
   useEffect(() => {
     async function BuscarEstados() {
-      const { data } = await axios.get(
-        "https://br-cidade-estado-nodejs.glitch.me/estados"
-      );
+      const { data } = await Api.get("/estados");
       setEstados(data);
     }
     async function BuscarEstadosN() {
-      const { data } = await axios.get(
-        "https://br-cidade-estado-nodejs.glitch.me/estados"
-      );
+      const { data } = await Api.get("/estados");
       setEstadosNaturalidade(data);
     }
 
@@ -185,16 +181,13 @@ const Registro: React.FC = () => {
   }, [Resultado, ViaSt, IsençaoSt]);
 
   async function BuscarCidade() {
-    const { data } = await axios.get(
-      `https://br-cidade-estado-nodejs.glitch.me/estados/${IdCidade}/cidades`
-    );
+    const { data } = await axios.get(`cidades/${IdCidade}`);
     setCidades(data);
   }
 
   async function BuscarCidadeN() {
-    const { data } = await axios.get(
-      `https://br-cidade-estado-nodejs.glitch.me/estados/${IdCidadeNaturalidade}/cidades`
-    );
+    const { data } = await axios.get(`/cidades/${IdCidadeNaturalidade}`);
+    console.log(data);
     setCidadesNaturalidade(data);
   }
 
@@ -367,8 +360,8 @@ const Registro: React.FC = () => {
                     >
                       <option value=""></option>
                       {Estados.map((e: any) => (
-                        <option key={e.id} value={e.id}>
-                          {e.id}
+                        <option key={e.cod_estados} value={e.cod_estados}>
+                          {e.sigla}
                         </option>
                       ))}
                     </select>
@@ -389,13 +382,12 @@ const Registro: React.FC = () => {
                       required
                     >
                       <option value=""></option>
-                      {Cidades.map((e: any) => {
-                        return (
-                          <option key={e.estadoId} value={e.cidade}>
-                            {e.cidade}
-                          </option>
-                        );
-                      })}
+                      {Cidades.map((e: any) => (
+                          <option key={e.cod_cidades} value={e.nome}>
+                        {e.nome}
+                      </option>
+                        )
+                      )}
                     </select>
                   </BlocoInputGrande>
                 </>
@@ -782,8 +774,8 @@ const Registro: React.FC = () => {
                 >
                   <option value=""></option>
                   {EstadosNaturalidade.map((e: any) => (
-                    <option key={e.id} value={e.id}>
-                      {e.id}
+                    <option key={e.cod_estados} value={e.cod_estados}>
+                      {e.sigla}
                     </option>
                   ))}
                 </select>
@@ -806,8 +798,8 @@ const Registro: React.FC = () => {
                   <option value=""></option>
                   {CidadesNaturalidade.map((e: any) => {
                     return (
-                      <option key={e.estadoId} value={e.cidade}>
-                        {e.cidade}
+                      <option key={e.cod_cidades} value={e.nome}>
+                        {e.nome}
                       </option>
                     );
                   })}

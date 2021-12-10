@@ -28,7 +28,7 @@ const CriarUsuario: React.FC = () => {
     try {
       const {data: response} = await Api.post('/usuarios/criar', data)
       console.log(response)
-    } catch (error) {
+    } catch (error: any) {
       console.log(error)
     }
   }

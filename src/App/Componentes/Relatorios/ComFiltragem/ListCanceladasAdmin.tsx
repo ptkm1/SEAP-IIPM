@@ -33,7 +33,7 @@ const ListCanceladasAdmin: React.FC = () => {
       if(response.length > 0) {
         setListCanceladasAdmin(response)
       }
-    } catch (error) {
+    } catch (error: any) {
       console.log(error)
     }
   }

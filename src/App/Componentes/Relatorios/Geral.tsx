@@ -45,7 +45,7 @@ const RelatorioGeral: React.FC = () => {
       const { data: response } = await Api.post('/demaisvias', data) // Mudar a rota
       setListDemaisVias(response)
 
-    } catch (error) {
+    } catch (error: any) {
       console.log(error)
     }
   }

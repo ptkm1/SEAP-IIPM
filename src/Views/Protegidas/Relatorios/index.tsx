@@ -19,7 +19,7 @@ function Relatorios() {
     try {
       const {data} = await Api.get('/fichasgerais')
       setListFichasGerais(data)
-    } catch (error) {
+    } catch (error: any) {
       console.log(error)
     }
   }
@@ -30,7 +30,7 @@ function Relatorios() {
     try {
       const {data} = await Api.get('/primeiravia')
       setListPrimeiraVia(data)
-    } catch (error) {
+    } catch (error: any) {
       console.log(error)
     }
   }
@@ -41,7 +41,7 @@ function Relatorios() {
     try {
       const {data} = await Api.get('/demaisvias')
       setListDemaisVias(data)
-    } catch (error) {
+    } catch (error: any) {
       console.log(error)
     }
   }
@@ -52,7 +52,7 @@ function Relatorios() {
     try {
       const {data} = await Api.get('/fichascanceladas')
       setListCanceladas(data)
-    } catch (error) {
+    } catch (error: any) {
       console.log(error)
     }
   }

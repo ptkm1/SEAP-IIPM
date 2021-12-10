@@ -36,7 +36,7 @@ const RelatorioListDemais: React.FC = () => {
       if(response.length > 0) {
         setListDemaisVias(response)
       }
-    } catch (error) {
+    } catch (error: any) {
       console.log(error)
     }
   }

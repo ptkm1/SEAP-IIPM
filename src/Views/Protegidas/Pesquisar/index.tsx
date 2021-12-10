@@ -34,7 +34,7 @@ const Pesquisar: React.FC = () => {
 
     return setResultado(data)
 
-    } catch (error) {
+    } catch (error: any) {
       alert(error.response.data.mensagem)
     }
 

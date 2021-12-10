@@ -23,7 +23,7 @@ const [Show, setShow]: any  = useState()
     try {
       const {data} = await Api.get('/demaisvias')
       setListDemaisVias(data)
-    } catch (error) {
+    } catch (error: any) {
       console.log(error)
     }
   }
@@ -34,7 +34,7 @@ const [Show, setShow]: any  = useState()
     try {
       const {data} = await Api.get('/fichascanceladas')
       setListCanceladas(data)
-    } catch (error) {
+    } catch (error: any) {
       console.log(error)
     }
   }
