@@ -181,12 +181,12 @@ const Registro: React.FC = () => {
   }, [Resultado, ViaSt, IsençaoSt]);
 
   async function BuscarCidade() {
-    const { data } = await axios.get(`cidades/${IdCidade}`);
+    const { data } = await Api.get(`/cidades/${IdCidade}`);
     setCidades(data);
   }
 
   async function BuscarCidadeN() {
-    const { data } = await axios.get(`/cidades/${IdCidadeNaturalidade}`);
+    const { data } = await Api.get(`/cidades/${IdCidadeNaturalidade}`);
     console.log(data);
     setCidadesNaturalidade(data);
   }
