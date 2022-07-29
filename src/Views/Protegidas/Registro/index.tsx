@@ -352,19 +352,12 @@ const Registro: React.FC = () => {
                     >
                       Estado Nasci.
                     </label>
-                    <select
+                    <input
                       id="estado"
                       ref={Estado}
                       onChange={(e) => setIdCidade(e.target.value)}
                       required
-                    >
-                      <option value=""></option>
-                      {Estados.map((e: any) => (
-                        <option key={e.cod_estados} value={e.cod_estados}>
-                          {e.sigla}
-                        </option>
-                      ))}
-                    </select>
+                    />
                   </BlocoInputGrande>
 
                   <BlocoInputGrande>
@@ -375,20 +368,12 @@ const Registro: React.FC = () => {
                     >
                       Cidade Nasci.
                     </label>
-                    <select
+                    <input
                       id="cidade"
                       ref={Cidade}
                       onClick={() => BuscarCidade()}
                       required
-                    >
-                      <option value=""></option>
-                      {Cidades.map((e: any) => (
-                          <option key={e.cod_cidades} value={e.nome}>
-                        {e.nome}
-                      </option>
-                        )
-                      )}
-                    </select>
+                    />
                   </BlocoInputGrande>
                 </>
               )}
@@ -764,21 +749,14 @@ const Registro: React.FC = () => {
                 <label className="noprint" htmlFor="estadoDeNaturalidade">
                   Est. Residência
                 </label>
-                <select
+                <input
                   id="estadoDeNaturalidade"
                   ref={EstadoNaturalidade}
                   onChange={(e) => {
                     setIdCidadeNaturalidade(e.target.value);
                   }}
                   required
-                >
-                  <option value=""></option>
-                  {EstadosNaturalidade.map((e: any) => (
-                    <option key={e.cod_estados} value={e.cod_estados}>
-                      {e.sigla}
-                    </option>
-                  ))}
-                </select>
+                />
               </BlocoInputGrande>
 
               <BlocoInputGrande>
@@ -789,21 +767,12 @@ const Registro: React.FC = () => {
                 >
                   Cid.de Residência
                 </label>
-                <select
+                <input
                   id="cidadeNaturalidade"
                   ref={CidadeNaturalidade}
                   onClick={() => BuscarCidadeN()}
                   required
-                >
-                  <option value=""></option>
-                  {CidadesNaturalidade.map((e: any) => {
-                    return (
-                      <option key={e.cod_cidades} value={e.nome}>
-                        {e.nome}
-                      </option>
-                    );
-                  })}
-                </select>
+                />
               </BlocoInputGrande>
             </Form2X>
             <div
